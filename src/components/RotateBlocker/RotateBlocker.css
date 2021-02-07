@@ -1,0 +1,25 @@
+.rotate-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.rotate-blocker__alert {
+    padding-top: 4rem;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 1.25;
+}
+
+@media screen and (max-height: 567px) and (min-aspect-ratio: 1/1) {
+    .rotate-blocker {
+        display: flex;
+    }
+}

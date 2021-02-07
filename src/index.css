@@ -4,9 +4,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: inherit;
+    line-height: 1;
+}
+
+html {
+    font-size: 10px;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+    font-family: Philosopher, Roboto, Arial, sans-serif;
+    /*background-color: #f2f2f2;*/
+    /*background: linear-gradient(180deg, #009cdc, #0079ab);*/
+    background: radial-gradient(circle at center, #f2fbff 0, #daf4fe 100%);
 }

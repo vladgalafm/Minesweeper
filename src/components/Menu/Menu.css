@@ -1,0 +1,10 @@
+.menu {
+
+}
+
+.menu__title {
+    font-family: 'Paytone One', Robot, sans-serif;
+    font-size: 10vw;
+    text-align: center;
+    text-transform: uppercase;
+}
