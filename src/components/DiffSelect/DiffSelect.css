@@ -1,0 +1,14 @@
+.diff-select__option--16x16,
+.diff-select__option--30x16 {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .diff-select__option--9x16 {
+        display: none;
+    }
+    .diff-select__option--16x16,
+    .diff-select__option--30x16 {
+        display: block;
+    }
+}

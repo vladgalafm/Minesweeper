@@ -1,3 +1,3 @@
-# Mine Sweeper demo
+# Minesweeper demo
 
-Mine Sweeper demo app based on React
+Minesweeper demo application based on React.js

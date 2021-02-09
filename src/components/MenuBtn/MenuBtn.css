@@ -1,0 +1,15 @@
+.menu-btn {
+    align-self: stretch;
+    min-width: 220px;
+    padding: 0.5em 1.5em;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 1em;
+    cursor: pointer;
+}
+
+.menu-btn:not(:last-of-type) {
+    margin-bottom: 3rem;
+}
