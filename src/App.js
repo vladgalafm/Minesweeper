@@ -11,7 +11,53 @@ export class App extends Component {
         super(props);
         this.state = {
             displayedBlock: '',
-            difficulty: '9x9',
+            flagMode: false,
+            game: {
+                difficulty: '9x9',
+                cols: 9,
+                rows: 9,
+                started: false,
+                finished: false,
+                timeProceed: 0,
+            },
+            history: {
+                '9x9': {
+                    bestTime: 0,
+                    gamesPlayed: 0,
+                    gamesWon: 0,
+                    longestWinStreak: 0,
+                    longestLoseStreak: 0,
+                    currentWinStreak: 0,
+                    currentLoseStreak: 0,
+                },
+                '9x16': {
+                    bestTime: 0,
+                    gamesPlayed: 0,
+                    gamesWon: 0,
+                    longestWinStreak: 0,
+                    longestLoseStreak: 0,
+                    currentWinStreak: 0,
+                    currentLoseStreak: 0,
+                },
+                '16x16': {
+                    bestTime: 0,
+                    gamesPlayed: 0,
+                    gamesWon: 0,
+                    longestWinStreak: 0,
+                    longestLoseStreak: 0,
+                    currentWinStreak: 0,
+                    currentLoseStreak: 0,
+                },
+                '30x16': {
+                    bestTime: 0,
+                    gamesPlayed: 0,
+                    gamesWon: 0,
+                    longestWinStreak: 0,
+                    longestLoseStreak: 0,
+                    currentWinStreak: 0,
+                    currentLoseStreak: 0,
+                },
+            },
         };
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
     }
@@ -38,13 +84,32 @@ export class App extends Component {
     };
 
     changeDifficulty = (difficulty) => {
+        const [match, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
+
         this.setState({
-            difficulty,
+            game: {
+                cols: parseInt(cols),
+                rows: parseInt(rows),
+                difficulty,
+            },
         })
     };
 
+    toggleFlagMode = () => {
+        this.setState(prevState => ({
+            flagMode: !prevState.flagMode,
+        }));
+    };
+
     render() {
-        const {displayedBlock, difficulty} = this.state;
+        const { displayedBlock, flagMode,
+            game: {
+                difficulty,
+                timeProceed,
+                cols,
+                rows,
+            }
+        } = this.state;
 
         return (
             <main
@@ -56,7 +121,12 @@ export class App extends Component {
                             ? <Menu
                                 switchBlockHandler={this.switchBlockHandler} />
                             : displayedBlock === 'game'
-                            ? <Game />
+                            ? <Game
+                                cols={cols}
+                                rows={rows}
+                                timeProceed={timeProceed}
+                                flagMode={flagMode}
+                                toggleFlagMode={this.toggleFlagMode} />
                             : displayedBlock === 'settings'
                                 ? <Settings
                                     difficulty={difficulty}

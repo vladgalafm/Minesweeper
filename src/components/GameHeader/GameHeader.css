@@ -1,0 +1,21 @@
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.game-header__leave {
+
+}
+
+.game-header__time {
+
+}
+
+.game-header__flag {
+
+}
+
+.game-header__flag--active {
+
+}
