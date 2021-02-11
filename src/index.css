@@ -18,3 +18,13 @@ body {
     /*background: linear-gradient(180deg, #009cdc, #0079ab);*/
     background: radial-gradient(circle at center, #f2fbff 0, #daf4fe 100%);
 }
+
+button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active,
+button:focus {
+    outline: none;
+}

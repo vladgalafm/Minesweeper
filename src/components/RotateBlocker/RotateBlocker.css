@@ -18,7 +18,8 @@
     line-height: 1.25;
 }
 
-@media screen and (max-height: 600px) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 39/18) {
+/* which max-aspect-ration to choose for 19.5/9 mob. screen ration with browser nav-bar ? */
+@media screen and (max-height: 600px) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/2) {
     .rotate-blocker {
         display: flex;
     }
