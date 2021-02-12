@@ -1,14 +1,18 @@
 import React from 'react';
-import { GameRow } from "../GameRow/GameRow";
+import { GameColumn } from "../GameColumn/GameColumn";
 import './GameField.css';
 
-export const GameField = ({ cols, rows }) => {
-    const rowsArray = Array.apply(null, {length: rows});
+export const GameField = ({ cols, rows, cells }) => {
+    const colsArray = Array.apply(null, {length: cols});
 
     return (
         <div className="game-field">
-            {rowsArray.map((item, index) => (
-                <GameRow key={index} rowIndex={index + 1} cols={cols} />
+            {colsArray.map((item, index) => (
+                <GameColumn
+                    key={index}
+                    colIndex={index}
+                    rows={rows}
+                    cellsCol={cells[index]} />
             ))}
         </div>
     );

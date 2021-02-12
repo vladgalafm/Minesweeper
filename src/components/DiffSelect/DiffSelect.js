@@ -4,8 +4,8 @@ import './DiffSelect.css';
 export const DiffSelect = ({selectedDifficulty, changeDifficulty}) => {
     const options = [
         { value: '9x9', label: 'Beginner' },
-        { value: '9x16', label: 'Standart' },
-        { value: '16x16', label: 'Medium' },
+        { value: '9x16', label: 'Intermediate' },
+        { value: '16x16', label: 'Advanced' },
         { value: '30x16', label: 'Expert' },
     ];
 

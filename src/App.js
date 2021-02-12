@@ -16,6 +16,7 @@ export class App extends Component {
                 difficulty: '9x9',
                 cols: 9,
                 rows: 9,
+                cells: this.generateCellsEmptyData(9, 9),
                 started: false,
                 finished: false,
                 timeProceed: 0,
@@ -59,6 +60,12 @@ export class App extends Component {
                 },
             },
         };
+        this.minesAmount = {
+            '9x9': 10,
+            '9x16': 20,
+            '16x16': 40,
+            '30x16': 99,
+        };
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
     }
 
@@ -83,6 +90,24 @@ export class App extends Component {
         })
     };
 
+    generateCellsEmptyData = (colsNum, rowsNum) => {
+        const cellsArr = [];
+
+        for (let i = 0; i < colsNum; i++) {
+            const colArr = [];
+            for (let j = 0; j < rowsNum; j++) {
+                colArr.push({
+                    opened: false,
+                    mine: false,
+                    minesAround: 0,
+                });
+            }
+            cellsArr.push(colArr);
+        }
+
+        return cellsArr;
+    };
+
     changeDifficulty = (difficulty) => {
         const [match, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
 
@@ -90,6 +115,7 @@ export class App extends Component {
             game: {
                 cols: parseInt(cols),
                 rows: parseInt(rows),
+                cells: this.generateCellsEmptyData(cols, rows),
                 difficulty,
             },
         })
@@ -108,6 +134,8 @@ export class App extends Component {
                 timeProceed,
                 cols,
                 rows,
+                cells,
+                started,
             }
         } = this.state;
 
@@ -122,8 +150,10 @@ export class App extends Component {
                                 switchBlockHandler={this.switchBlockHandler} />
                             : displayedBlock === 'game'
                             ? <Game
+                                started={started}
                                 cols={cols}
                                 rows={rows}
+                                cells={cells}
                                 timeProceed={timeProceed}
                                 flagMode={flagMode}
                                 toggleFlagMode={this.toggleFlagMode} />

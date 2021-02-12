@@ -1,7 +1,12 @@
 import React from 'react';
 import './GameHeader.css';
 
-export const GameHeader = ({ timeProceed, flagMode, toggleFlagMode }) => {
+export const GameHeader = ({
+   started,
+   timeProceed,
+   flagMode,
+   toggleFlagMode
+}) => {
     return (
         <div className="game-header">
             <button className="game-header__leave">X</button>
@@ -10,7 +15,8 @@ export const GameHeader = ({ timeProceed, flagMode, toggleFlagMode }) => {
             </div>
             <button
                 className={`game-header__flag${flagMode ? ' game-header__flag--active' : ''}`}
-                onClick={toggleFlagMode}>
+                onClick={toggleFlagMode}
+                disabled={!started}>
                 P
             </button>
         </div>
