@@ -7,13 +7,15 @@ export const GameField = ({ cols, rows, cells }) => {
 
     return (
         <div className="game-field">
-            {colsArray.map((item, index) => (
-                <GameColumn
-                    key={index}
-                    colIndex={index}
-                    rows={rows}
-                    cellsCol={cells[index]} />
-            ))}
+            <div className="game-field__content">
+                {colsArray.map((item, index) => (
+                    <GameColumn
+                        key={index}
+                        colIndex={index}
+                        rows={rows}
+                        cellsCol={cells[index]} />
+                ))}
+            </div>
         </div>
     );
 };

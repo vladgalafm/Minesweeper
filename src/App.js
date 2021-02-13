@@ -66,11 +66,13 @@ export class App extends Component {
             '16x16': 40,
             '30x16': 99,
         };
+        this.gameLayoutMode = '';
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
     }
 
     componentDidMount() {
         console.debug('App mount');
+        this.resizeAppBlock();
         window.addEventListener('resize', this.resizeAppBlock);
     }
 
@@ -81,6 +83,9 @@ export class App extends Component {
 
     resizeAppBlock() {
         this.appRef.style.height = `${window.innerHeight}px`;
+        this.setGameLayoutMode(
+            window.innerHeight, window.innerWidth,
+            this.state.game.cols, this.state.game.rows);
         console.debug('Window height: ', window.innerHeight);
     }
 
@@ -100,6 +105,7 @@ export class App extends Component {
                     opened: false,
                     mine: false,
                     minesAround: 0,
+                    flagged: false,
                 });
             }
             cellsArr.push(colArr);
@@ -111,6 +117,7 @@ export class App extends Component {
     changeDifficulty = (difficulty) => {
         const [match, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
 
+        this.setGameLayoutMode(window.innerHeight, window.innerWidth, cols, rows);
         this.setState({
             game: {
                 cols: parseInt(cols),
@@ -124,11 +131,22 @@ export class App extends Component {
     toggleFlagMode = () => {
         this.setState(prevState => ({
             flagMode: !prevState.flagMode,
-        }));
+        }))
+    };
+
+    setGameLayoutMode = (appHeight, appWidth, colsNum, rowsNum) => {
+        this.setState({
+            gameLayoutMode: (appHeight < 568 && rowsNum > 9)
+                ? 'game--r16-568'
+                : (appWidth < 768 && colsNum > 16)
+                    ? 'game--c30-768'
+                    : (appWidth < 992 && colsNum > 16)
+                        ? 'game--c30-992' : '',
+        })
     };
 
     render() {
-        const { displayedBlock, flagMode,
+        const { displayedBlock, flagMode, gameLayoutMode,
             game: {
                 difficulty,
                 timeProceed,
@@ -150,6 +168,7 @@ export class App extends Component {
                                 switchBlockHandler={this.switchBlockHandler} />
                             : displayedBlock === 'game'
                             ? <Game
+                                layoutMode={gameLayoutMode}
                                 started={started}
                                 cols={cols}
                                 rows={rows}

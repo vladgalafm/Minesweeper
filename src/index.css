@@ -28,3 +28,9 @@ button:active,
 button:focus {
     outline: none;
 }
+
+button:disabled,
+button[disabled] {
+    opacity: 0.5;
+    cursor: default;
+}

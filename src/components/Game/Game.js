@@ -4,6 +4,7 @@ import { GameField } from "../GameField/GameField";
 import './Game.css';
 
 export const Game = ({
+     layoutMode,
      started,
      cols,
      rows,
@@ -13,7 +14,7 @@ export const Game = ({
      toggleFlagMode
 }) => {
     return (
-        <div className="game">
+        <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
             <GameHeader
                 started={started}
                 timeProceed={timeProceed}

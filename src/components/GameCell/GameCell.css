@@ -2,7 +2,23 @@
     position: relative;
     width: 30px;
     height: 30px;
-    border: 1px solid #444444;
+    border: 1px solid #003f59;
+    overflow: hidden;
+}
+
+.game--r16-568 .game-cell {
+    width: 25px;
+    height: 25px;
+}
+
+.game--c30-768 .game-cell {
+    width: 19px;
+    height: 19px;
+}
+
+.game--c30-992 .game-cell {
+    width: 24px;
+    height: 24px;
 }
 
 .game-cell__btn {
@@ -12,7 +28,61 @@
     cursor: pointer;
     border: 0;
     background-color: #e8e8e8;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: auto calc((18 / 28) * 100%);
+    overflow: hidden;
 }
+
+.game-cell__btn--1 {
+    background-image: url("../../img/icon_1.png");
+}
+.game-cell__btn--2 {
+    background-image: url("../../img/icon_2.png");
+}
+.game-cell__btn--3 {
+    background-image: url("../../img/icon_3.png");
+}
+.game-cell__btn--4 {
+    background-image: url("../../img/icon_4.png");
+}
+.game-cell__btn--5 {
+    background-image: url("../../img/icon_5.png");
+}
+.game-cell__btn--6 {
+    background-image: url("../../img/icon_6.png");
+}
+.game-cell__btn--7 {
+    background-image: url("../../img/icon_7.png");
+}
+.game-cell__btn--8 {
+    background-image: url("../../img/icon_8.png");
+}
+.game-cell__btn--mine {
+    background-image: url("../../img/icon_mine.png");
+    background-size: auto calc((22 / 28) * 100%);
+}
+
+.game--r16-568 .game-cell__btn {
+    background-size: auto calc((15 / 23) * 100%);
+}
+.game--c30-768 .game-cell__btn {
+    background-size: auto calc((11 / 17) * 100%);
+}
+.game--c30-992 .game-cell__btn {
+    background-size: auto calc((14 / 22) * 100%);
+}
+
+.game--r16-568 .game-cell__btn--mine {
+    background-size: auto calc((19 / 23) * 100%);
+}
+.game--c30-768 .game-cell__btn--mine {
+    background-size: auto calc((15 / 17) * 100%);
+}
+.game--c30-992 .game-cell__btn--mine {
+    background-size: auto calc((18 / 22) * 100%);
+}
+
 
 .game-cell__btn::after {
     position: absolute;
@@ -28,9 +98,15 @@
     border-top: 3px solid #47c9ff;
     border-left: 3px solid #47c9ff;
     transition: 0.15s opacity linear;
+    transition-delay: 0.05s;
     opacity: 1;
 }
 
 .game-cell--opened .game-cell__btn::after {
     opacity: 0;
+}
+
+.game-cell--flagged .game-cell__btn::after {
+    background: #0096d4 url("../../img/icon_flag.png") 50% 50% no-repeat;
+    background-size: 60%;
 }

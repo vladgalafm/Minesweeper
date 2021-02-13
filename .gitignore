@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .idea/
+.source_img/
 
 # testing
 /coverage

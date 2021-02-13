@@ -7,18 +7,29 @@ export const GameHeader = ({
    flagMode,
    toggleFlagMode
 }) => {
+    const bombsAmount = 0;
+
     return (
         <div className="game-header">
-            <button className="game-header__leave">X</button>
-            <div className="game-header__time">
-                {timeProceed}
+            <div className="game-header__content">
+                <button className="game-header__leave" />
+                <div className="game-header__info">
+                    <div className="game-header__icon" />
+                    <div className="game-header__count">
+                        {timeProceed}
+                    </div>
+                </div>
+                <div className="game-header__info">
+                    <div className="game-header__count">
+                        {bombsAmount}
+                    </div>
+                    <div className="game-header__icon game-header__icon--bomb" />
+                </div>
+                <button
+                    className={`game-header__flag${flagMode ? ' game-header__flag--active' : ''}`}
+                    onClick={toggleFlagMode}
+                    disabled={!started} />
             </div>
-            <button
-                className={`game-header__flag${flagMode ? ' game-header__flag--active' : ''}`}
-                onClick={toggleFlagMode}
-                disabled={!started}>
-                P
-            </button>
         </div>
     );
 };

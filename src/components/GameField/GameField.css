@@ -1,4 +1,31 @@
 .game-field {
+    border: 9px solid #0073a3;
+    border-top-width: 5px;
+}
+
+.game--r16-568 .game-field {
+    border-width: 6px;
+    border-top-width: 3px;
+}
+
+.game-field__content {
     display: flex;
-    border: 1px solid #444444;
+    border-top: 4px solid #003f59;
+    border-left: 4px solid #003f59;
+    border-bottom: 4px solid #eaf9ff;
+    border-right: 4px solid #eaf9ff;
+}
+
+@media screen and (min-width: 360px) {
+    .game-field {
+        border-width: 28px;
+        border-top-width: 11px;
+        border-bottom-width: 24px;
+    }
+
+    .game--c30-768 .game-field,
+    .game--c30-992 .game-field {
+        border-left-width: 16px;
+        border-right-width: 16px;
+    }
 }

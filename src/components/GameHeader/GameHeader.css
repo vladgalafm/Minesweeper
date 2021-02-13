@@ -1,21 +1,120 @@
 .game-header {
+    border: 9px solid #0073a3;
+    border-bottom-width: 4px;
+}
+
+.game--r16-568 .game-header {
+    border-width: 6px;
+    border-bottom-width: 3px;
+}
+
+.game-header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 3px solid #0073a3;
+    background-color: #0073a3;
+    /*border-top: 3px solid #003f59;*/
+    /*border-left: 3px solid #003f59;*/
+    /*border-bottom: 3px solid #eaf9ff;*/
+    /*border-right: 3px solid #eaf9ff;*/
+    /*background-color: #47c9ff;*/
 }
 
 .game-header__leave {
-
+    height: 26px;
+    width: 36px;
+    border: 0;
+    background: transparent url("../../img/icon_back.png") 50% 50% no-repeat;
+    background-size: contain;
+    filter: invert(100%) sepia(88%) saturate(1253%) hue-rotate(176deg) brightness(105%) contrast(102%);
 }
 
-.game-header__time {
+.game-header__info {
+    display: flex;
+    align-items: center;
+}
 
+.game-header__icon {
+    margin-right: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: #eaf9ff url("../../img/icon_clock.png") 50% 50% no-repeat;
+    background-size: calc((16 / 26) * 100%);
+    box-shadow: inset 0 0 3px 0 #003f59;
+}
+
+.game-header__icon--bomb {
+    margin-right: 0;
+    margin-left: 6px;
+    background-image: url("../../img/icon_mine.png");
+}
+
+.game--r16-568 .game-header__icon {
+    display: none;
+}
+
+.game-header__count {
+    width: 40px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    background-color: #eaf9ff;
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px 0 #003f59;
 }
 
 .game-header__flag {
-
+    height: 26px;
+    width: 36px;
+    border: 4px solid #cccccc;
+    background: #cccccc url("../../img/icon_flag.png") 50% 50% no-repeat;
+    background-size: contain;
+    border-radius: 5px;
 }
 
 .game-header__flag--active {
+    border-color: #eaf9ff;
+    background-color: #eaf9ff;
+    box-shadow: 0 0 10px 0 #47c9ff;
+}
 
+@media screen and (min-width: 360px) {
+    .game-header {
+        border-top-width: 16px;
+        border-bottom-width: 5px;
+    }
+    .game--wide .game-header {
+        border-left-width: 24px;
+        border-right-width: 24px;
+    }
+    .game--c30-768.game--wide .game-header,
+    .game--c30-992.game--wide .game-header {
+        border-left-width: 16px;
+        border-right-width: 16px;
+    }
+    .game-header__leave,
+    .game-header__flag {
+        height: 30px;
+        width: 42px;
+    }
+    .game--wide .game-header__leave,
+    .game--wide .game-header__flag {
+        width: 46px;
+    }
+    .game-header__icon {
+        width: 30px;
+        height: 30px;
+        background-size: calc((20 / 30) * 100%);
+    }
+    .game-header__count {
+        width: 48px;
+        height: 28px;
+        font-size: 1.8rem;
+    }
 }
