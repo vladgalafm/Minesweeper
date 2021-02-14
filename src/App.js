@@ -175,9 +175,18 @@ export class App extends Component {
 
         if (cells[col] && cells[col][row] && !cells[col][row].opened && !cells[col][row].flagged) {
             this.setState(prevState => {
-                const cells = [...prevState.game.cells];
+                const cells = prevState.game.cells.map((subArr, x) => {
+                    return subArr.map((cell, y) => {
+                        if (col === x && row === y) {
+                            return {
+                                cell,
+                                opened: true,
+                            }
+                        }
 
-                cells[col][row].opened = true;
+                        return cell;
+                    });
+                });
 
                 return {
                     game: {
@@ -202,9 +211,18 @@ export class App extends Component {
 
             } else {
                 this.setState(prevState => {
-                    const cells = [...prevState.game.cells];
+                    const cells = prevState.game.cells.map((subArr, x) => {
+                        return subArr.map((cell, y) => {
+                            if (col === x && row === y) {
+                                return {
+                                    cell,
+                                    minesAround,
+                                }
+                            }
 
-                    cells[col][row].minesAround = minesAround;
+                            return cell;
+                        });
+                    });
 
                     return {
                         game: {
@@ -235,12 +253,20 @@ export class App extends Component {
     };
 
     toggleFlagOnCellHandler = (col, row) => {
-        // if (this.state.game.started) {
+        if (this.state.game.started) {
             this.setState(prevState => {
-                const cells = [...prevState.game.cells];
+                const cells = prevState.game.cells.map((subArr, x) => {
+                    return subArr.map((cell, y) => {
+                        if (col === x && row === y) {
+                            return {
+                                cell,
+                                flagged: !cell.flagged,
+                            }
+                        }
 
-                // todo DOESN'T WORK
-                cells[col][row].flagged = !cells[col][row].flagged;
+                        return cell;
+                    });
+                });
 
                 return {
                     game: {
@@ -249,7 +275,7 @@ export class App extends Component {
                     }
                 }
             })
-        // }
+        }
     };
 
     setGameLayoutMode = (appHeight, appWidth, colsNum, rowsNum) => {

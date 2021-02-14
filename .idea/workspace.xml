@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/minesweeper_192.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/minesweeper_192.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/minesweeper_512.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/minesweeper_512.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/Game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameField/GameField.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameField/GameField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,11 +16,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="241" column="67" selection-start-line="241" selection-start-column="67" selection-end-line="241" selection-end-column="67" />
+            <state relative-caret-position="458">
+              <caret line="278" column="6" lean-forward="true" selection-start-line="278" selection-start-column="6" selection-end-line="278" selection-end-column="6" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1613321394646" expanded="true" signature="4555:5013" ph="..." />
+                <marker date="1613335545036" expanded="true" signature="4555:5013" ph="..." />
               </folding>
             </state>
           </provider>
@@ -95,8 +84,8 @@
         <option value="$PROJECT_DIR$/src/components/Game/Game.js" />
         <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.js" />
         <option value="$PROJECT_DIR$/src/components/GameField/GameField.js" />
-        <option value="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" />
         <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
+        <option value="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" />
         <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
@@ -263,7 +252,7 @@
       <workItem from="1613063091275" duration="3354000" />
       <workItem from="1613143415780" duration="6994000" />
       <workItem from="1613197475113" duration="24784000" />
-      <workItem from="1613306795809" duration="12620000" />
+      <workItem from="1613306795809" duration="14646000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -307,11 +296,18 @@
       <option name="project" value="LOCAL" />
       <updated>1613228807724</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pwa, opening cells logic">
+      <created>1613321549264</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1613321549264</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87093000" />
+    <option name="totallyTimeSpent" value="89119000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -349,7 +345,8 @@
     <MESSAGE value="cells" />
     <MESSAGE value="game cell" />
     <MESSAGE value="game section styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="game section styling" />
+    <MESSAGE value="pwa, opening cells logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="pwa, opening cells logic" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/favicon.ico">
@@ -593,16 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GameColumn/GameColumn.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -610,13 +597,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GameColumn/GameColumn.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="241" column="67" selection-start-line="241" selection-start-column="67" selection-end-line="241" selection-end-column="67" />
+        <state relative-caret-position="458">
+          <caret line="278" column="6" lean-forward="true" selection-start-line="278" selection-start-column="6" selection-end-line="278" selection-end-column="6" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1613321394646" expanded="true" signature="4555:5013" ph="..." />
+            <marker date="1613335545036" expanded="true" signature="4555:5013" ph="..." />
           </folding>
         </state>
       </provider>
