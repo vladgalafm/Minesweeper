@@ -2,7 +2,13 @@ import React from 'react';
 import { GameColumn } from "../GameColumn/GameColumn";
 import './GameField.css';
 
-export const GameField = ({ cols, rows, cells }) => {
+export const GameField = ({
+      cols,
+      rows,
+      cells,
+      clickOnCellHandler,
+      toggleFlagOnCellHandler
+}) => {
     const colsArray = Array.apply(null, {length: cols});
 
     return (
@@ -13,7 +19,9 @@ export const GameField = ({ cols, rows, cells }) => {
                         key={index}
                         colIndex={index}
                         rows={rows}
-                        cellsCol={cells[index]} />
+                        cellsCol={cells[index]}
+                        clickOnCellHandler={clickOnCellHandler}
+                        toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
                 ))}
             </div>
         </div>

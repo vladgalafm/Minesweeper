@@ -11,7 +11,7 @@
       "src": "img/minesweeper_192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "img/minesweeper_512.png",
@@ -19,8 +19,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
-  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
   "theme_color": "#006994",
   "background_color": "#ffffff"
 }

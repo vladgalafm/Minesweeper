@@ -6,6 +6,11 @@ import { Tutorial } from "./components/Tutorial/Tutorial";
 import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
 import './App.css';
 
+// window.addEventListener('contextmenu', e => {
+//     console.log(e.target);
+//     e.preventDefault();
+// });
+
 export class App extends Component {
     constructor(props) {
         super(props);
@@ -118,20 +123,133 @@ export class App extends Component {
         const [match, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
 
         this.setGameLayoutMode(window.innerHeight, window.innerWidth, cols, rows);
-        this.setState({
+        this.setState(prevState => ({
             game: {
+                ...prevState.game,
                 cols: parseInt(cols),
                 rows: parseInt(rows),
                 cells: this.generateCellsEmptyData(cols, rows),
                 difficulty,
             },
-        })
+        }))
     };
 
     toggleFlagMode = () => {
         this.setState(prevState => ({
             flagMode: !prevState.flagMode,
         }))
+    };
+
+    setMines = (x, y) => {
+        // todo mines generator algorithm
+        // than - reveal
+        this.setState(prevState => ({
+            game: {
+                ...prevState.game,
+                started: true,
+            }
+        }));
+        this.revealCell(x, y);
+    };
+
+    clickOnCellHandler = (col, row) => {
+        const {flagMode, game: {started, cells}} = this.state;
+        const cell = cells[col][row];
+
+        if (!started) {
+            this.setMines(col, row);
+
+        } else if (flagMode) {
+            this.toggleFlagOnCellHandler(col, row);
+
+        } else if (!cell.flagged && !cell.opened && cell.mine) {
+            // todo end game
+
+        } else {
+            this.revealCell(col, row);
+        }
+    };
+
+    revealCell = (col, row) => {
+        const cells = this.state.game.cells;
+
+        if (cells[col] && cells[col][row] && !cells[col][row].opened && !cells[col][row].flagged) {
+            this.setState(prevState => {
+                const cells = [...prevState.game.cells];
+
+                cells[col][row].opened = true;
+
+                return {
+                    game: {
+                        ...prevState.game,
+                        cells,
+                    }
+                }
+            });
+
+            const minesAround = this.countMinesAround(col, row);
+
+            if (minesAround === 0) {
+                for (let i = -1; i < 2; i++) {
+                    for (let j = -1; j < 2; j++) {
+                        if (!(i === 0 && j === 0)) {
+                            setTimeout(() => {
+                                this.revealCell(col + i, row + j);
+                            }, 50);
+                        }
+                    }
+                }
+
+            } else {
+                this.setState(prevState => {
+                    const cells = [...prevState.game.cells];
+
+                    cells[col][row].minesAround = minesAround;
+
+                    return {
+                        game: {
+                            ...prevState.game,
+                            cells,
+                        }
+                    }
+                });
+            }
+        }
+    };
+
+    countMinesAround = (x, y) => {
+        const cells = this.state.game.cells;
+        let count = 0;
+
+        for (let i = -1; i < 2; i++) {
+            if (!cells[x + i]) continue;
+
+            for (let j = -1; j < 2; j++) {
+                if (cells[x + i][y + j] && cells[x + i][y + j].mine) {
+                    count += 1;
+                }
+            }
+        }
+
+        return count;
+    };
+
+    toggleFlagOnCellHandler = (col, row) => {
+        // if (this.state.game.started) {
+            this.setState(prevState => {
+                const cells = [...prevState.game.cells];
+
+                // todo DOESN'T WORK
+                cells[col][row].flagged = !cells[col][row].flagged;
+
+                return {
+                    game: {
+                        ...prevState.game,
+                        cells,
+                    }
+                }
+            })
+        // }
     };
 
     setGameLayoutMode = (appHeight, appWidth, colsNum, rowsNum) => {
@@ -175,7 +293,9 @@ export class App extends Component {
                                 cells={cells}
                                 timeProceed={timeProceed}
                                 flagMode={flagMode}
-                                toggleFlagMode={this.toggleFlagMode} />
+                                toggleFlagMode={this.toggleFlagMode}
+                                clickOnCellHandler={this.clickOnCellHandler}
+                                toggleFlagOnCellHandler={this.toggleFlagOnCellHandler} />
                             : displayedBlock === 'settings'
                                 ? <Settings
                                     difficulty={difficulty}

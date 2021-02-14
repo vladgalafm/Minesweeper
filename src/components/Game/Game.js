@@ -11,7 +11,9 @@ export const Game = ({
      cells,
      timeProceed,
      flagMode,
-     toggleFlagMode
+     toggleFlagMode,
+     clickOnCellHandler,
+     toggleFlagOnCellHandler
 }) => {
     return (
         <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
@@ -23,7 +25,9 @@ export const Game = ({
             <GameField
                 cols={cols}
                 rows={rows}
-                cells={cells} />
+                cells={cells}
+                clickOnCellHandler={clickOnCellHandler}
+                toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
         </div>
     );
 };

@@ -13,12 +13,6 @@
     justify-content: space-between;
     align-items: center;
     border: 3px solid #0073a3;
-    background-color: #0073a3;
-    /*border-top: 3px solid #003f59;*/
-    /*border-left: 3px solid #003f59;*/
-    /*border-bottom: 3px solid #eaf9ff;*/
-    /*border-right: 3px solid #eaf9ff;*/
-    /*background-color: #47c9ff;*/
 }
 
 .game-header__leave {
