@@ -6,11 +6,6 @@ import { Tutorial } from "./components/Tutorial/Tutorial";
 import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
 import './App.css';
 
-// window.addEventListener('contextmenu', e => {
-//     console.log(e.target);
-//     e.preventDefault();
-// });
-
 export class App extends Component {
     constructor(props) {
         super(props);
@@ -204,7 +199,7 @@ export class App extends Component {
                         if (!(i === 0 && j === 0)) {
                             setTimeout(() => {
                                 this.revealCell(col + i, row + j);
-                            }, 50);
+                            }, 10);
                         }
                     }
                 }

@@ -115,3 +115,22 @@
     background: #0096d4 url("../../img/icon_flag.png") 50% 50% no-repeat;
     background-size: 60%;
 }
+
+@media screen and (min-width: 1400px) {
+    .game-cell {
+        width: 40px;
+        height: 40px;
+    }
+    .game-cell__btn {
+        background-size: auto calc((26 / 38) * 100%);
+    }
+    .game-cell__btn--mine {
+        background-size: auto calc((30 / 38) * 100%);
+    }
+    .game-cell__btn::after {
+        border-width: 4px;
+    }
+    .game-cell--flagged .game-cell__btn::after {
+        background-size: auto calc((26 / 30) * 100%);
+    }
+}

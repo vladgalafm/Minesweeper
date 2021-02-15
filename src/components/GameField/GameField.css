@@ -29,3 +29,14 @@
         border-right-width: 16px;
     }
 }
+
+@media screen and (min-width: 1400px) {
+    .game-field {
+        border-width: 36px;
+        border-top-width: 16px;
+        border-bottom-width: 30px;
+    }
+    .game-field__content {
+        border-width: 6px;
+    }
+}
