@@ -4,6 +4,7 @@ import { Game } from "./components/Game/Game";
 import { Settings } from "./components/Settings/Settings";
 import { Tutorial } from "./components/Tutorial/Tutorial";
 import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
+import { Modal } from "./components/Modal/Modal";
 import './App.css';
 
 export class App extends Component {
@@ -11,6 +12,7 @@ export class App extends Component {
         super(props);
         this.state = {
             displayedBlock: '',
+            displayedModal: '',
             flagMode: false,
             game: {
                 difficulty: '9x9',
@@ -97,11 +99,11 @@ export class App extends Component {
         console.debug('Window height: ', window.innerHeight);
     }
 
-    runTimer() {
+    runTimer(force) {
         window.removeEventListener('focus', this.runTimer);
         window.addEventListener('blur', this.pauseTimer);
 
-        if (this.state.game.started) {
+        if (force || this.state.game.started) {
             this.initTimer();
         }
     }
@@ -219,7 +221,7 @@ export class App extends Component {
                 started: true,
             }
         }));
-        this.initTimer();
+        this.runTimer(true);
         this.revealCell(x, y);
     };
 
@@ -368,7 +370,7 @@ export class App extends Component {
     };
 
     render() {
-        const { displayedBlock, flagMode, gameLayoutMode,
+        const { displayedBlock, flagMode, gameLayoutMode, displayedModal,
             game: {
                 difficulty,
                 timeProceed,
@@ -414,6 +416,38 @@ export class App extends Component {
                     }
                 </div>
                 <RotateBlocker />
+                {
+                    displayedModal === 'leave-confirm'
+                    ? <Modal
+                        text={'Are you sure you want to leave to menu? Game progress will be lost.'}
+                        btn1Name={'Leave'}
+                        btn2Name={'Stay'}
+                        btn1Action={() => {}}
+                        btn2Action={() => {}} />
+                    : displayedModal === 'unfinished'
+                    ? <Modal
+                        text={'You have an unfinished game. Would you like to continue?'}
+                        btn1Name={'To Menu'}
+                        btn2Name={'Continue'}
+                        btn1Action={() => {}}
+                        btn2Action={() => {}} />
+                    : displayedModal === 'win'
+                    ? <Modal
+                        text={''}
+                        btn1Name={'To Menu'}
+                        btn2Name={'New Game'}
+                        btn1Action={() => {}}
+                        btn2Action={() => {}} />
+                    : displayedModal === 'lost'
+                    ? <Modal
+                        text={''}
+                        btn1Name={'To Menu'}
+                        btn2Name={'New Game'}
+                        btn1Action={() => {}}
+                        btn2Action={() => {}} />
+                    : null
+                }
+
             </main>
         );
     }

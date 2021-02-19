@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,21 +18,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="243" selection-start-line="243" selection-end-line="243" />
+            <state relative-caret-position="502">
+              <caret line="447" column="26" selection-start-line="447" selection-start-column="26" selection-end-line="447" selection-end-column="26" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1613503706090" expanded="true" signature="6682:7175" ph="..." />
+                <marker date="1613764820851" expanded="true" signature="6781:7274" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+            <state relative-caret-position="340">
+              <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -42,37 +41,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.css">
+        <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1768">
-              <caret line="104" column="37" selection-start-line="104" selection-start-column="37" selection-end-line="104" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/GameField/GameField.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2414">
-              <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Game/Game.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+            <state relative-caret-position="357">
+              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -95,7 +67,14 @@
       <find>generateCellsEmptyData</find>
       <find>flagged</find>
       <find>console</find>
+      <find>runTimer</find>
+      <find>initTimer</find>
+      <find>switchBlockHandler</find>
+      <find>return-confirm</find>
     </findStrings>
+    <replaceStrings>
+      <replace>modal</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -138,6 +117,10 @@
         <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
         <option value="$PROJECT_DIR$/src/components/Game/Game.js" />
         <option value="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" />
+        <option value="$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.js" />
+        <option value="$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.css" />
+        <option value="$PROJECT_DIR$/src/components/Modal/Modal.js" />
+        <option value="$PROJECT_DIR$/src/components/Modal/Modal.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
@@ -309,6 +292,8 @@
       <workItem from="1613496632628" duration="6665000" />
       <workItem from="1613579640340" duration="42000" />
       <workItem from="1613579769521" duration="19000" />
+      <workItem from="1613747434850" duration="2189000" />
+      <workItem from="1613756733913" duration="5215000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -373,17 +358,24 @@
       <option name="project" value="LOCAL" />
       <updated>1613417690783</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mine placement logic">
+      <created>1613747511942</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1613747511942</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98745000" />
+    <option name="totallyTimeSpent" value="106149000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30711043" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3161876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -418,7 +410,8 @@
     <MESSAGE value="pwa, opening cells logic" />
     <MESSAGE value="safe state changing" />
     <MESSAGE value="field desktop resizing" />
-    <option name="LAST_COMMIT_MESSAGE" value="field desktop resizing" />
+    <MESSAGE value="mine placement logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="mine placement logic" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/favicon.ico">
@@ -474,16 +467,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -491,16 +474,6 @@
             <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -634,6 +607,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -672,20 +652,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="74" />
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="2" lean-forward="true" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="14" lean-forward="true" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="70" selection-start-line="20" selection-start-column="70" selection-end-line="20" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="243" selection-start-line="243" selection-end-line="243" />
+        <state relative-caret-position="502">
+          <caret line="447" column="26" selection-start-line="447" selection-start-column="26" selection-end-line="447" selection-end-column="26" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1613503706090" expanded="true" signature="6682:7175" ph="..." />
+            <marker date="1613764820851" expanded="true" signature="6781:7274" ph="..." />
           </folding>
         </state>
       </provider>
