@@ -11,6 +11,7 @@ export const Game = ({
      cells,
      timeProceed,
      flagMode,
+     minesLeft,
      toggleFlagMode,
      clickOnCellHandler,
      toggleFlagOnCellHandler
@@ -21,6 +22,7 @@ export const Game = ({
                 started={started}
                 timeProceed={timeProceed}
                 flagMode={flagMode}
+                minesLeft={minesLeft}
                 toggleFlagMode={toggleFlagMode} />
             <GameField
                 cols={cols}

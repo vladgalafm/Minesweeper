@@ -20,6 +20,7 @@ export class App extends Component {
                 started: false,
                 finished: false,
                 timeProceed: 0,
+                flaggedAmount: 0,
             },
             history: {
                 '9x9': {
@@ -67,13 +68,20 @@ export class App extends Component {
             '30x16': 99,
         };
         this.gameLayoutMode = '';
+        this.timerInterval = null;
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
+        this.runTimer = this.runTimer.bind(this);
+        this.pauseTimer = this.pauseTimer.bind(this);
     }
 
     componentDidMount() {
         console.debug('App mount');
         this.resizeAppBlock();
         window.addEventListener('resize', this.resizeAppBlock);
+    }
+
+    componentDidUpdate() {
+
     }
 
     componentWillUnmount() {
@@ -88,6 +96,33 @@ export class App extends Component {
             this.state.game.cols, this.state.game.rows);
         console.debug('Window height: ', window.innerHeight);
     }
+
+    runTimer() {
+        window.removeEventListener('focus', this.runTimer);
+        window.addEventListener('blur', this.pauseTimer);
+
+        if (this.state.game.started) {
+            this.initTimer();
+        }
+    }
+
+    pauseTimer() {
+        window.removeEventListener('blur', this.pauseTimer);
+        window.addEventListener('focus', this.runTimer);
+
+        clearInterval(this.timerInterval);
+    }
+
+    initTimer = () => {
+        this.timerInterval = setInterval(() => {
+            this.setState(prevState => ({
+                game: {
+                    ...prevState.game,
+                    timeProceed: prevState.game.timeProceed + 1,
+                }
+            }));
+        }, 1000);
+    };
 
     switchBlockHandler = (displayedBlock) => {
         this.setState({
@@ -136,14 +171,55 @@ export class App extends Component {
     };
 
     setMines = (x, y) => {
-        // todo mines generator algorithm
-        // than - reveal
+        this.setState(prevState => {
+            const minesIdCollection = {};
+            let minesCount = 0;
+
+            while (minesCount < this.minesAmount[prevState.game.difficulty]) {
+                const randCol = Math.floor(Math.random() * prevState.game.cols);
+                const randRow = Math.floor(Math.random() * prevState.game.rows);
+                const mineId = `${randCol}x${randRow}`;
+
+                if (!(mineId in minesIdCollection) && !(x - 2 < randCol && x + 2 > randCol
+                    && y - 2 < randRow && y + 2 > randRow)) {
+                    minesIdCollection[mineId] = true;
+                    minesCount += 1;
+                }
+            }
+
+            console.debug(minesIdCollection);
+
+            const cells = prevState.game.cells.map((subArr, x) => {
+                return subArr.map((cell, y) => {
+                    if (`${x}x${y}` in minesIdCollection) {
+                        return {
+                            ...cell,
+                            mine: true,
+                        }
+                    }
+
+                    return cell;
+                });
+            });
+
+            return {
+                game: {
+                    ...prevState.game,
+                    cells,
+                }
+            }
+        });
+    };
+
+    startGame = (x, y) => {
+        this.setMines(x, y);
         this.setState(prevState => ({
             game: {
                 ...prevState.game,
                 started: true,
             }
         }));
+        this.initTimer();
         this.revealCell(x, y);
     };
 
@@ -152,13 +228,14 @@ export class App extends Component {
         const cell = cells[col][row];
 
         if (!started) {
-            this.setMines(col, row);
+            this.startGame(col, row);
 
         } else if (flagMode) {
             this.toggleFlagOnCellHandler(col, row);
 
         } else if (!cell.flagged && !cell.opened && cell.mine) {
             // todo end game
+            console.warn('MINE');
 
         } else {
             this.revealCell(col, row);
@@ -174,7 +251,7 @@ export class App extends Component {
                     return subArr.map((cell, y) => {
                         if (col === x && row === y) {
                             return {
-                                cell,
+                                ...cell,
                                 opened: true,
                             }
                         }
@@ -210,7 +287,7 @@ export class App extends Component {
                         return subArr.map((cell, y) => {
                             if (col === x && row === y) {
                                 return {
-                                    cell,
+                                    ...cell,
                                     minesAround,
                                 }
                             }
@@ -250,11 +327,16 @@ export class App extends Component {
     toggleFlagOnCellHandler = (col, row) => {
         if (this.state.game.started) {
             this.setState(prevState => {
+                let increment = 1;
                 const cells = prevState.game.cells.map((subArr, x) => {
                     return subArr.map((cell, y) => {
                         if (col === x && row === y) {
+                            if (cell.flagged) {
+                                increment = -1;
+                            }
+
                             return {
-                                cell,
+                                ...cell,
                                 flagged: !cell.flagged,
                             }
                         }
@@ -267,6 +349,7 @@ export class App extends Component {
                     game: {
                         ...prevState.game,
                         cells,
+                        flaggedAmount: prevState.game.flaggedAmount + increment,
                     }
                 }
             })
@@ -293,8 +376,10 @@ export class App extends Component {
                 rows,
                 cells,
                 started,
+                flaggedAmount,
             }
         } = this.state;
+        const minesLeft = this.minesAmount[difficulty] - flaggedAmount;
 
         return (
             <main
@@ -314,6 +399,7 @@ export class App extends Component {
                                 cells={cells}
                                 timeProceed={timeProceed}
                                 flagMode={flagMode}
+                                minesLeft={minesLeft}
                                 toggleFlagMode={this.toggleFlagMode}
                                 clickOnCellHandler={this.clickOnCellHandler}
                                 toggleFlagOnCellHandler={this.toggleFlagOnCellHandler} />

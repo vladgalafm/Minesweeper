@@ -5,10 +5,9 @@ export const GameHeader = ({
    started,
    timeProceed,
    flagMode,
+   minesLeft,
    toggleFlagMode
 }) => {
-    const bombsAmount = 0;
-
     return (
         <div className="game-header">
             <div className="game-header__content">
@@ -21,7 +20,7 @@ export const GameHeader = ({
                 </div>
                 <div className="game-header__info">
                     <div className="game-header__count">
-                        {bombsAmount}
+                        {minesLeft}
                     </div>
                     <div className="game-header__icon game-header__icon--bomb" />
                 </div>

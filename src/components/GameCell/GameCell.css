@@ -103,7 +103,6 @@
     border-top: 3px solid #47c9ff;
     border-left: 3px solid #47c9ff;
     transition: 0.15s opacity linear;
-    transition-delay: 0.05s;
     opacity: 1;
 }
 
