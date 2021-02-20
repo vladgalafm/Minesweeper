@@ -6,12 +6,13 @@ export const GameHeader = ({
    timeProceed,
    flagMode,
    minesLeft,
+   leaveGameHandler,
    toggleFlagMode
 }) => {
     return (
         <div className="game-header">
             <div className="game-header__content">
-                <button className="game-header__leave" />
+                <button className="game-header__leave" onClick={() => {leaveGameHandler()}} />
                 <div className="game-header__info">
                     <div className="game-header__icon" />
                     <div className="game-header__count">

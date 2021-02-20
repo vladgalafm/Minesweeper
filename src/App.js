@@ -11,16 +11,21 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
+        this.version = 'v0.1';
         this.state = {
             displayedBlock: '',
             displayedModal: '',
             flagMode: false,
-            game: JSON.parse(localStorage.getItem('_hv-m-g'))
+            game: (localStorage.getItem('_hv-m-v') !== this.version)
+                ? gameTemplate(this.generateCellsEmptyData(9, 9))
+                : JSON.parse(localStorage.getItem('_hv-m-g'))
                 || gameTemplate(this.generateCellsEmptyData(9, 9)),
             history: JSON.parse(
                 localStorage.getItem('_hv-m-h'),
                 (key, value) => value === null ? Infinity : value
-            ) || historyTemplate,
+            ) || {
+                '9x9': historyTemplate,
+            },
         };
         this.minesAmount = minesAmount;
         this.gameLayoutMode = '';
@@ -32,6 +37,18 @@ export class App extends Component {
 
     componentDidMount() {
         console.debug('App mount');
+
+        // if got unfinished game from storage
+        if (this.state.game.started) {
+            this.switchBlockHandler('game');
+            this.switchModalHandler('unfinished');
+        }
+
+        if (localStorage.getItem('_hv-m-v') !== this.version) {
+            // todo notify user about new version features (switchModalHandler)
+            localStorage.setItem('_hv-m-v', this.version);
+        }
+
         this.resizeAppBlock();
         window.addEventListener('resize', this.resizeAppBlock);
     }
@@ -44,6 +61,8 @@ export class App extends Component {
             && started) {
             this.setWinState();
         }
+
+        localStorage.setItem('_hv-m-g', JSON.stringify(this.state.game));
     }
 
     componentWillUnmount() {
@@ -63,7 +82,7 @@ export class App extends Component {
         window.removeEventListener('focus', this.runTimer);
         window.addEventListener('blur', this.pauseTimer);
 
-        if (force || this.state.game.started) {
+        if (force === true || this.state.game.started) {
             this.initTimer();
         }
     }
@@ -88,7 +107,7 @@ export class App extends Component {
 
     setWinState = () => {
         // 1. stop timer
-        clearInterval(this.timerInterval);
+        this.pauseTimer();
         // 2. mark game as not ready for interact + as won
         this.setState(prevState => ({
             game: {
@@ -102,11 +121,12 @@ export class App extends Component {
         // 4. trigger fancy mines-reveal animation
         // 5. after animation played - set game state to finished: true
         //      in order to trigger one of result modals
+        this.switchModalHandler('result');
     };
 
     setHistoryState = (gameWon) => {
         this.setState(prevState => {
-            const levelData = prevState.history[prevState.game.difficulty];
+            const levelData = prevState.history[prevState.game.difficulty] || historyTemplate;
             const newLevelData = {
                 bestTime: (gameWon && prevState.game.timeProceed < levelData.bestTime)
                     ? prevState.game.timeProceed : levelData.bestTime,
@@ -133,9 +153,66 @@ export class App extends Component {
     };
 
     switchBlockHandler = (displayedBlock) => {
+        if (displayedBlock === 'new-game') {
+            // reset data only if 'New Game' triggered
+            this.resetGameData();
+        }
+
         this.setState({
             displayedBlock,
         })
+    };
+
+    switchModalHandler = (displayedModal) => {
+        this.setState({
+            displayedModal,
+        });
+    };
+
+    leaveGameHandler = () => {
+        this.state.game.started
+            ? this.switchModalHandler('leave-confirm')
+            : this.switchBlockHandler('menu');
+    };
+
+    leaveGameConfirm = () => {
+        this.enterMenuWithoutModal();
+        this.setHistoryState(false);
+        this.setState(prevState => ({
+            game: {
+                ...prevState.game,
+                started: false,
+            }
+        }));
+    };
+
+    continueGameConfirm = () => {
+        this.switchModalHandler('');
+        this.runTimer();
+    };
+
+    enterMenuWithoutModal = () => {
+        this.switchBlockHandler('menu');
+        this.switchModalHandler('');
+    };
+
+    prepareNewGame = () => {
+        this.resetGameData();
+        this.switchModalHandler('');
+    };
+
+    resetGameData = () => {
+        this.setState(prevState => ({
+            game: {
+                ...prevState.game,
+                cells: this.generateCellsEmptyData(prevState.game.cols, prevState.game.rows),
+                started: false,
+                timeProceed: 0,
+                flaggedAmount: 0,
+                safeCellsRevealed: 0,
+                result: null,
+            }
+        }))
     };
 
     generateCellsEmptyData = (colsNum, rowsNum) => {
@@ -391,9 +468,11 @@ export class App extends Component {
                 cells,
                 started,
                 flaggedAmount,
-            }
+                result,
+            },
         } = this.state;
         const minesLeft = this.minesAmount[difficulty] - flaggedAmount;
+        const history = this.state.history[difficulty];
 
         return (
             <main
@@ -404,7 +483,7 @@ export class App extends Component {
                         displayedBlock === 'menu'
                             ? <Menu
                                 switchBlockHandler={this.switchBlockHandler} />
-                            : displayedBlock === 'game'
+                            : displayedBlock.includes('game', 'new-game')
                             ? <Game
                                 layoutMode={gameLayoutMode}
                                 started={started}
@@ -414,6 +493,7 @@ export class App extends Component {
                                 timeProceed={timeProceed}
                                 flagMode={flagMode}
                                 minesLeft={minesLeft}
+                                leaveGameHandler={this.leaveGameHandler}
                                 toggleFlagMode={this.toggleFlagMode}
                                 clickOnCellHandler={this.clickOnCellHandler}
                                 toggleFlagOnCellHandler={this.toggleFlagOnCellHandler} />
@@ -431,32 +511,27 @@ export class App extends Component {
                 {
                     displayedModal === 'leave-confirm'
                     ? <Modal
-                        text={'Are you sure you want to leave to menu? Game progress will be lost.'}
+                        content={'Are you sure you want to leave to menu? Game progress will be lost.'}
                         btn1Name={'Leave'}
                         btn2Name={'Stay'}
-                        btn1Action={() => {}}
-                        btn2Action={() => {}} />
+                        btn1Action={this.leaveGameConfirm.bind(this)}
+                        btn2Action={() => {this.switchModalHandler('')}} />
                     : displayedModal === 'unfinished'
                     ? <Modal
-                        text={'You have an unfinished game. Would you like to continue?'}
+                        content={'You have an unfinished game. Would you like to continue?'}
                         btn1Name={'To Menu'}
                         btn2Name={'Continue'}
-                        btn1Action={() => {}}
-                        btn2Action={() => {}} />
-                    : displayedModal === 'win'
+                        btn1Action={this.leaveGameConfirm.bind(this)}
+                        btn2Action={this.continueGameConfirm.bind(this)} />
+                    : displayedModal === 'result'
                     ? <Modal
-                        text={''}
+                        result={result}
+                        timeProceed={timeProceed}
+                        history={history}
                         btn1Name={'To Menu'}
                         btn2Name={'New Game'}
-                        btn1Action={() => {}}
-                        btn2Action={() => {}} />
-                    : displayedModal === 'lost'
-                    ? <Modal
-                        text={''}
-                        btn1Name={'To Menu'}
-                        btn2Name={'New Game'}
-                        btn1Action={() => {}}
-                        btn2Action={() => {}} />
+                        btn1Action={this.enterMenuWithoutModal.bind(this)}
+                        btn2Action={this.prepareNewGame.bind(this)} />
                     : null
                 }
 

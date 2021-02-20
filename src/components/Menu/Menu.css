@@ -7,7 +7,7 @@
 .menu__title {
     padding-bottom: 2.5em;
     font-family: 'Paytone One', Roboto, sans-serif;
-    font-size: 10vw;
+    font-size: 11vw;
     text-align: center;
     text-transform: uppercase;
 }
@@ -21,12 +21,12 @@
 
 @media screen and (min-width: 480px) {
     .menu__title {
-        font-size: 50px;
+        font-size: 5rem;
     }
 }
 
 @media screen and (min-width: 768px) {
     .menu__title {
-        font-size: 60px;
+        font-size: 6rem;
     }
 }

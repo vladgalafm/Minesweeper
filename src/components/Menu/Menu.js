@@ -11,7 +11,7 @@ export const Menu = ({switchBlockHandler}) => {
             <div className="menu__btn-wrap">
                 <MenuBtn
                   title="New game"
-                  switchBlockHandler={() => {switchBlockHandler('game')}} />
+                  switchBlockHandler={() => {switchBlockHandler('new-game')}} />
                 <MenuBtn
                   title="Settings"
                   switchBlockHandler={() => {switchBlockHandler('settings')}} />

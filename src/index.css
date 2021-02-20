@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: inherit;
-    line-height: 1;
+    color: inherit;
 }
 
 html {
@@ -14,6 +14,8 @@ html {
 
 body {
     font-family: Philosopher, Roboto, Arial, sans-serif;
+    line-height: 1;
+    color: #002640;
     /*background-color: #f2f2f2;*/
     /*background: linear-gradient(180deg, #009cdc, #0079ab);*/
     background: radial-gradient(circle at center, #f2fbff 0, #daf4fe 100%);
@@ -33,4 +35,10 @@ button:disabled,
 button[disabled] {
     opacity: 0.5;
     cursor: default;
+}
+
+@media screen and (min-width: 1400px) {
+    html {
+        font-size: 14px;
+    }
 }

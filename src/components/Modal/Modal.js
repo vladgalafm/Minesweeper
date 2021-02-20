@@ -1,8 +1,12 @@
 import React from 'react';
+import { Result } from "../Result/Result";
 import './Modal.css';
 
 export const Modal = ({
-      text,
+      content,
+      result,
+      timeProceed,
+      history,
       btn1Name,
       btn1Action,
       btn2Name,
@@ -11,9 +15,16 @@ export const Modal = ({
     return (
         <div className="modal">
             <div className="modal__window">
-                <p className="modal__txt">
-                    {text}
-                </p>
+                {
+                    content
+                        ? (<p className="modal__txt">
+                            {content}
+                        </p>)
+                        : <Result
+                            result={result}
+                            timeProceed={timeProceed}
+                            history={history} />
+                }
                 <div className="modal__btn-wrap">
                     <button className="modal__btn" onClick={btn1Action}>
                         {btn1Name}
