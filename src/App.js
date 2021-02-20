@@ -5,6 +5,7 @@ import { Settings } from "./components/Settings/Settings";
 import { Tutorial } from "./components/Tutorial/Tutorial";
 import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
 import { Modal } from "./components/Modal/Modal";
+import { gameTemplate, historyTemplate, minesAmount } from "./data/data";
 import './App.css';
 
 export class App extends Component {
@@ -14,61 +15,14 @@ export class App extends Component {
             displayedBlock: '',
             displayedModal: '',
             flagMode: false,
-            game: {
-                difficulty: '9x9',
-                cols: 9,
-                rows: 9,
-                cells: this.generateCellsEmptyData(9, 9),
-                started: false,
-                finished: false,
-                timeProceed: 0,
-                flaggedAmount: 0,
-            },
-            history: {
-                '9x9': {
-                    bestTime: 0,
-                    gamesPlayed: 0,
-                    gamesWon: 0,
-                    longestWinStreak: 0,
-                    longestLoseStreak: 0,
-                    currentWinStreak: 0,
-                    currentLoseStreak: 0,
-                },
-                '9x16': {
-                    bestTime: 0,
-                    gamesPlayed: 0,
-                    gamesWon: 0,
-                    longestWinStreak: 0,
-                    longestLoseStreak: 0,
-                    currentWinStreak: 0,
-                    currentLoseStreak: 0,
-                },
-                '16x16': {
-                    bestTime: 0,
-                    gamesPlayed: 0,
-                    gamesWon: 0,
-                    longestWinStreak: 0,
-                    longestLoseStreak: 0,
-                    currentWinStreak: 0,
-                    currentLoseStreak: 0,
-                },
-                '30x16': {
-                    bestTime: 0,
-                    gamesPlayed: 0,
-                    gamesWon: 0,
-                    longestWinStreak: 0,
-                    longestLoseStreak: 0,
-                    currentWinStreak: 0,
-                    currentLoseStreak: 0,
-                },
-            },
+            game: JSON.parse(localStorage.getItem('_hv-m-g'))
+                || gameTemplate(this.generateCellsEmptyData(9, 9)),
+            history: JSON.parse(
+                localStorage.getItem('_hv-m-h'),
+                (key, value) => value === null ? Infinity : value
+            ) || historyTemplate,
         };
-        this.minesAmount = {
-            '9x9': 10,
-            '9x16': 20,
-            '16x16': 40,
-            '30x16': 99,
-        };
+        this.minesAmount = minesAmount;
         this.gameLayoutMode = '';
         this.timerInterval = null;
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
@@ -83,7 +37,13 @@ export class App extends Component {
     }
 
     componentDidUpdate() {
+        const {rows, cols, safeCellsRevealed, difficulty, started} = this.state.game;
 
+        // winning scenario - all safe cells revealed
+        if (rows * cols - safeCellsRevealed === this.minesAmount[difficulty]
+            && started) {
+            this.setWinState();
+        }
     }
 
     componentWillUnmount() {
@@ -124,6 +84,52 @@ export class App extends Component {
                 }
             }));
         }, 1000);
+    };
+
+    setWinState = () => {
+        // 1. stop timer
+        clearInterval(this.timerInterval);
+        // 2. mark game as not ready for interact + as won
+        this.setState(prevState => ({
+            game: {
+                ...prevState.game,
+                started: false,
+                result: 'win',
+            }
+        }));
+        // 3. save result to players history
+        this.setHistoryState(true);
+        // 4. trigger fancy mines-reveal animation
+        // 5. after animation played - set game state to finished: true
+        //      in order to trigger one of result modals
+    };
+
+    setHistoryState = (gameWon) => {
+        this.setState(prevState => {
+            const levelData = prevState.history[prevState.game.difficulty];
+            const newLevelData = {
+                bestTime: (gameWon && prevState.game.timeProceed < levelData.bestTime)
+                    ? prevState.game.timeProceed : levelData.bestTime,
+                gamesPlayed: levelData.gamesPlayed + 1,
+                gamesWon: gameWon ? levelData.gamesWon + 1 : levelData.gamesWon,
+                longestWinStreak: (gameWon && levelData.longestWinStreak === levelData.currentWinStreak)
+                    ? levelData.longestWinStreak + 1 : levelData.longestWinStreak,
+                longestLoseStreak: (!gameWon && levelData.longestLoseStreak === levelData.currentLoseStreak)
+                    ? levelData.longestLoseStreak + 1 : levelData.longestLoseStreak,
+                currentWinStreak: gameWon ? levelData.currentWinStreak + 1 : 0,
+                currentLoseStreak: !gameWon ? levelData.currentLoseStreak + 1 : 0,
+            };
+            const updatedHistory = {
+                ...prevState.history,
+                [prevState.game.difficulty]: newLevelData,
+            };
+
+            localStorage.setItem('_hv-m-h', JSON.stringify(updatedHistory));
+
+            return {
+                history: updatedHistory,
+            }
+        });
     };
 
     switchBlockHandler = (displayedBlock) => {
@@ -226,20 +232,20 @@ export class App extends Component {
     };
 
     clickOnCellHandler = (col, row) => {
-        const {flagMode, game: {started, cells}} = this.state;
+        const {flagMode, game: {started, cells, safeCellsRevealed}} = this.state;
         const cell = cells[col][row];
 
-        if (!started) {
+        if (!started && safeCellsRevealed === 0) {
             this.startGame(col, row);
 
-        } else if (flagMode) {
+        } else if (started && flagMode) {
             this.toggleFlagOnCellHandler(col, row);
 
-        } else if (!cell.flagged && !cell.opened && cell.mine) {
+        } else if (started && !cell.flagged && !cell.opened && cell.mine) {
             // todo end game
             console.warn('MINE');
 
-        } else {
+        } else if (started) {
             this.revealCell(col, row);
         }
     };
@@ -249,9 +255,14 @@ export class App extends Component {
 
         if (cells[col] && cells[col][row] && !cells[col][row].opened && !cells[col][row].flagged) {
             this.setState(prevState => {
+                let notMineIncrement = 1;
                 const cells = prevState.game.cells.map((subArr, x) => {
                     return subArr.map((cell, y) => {
                         if (col === x && row === y) {
+                            if (cell.mine) {
+                                notMineIncrement = 0;
+                            }
+
                             return {
                                 ...cell,
                                 opened: true,
@@ -266,6 +277,7 @@ export class App extends Component {
                     game: {
                         ...prevState.game,
                         cells,
+                        safeCellsRevealed: prevState.game.safeCellsRevealed + notMineIncrement,
                     }
                 }
             });
