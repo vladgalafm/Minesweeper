@@ -3,8 +3,6 @@ import './GameCell.css';
 
 export const GameCell = ({
      started,
-     cols,
-     rows,
      colIndex,
      rowIndex,
      cell,
@@ -12,17 +10,19 @@ export const GameCell = ({
      toggleFlagOnCellHandler
 }) => {
     const { opened, mine, minesAround, flagged, defused } = cell;
-    const delay = Math.max(
-        Math.abs((cols + 1) / 2 - (colIndex + 1)),
-        Math.abs((rows + 1) / 2 - (rowIndex + 1))
-    );
+    const maxIndex = Math.max(colIndex + 1, rowIndex + 1);
+    const delay = maxIndex + Math.min(colIndex + 1, rowIndex + 1);
+    const style = {
+        animationDelay: `${delay * 0.008}s`,
+    };
 
     return (
         <div className={`game-cell${opened
             ? ' game-cell--opened' : flagged
                 ? ' game-cell--flagged' : ''}
             ${defused ? ' game-cell--defused' : ''}
-            ${!started ? ` game-cell--flashlight game-cell--flashlight-d${delay}` : ''}`} >
+            ${!started ? ` game-cell--flashlight` : ''}`}
+             style={(!started && style) || {}} >
             <button className={`game-cell__btn ${(opened && mine)
                 ? 'game-cell__btn--mine' : (opened && minesAround > 0)
                     ? `game-cell__btn--${minesAround}` : ''}`} disabled={opened}

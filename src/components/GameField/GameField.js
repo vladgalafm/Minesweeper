@@ -20,7 +20,6 @@ export const GameField = ({
                         key={index}
                         started={started}
                         colIndex={index}
-                        cols={cols}
                         rows={rows}
                         cellsCol={cells[index]}
                         clickOnCellHandler={clickOnCellHandler}
