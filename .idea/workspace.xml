@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/Result/Result.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Result/Result.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/Loader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GameField/GameField.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameField/GameField.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/Menu.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/Menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Result/Result.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Result/Result.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,42 +26,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1836">
-              <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
+            <state relative-caret-position="402">
+              <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <marker date="1613845814172" expanded="true" signature="9916:10490" ph="..." />
+                <marker date="1613903540825" expanded="true" signature="9966:10540" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/data/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -100,11 +68,15 @@
       <find>leaveGameConfirm</find>
       <find>'menu'</find>
       <find>resetGameData</find>
+      <find>z-index</find>
+      <find>ffffff</find>
+      <find>minesAround</find>
     </findStrings>
     <replaceStrings>
       <replace>modal</replace>
       <replace>levelData</replace>
       <replace>switchModalHandler</replace>
+      <replace>ff0000</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\0projects\react_sapper\src\components</dir>
@@ -130,7 +102,6 @@
         <option value="$PROJECT_DIR$/src/components/Settings/Settings.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/GameRow/GameRow.css" />
-        <option value="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css" />
         <option value="$PROJECT_DIR$/src/components/GameRow/GameRow.js" />
         <option value="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.js" />
         <option value="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.css" />
@@ -139,29 +110,32 @@
         <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.js" />
         <option value="$PROJECT_DIR$/src/components/GameField/GameField.js" />
-        <option value="$PROJECT_DIR$/src/components/GameField/GameField.css" />
         <option value="$PROJECT_DIR$/src/components/Game/Game.css" />
         <option value="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" />
-        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
         <option value="$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.js" />
         <option value="$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.css" />
         <option value="$PROJECT_DIR$/src/dataTemplates/dataTemplates.js" />
         <option value="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" />
-        <option value="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" />
-        <option value="$PROJECT_DIR$/src/components/Menu/Menu.css" />
         <option value="$PROJECT_DIR$/src/components/Game/Game.js" />
         <option value="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" />
         <option value="$PROJECT_DIR$/src/components/Menu/Menu.js" />
-        <option value="$PROJECT_DIR$/src/data/data.js" />
         <option value="$PROJECT_DIR$/src/components/ResultDetails/Result.js" />
         <option value="$PROJECT_DIR$/src/components/Modal/Modal.js" />
         <option value="$PROJECT_DIR$/src/index.css" />
+        <option value="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" />
+        <option value="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css" />
+        <option value="$PROJECT_DIR$/src/components/Menu/Menu.css" />
+        <option value="$PROJECT_DIR$/src/components/Loader/Loader.js" />
+        <option value="$PROJECT_DIR$/src/components/Loader/Loader.css" />
+        <option value="$PROJECT_DIR$/src/components/GameField/GameField.css" />
+        <option value="$PROJECT_DIR$/src/data/data.js" />
+        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.js" />
+        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Result/Result.css" />
         <option value="$PROJECT_DIR$/src/components/Modal/Modal.css" />
         <option value="$PROJECT_DIR$/src/components/Result/Result.js" />
+        <option value="$PROJECT_DIR$/src/components/Result/Result.css" />
       </list>
     </option>
   </component>
@@ -182,6 +156,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -298,7 +273,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,7 +336,8 @@
       <workItem from="1613747434850" duration="2189000" />
       <workItem from="1613756733913" duration="5408000" />
       <workItem from="1613811345016" duration="7059000" />
-      <workItem from="1613823434592" duration="16402000" />
+      <workItem from="1613823434592" duration="16599000" />
+      <workItem from="1613892611071" duration="12095000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -448,17 +423,24 @@
       <option name="project" value="LOCAL" />
       <updated>1613819477494</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="game win results">
+      <created>1613846994683</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1613846994683</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="129803000" />
+    <option name="totallyTimeSpent" value="142095000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3260212" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.33131617" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -496,7 +478,8 @@
     <MESSAGE value="mine placement logic" />
     <MESSAGE value="modal component" />
     <MESSAGE value="history data localStorage" />
-    <option name="LAST_COMMIT_MESSAGE" value="history data localStorage" />
+    <MESSAGE value="game win results" />
+    <option name="LAST_COMMIT_MESSAGE" value="game win results" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/favicon.ico">
@@ -631,16 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameColumn/GameColumn.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -677,96 +650,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.css" />
     <entry file="file://$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.js" />
-    <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="99" column="30" lean-forward="true" selection-start-line="99" selection-start-column="30" selection-end-line="99" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameColumn/GameColumn.css">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GameField/GameField.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="12" column="34" lean-forward="true" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="986">
-          <caret line="58" column="19" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="34" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/data/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="19" lean-forward="true" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="88" selection-start-line="14" selection-start-column="88" selection-end-line="14" selection-end-column="88" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Result/Result.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Result/Result.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="44" column="53" selection-start-line="44" selection-start-column="53" selection-end-line="44" selection-end-column="53" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -783,13 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Game/Game.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -800,13 +683,127 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="42" column="29" selection-start-line="42" selection-start-column="29" selection-end-line="42" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Loader/Loader.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Loader/Loader.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GameField/GameField.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/data/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" column="29" lean-forward="true" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="145" column="31" selection-start-line="145" selection-start-column="31" selection-end-line="145" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="66" column="1" selection-start-line="66" selection-start-column="1" selection-end-line="66" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Result/Result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="35" column="47" lean-forward="true" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Result/Result.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1836">
-          <caret line="403" lean-forward="true" selection-start-line="403" selection-end-line="403" />
+        <state relative-caret-position="402">
+          <caret line="130" column="28" lean-forward="true" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <marker date="1613845814172" expanded="true" signature="9916:10490" ph="..." />
+            <marker date="1613903540825" expanded="true" signature="9966:10540" ph="..." />
           </folding>
         </state>
       </provider>

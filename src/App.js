@@ -5,7 +5,8 @@ import { Settings } from "./components/Settings/Settings";
 import { Tutorial } from "./components/Tutorial/Tutorial";
 import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
 import { Modal } from "./components/Modal/Modal";
-import { gameTemplate, historyTemplate, minesAmount } from "./data/data";
+import { Loader } from "./components/Loader/Loader";
+import { gameTemplate, historyTemplate, minesAmount, cellTemplate } from "./data/data";
 import './App.css';
 
 export class App extends Component {
@@ -13,6 +14,7 @@ export class App extends Component {
         super(props);
         this.version = 'v0.1';
         this.state = {
+            loaderState: 'visible',
             displayedBlock: '',
             displayedModal: '',
             flagMode: false,
@@ -51,6 +53,10 @@ export class App extends Component {
 
         this.resizeAppBlock();
         window.addEventListener('resize', this.resizeAppBlock);
+
+        setTimeout(() => {
+            this.setLoaderState('hidden');
+        }, 500);
     }
 
     componentDidUpdate() {
@@ -119,9 +125,11 @@ export class App extends Component {
         // 3. save result to players history
         this.setHistoryState(true);
         // 4. trigger fancy mines-reveal animation
-        // 5. after animation played - set game state to finished: true
-        //      in order to trigger one of result modals
-        this.switchModalHandler('result');
+        this.revealMines();
+        // 5. after animation played - show results modal
+        setTimeout(() => {
+            this.switchModalHandler('result');
+        }, 5000);
     };
 
     setHistoryState = (gameWon) => {
@@ -221,12 +229,7 @@ export class App extends Component {
         for (let i = 0; i < colsNum; i++) {
             const colArr = [];
             for (let j = 0; j < rowsNum; j++) {
-                colArr.push({
-                    opened: false,
-                    mine: false,
-                    minesAround: 0,
-                    flagged: false,
-                });
+                colArr.push(cellTemplate);
             }
             cellsArr.push(colArr);
         }
@@ -398,6 +401,32 @@ export class App extends Component {
         }
     };
 
+    revealMines = () => {
+        this.setState(prevState => {
+            const cells = prevState.game.cells.map((subArr, x) => {
+                return subArr.map((cell, y) => {
+                    if (cell.mine) {
+                        return {
+                            ...cell,
+                            opened: true,
+                            flagged: false,
+                            defused: true,
+                        }
+                    }
+
+                    return cell;
+                });
+            });
+
+            return {
+                game: {
+                    ...prevState.game,
+                    cells,
+                }
+            }
+        });
+    };
+
     countMinesAround = (x, y) => {
         const cells = this.state.game.cells;
         let count = 0;
@@ -458,8 +487,15 @@ export class App extends Component {
         })
     };
 
+    setLoaderState = (loaderState) => {
+        this.setState({
+            loaderState,
+        })
+    };
+
     render() {
-        const { displayedBlock, flagMode, gameLayoutMode, displayedModal,
+        const { displayedBlock, flagMode, gameLayoutMode,
+            displayedModal, loaderState,
             game: {
                 difficulty,
                 timeProceed,
@@ -534,6 +570,7 @@ export class App extends Component {
                         btn2Action={this.prepareNewGame.bind(this)} />
                     : null
                 }
+                <Loader loaderState={loaderState} />
 
             </main>
         );

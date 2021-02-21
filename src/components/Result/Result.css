@@ -17,8 +17,12 @@
 }
 
 .result__stats > p {
-    flex-grow: 1;
+    flex-grow: 4;
     flex-basis: 0;
+}
+
+.result__stats > p:first-of-type {
+    flex-grow: 5;
 }
 
 @media screen and (min-width: 480px) {

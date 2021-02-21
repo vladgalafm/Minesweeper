@@ -26,3 +26,11 @@ export const gameTemplate = cellsData => ({
     safeCellsRevealed: 0,
     result: null,
 });
+
+export const cellTemplate = {
+    opened: false,
+    mine: false,
+    minesAround: 0,
+    flagged: false,
+    defused: false,
+};

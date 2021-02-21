@@ -8,8 +8,15 @@
     padding-bottom: 2.5em;
     font-family: 'Paytone One', Roboto, sans-serif;
     font-size: 11vw;
+    letter-spacing: 0.05em;
     text-align: center;
     text-transform: uppercase;
+    color: #0096d4;
+    text-shadow: 1px 1px 0 #002640,
+        -1px -1px 0 #002640,
+        1px -1px 0 #002640,
+        -1px 1px 0 #002640,
+        0 0 6px #002640;
 }
 
 .menu__btn-wrap {
@@ -28,5 +35,15 @@
 @media screen and (min-width: 768px) {
     .menu__title {
         font-size: 6rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .menu__title {
+        text-shadow: 2px 2px 0 #002640,
+            -2px -2px 0 #002640,
+            2px -2px 0 #002640,
+            -2px 2px 0 #002640,
+            0 0 10px #002640;
     }
 }

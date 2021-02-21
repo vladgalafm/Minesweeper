@@ -6,6 +6,19 @@
     overflow: hidden;
 }
 
+.game-cell::before {
+    position: absolute;
+    z-index: 1;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #003f59;
+    background-color: #e8e8e8;
+    opacity: 0;
+}
+
 .game--r16-568 .game-cell {
     width: 25px;
     height: 25px;
@@ -30,7 +43,6 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: auto calc((18 / 28) * 100%);
-    overflow: hidden;
     cursor: default;
 }
 
@@ -88,9 +100,9 @@
     background-size: auto calc((18 / 22) * 100%);
 }
 
-
 .game-cell__btn::after {
     position: absolute;
+    z-index: 2;
     content: "";
     top: 0;
     left: 0;
@@ -106,8 +118,57 @@
     opacity: 1;
 }
 
+.game-cell__btn::before {
+    position: absolute;
+    z-index: 3;
+    content: "";
+    top: -1px;
+    left: -1px;
+    transform: translateY(-100%);
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    background: linear-gradient(to bottom, rgba(234, 249, 255, 0) 0%,
+        rgba(234, 249, 255, 0.5) 40%,
+        rgb(234, 249, 255) 47%,
+        rgb(234, 249, 255) 53%,
+        rgba(234, 249, 255, 0.5) 60%,
+        rgba(234, 249, 255, 0) 100%);
+    transition: 2s transform linear;
+    opacity: 0;
+}
+
 .game-cell--opened .game-cell__btn::after {
     opacity: 0;
+}
+
+.game-cell--defused .game-cell__btn::after {
+    transition-duration: 0s;
+    animation: cellReveal 2.5s linear 1;
+}
+.game-cell--defused .game-cell__btn::before {
+    opacity: 1;
+    transform: translateY(100%);
+}
+.game-cell--defused::before {
+    animation: defusedMineReveal 5s linear 1;
+}
+
+@keyframes cellReveal {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes defusedMineReveal {
+    0%, 40% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
 }
 
 .game-cell--flagged .game-cell__btn::after {
