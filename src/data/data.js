@@ -21,6 +21,7 @@ export const gameTemplate = cellsData => ({
     rows: 9,
     cells: cellsData,
     started: false,
+    inProgress: false,
     timeProceed: 0,
     flaggedAmount: 0,
     safeCellsRevealed: 0,

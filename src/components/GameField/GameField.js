@@ -3,6 +3,7 @@ import { GameColumn } from "../GameColumn/GameColumn";
 import './GameField.css';
 
 export const GameField = ({
+      started,
       cols,
       rows,
       cells,
@@ -17,7 +18,9 @@ export const GameField = ({
                 {colsArray.map((item, index) => (
                     <GameColumn
                         key={index}
+                        started={started}
                         colIndex={index}
+                        cols={cols}
                         rows={rows}
                         cellsCol={cells[index]}
                         clickOnCellHandler={clickOnCellHandler}

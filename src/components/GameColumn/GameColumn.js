@@ -3,6 +3,8 @@ import { GameCell } from "../GameCell/GameCell";
 import './GameColumn.css';
 
 export const GameColumn = ({
+       started,
+       cols,
        rows,
        colIndex,
        cellsCol,
@@ -16,6 +18,9 @@ export const GameColumn = ({
             {rowsArray.map((item, index) => (
                 <GameCell
                     key={index}
+                    started={started}
+                    cols={cols}
+                    rows={rows}
                     colIndex={colIndex}
                     rowIndex={index}
                     cell={cellsCol[index]}

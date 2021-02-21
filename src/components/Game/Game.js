@@ -6,6 +6,7 @@ import './Game.css';
 export const Game = ({
      layoutMode,
      started,
+     inProgress,
      cols,
      rows,
      cells,
@@ -20,13 +21,14 @@ export const Game = ({
     return (
         <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
             <GameHeader
-                started={started}
+                inProgress={inProgress}
                 timeProceed={timeProceed}
                 flagMode={flagMode}
                 minesLeft={minesLeft}
                 leaveGameHandler={leaveGameHandler}
                 toggleFlagMode={toggleFlagMode} />
             <GameField
+                started={started}
                 cols={cols}
                 rows={rows}
                 cells={cells}

@@ -41,7 +41,7 @@ export class App extends Component {
         console.debug('App mount');
 
         // if got unfinished game from storage
-        if (this.state.game.started) {
+        if (this.state.game.inProgress) {
             this.switchBlockHandler('game');
             this.switchModalHandler('unfinished');
         }
@@ -60,11 +60,11 @@ export class App extends Component {
     }
 
     componentDidUpdate() {
-        const {rows, cols, safeCellsRevealed, difficulty, started} = this.state.game;
+        const {rows, cols, safeCellsRevealed, difficulty, inProgress} = this.state.game;
 
         // winning scenario - all safe cells revealed
         if (rows * cols - safeCellsRevealed === this.minesAmount[difficulty]
-            && started) {
+            && inProgress) {
             this.setWinState();
         }
 
@@ -88,7 +88,7 @@ export class App extends Component {
         window.removeEventListener('focus', this.runTimer);
         window.addEventListener('blur', this.pauseTimer);
 
-        if (force === true || this.state.game.started) {
+        if (force === true || this.state.game.inProgress) {
             this.initTimer();
         }
     }
@@ -118,7 +118,7 @@ export class App extends Component {
         this.setState(prevState => ({
             game: {
                 ...prevState.game,
-                started: false,
+                inProgress: false,
                 result: 'win',
             }
         }));
@@ -178,7 +178,7 @@ export class App extends Component {
     };
 
     leaveGameHandler = () => {
-        this.state.game.started
+        this.state.game.inProgress
             ? this.switchModalHandler('leave-confirm')
             : this.switchBlockHandler('menu');
     };
@@ -189,7 +189,7 @@ export class App extends Component {
         this.setState(prevState => ({
             game: {
                 ...prevState.game,
-                started: false,
+                inProgress: false,
             }
         }));
     };
@@ -215,6 +215,7 @@ export class App extends Component {
                 ...prevState.game,
                 cells: this.generateCellsEmptyData(prevState.game.cols, prevState.game.rows),
                 started: false,
+                inProgress: false,
                 timeProceed: 0,
                 flaggedAmount: 0,
                 safeCellsRevealed: 0,
@@ -305,6 +306,7 @@ export class App extends Component {
             game: {
                 ...prevState.game,
                 started: true,
+                inProgress: true,
             }
         }));
         this.runTimer(true);
@@ -312,20 +314,20 @@ export class App extends Component {
     };
 
     clickOnCellHandler = (col, row) => {
-        const {flagMode, game: {started, cells, safeCellsRevealed}} = this.state;
+        const {flagMode, game: {inProgress, cells, safeCellsRevealed}} = this.state;
         const cell = cells[col][row];
 
-        if (!started && safeCellsRevealed === 0) {
+        if (!inProgress && safeCellsRevealed === 0) {
             this.startGame(col, row);
 
-        } else if (started && flagMode) {
+        } else if (inProgress && flagMode) {
             this.toggleFlagOnCellHandler(col, row);
 
-        } else if (started && !cell.flagged && !cell.opened && cell.mine) {
+        } else if (inProgress && !cell.flagged && !cell.opened && cell.mine) {
             // todo end game
             console.warn('MINE');
 
-        } else if (started) {
+        } else if (inProgress) {
             this.revealCell(col, row);
         }
     };
@@ -403,8 +405,8 @@ export class App extends Component {
 
     revealMines = () => {
         this.setState(prevState => {
-            const cells = prevState.game.cells.map((subArr, x) => {
-                return subArr.map((cell, y) => {
+            const cells = prevState.game.cells.map(subArr => {
+                return subArr.map(cell => {
                     if (cell.mine) {
                         return {
                             ...cell,
@@ -445,7 +447,7 @@ export class App extends Component {
     };
 
     toggleFlagOnCellHandler = (col, row) => {
-        if (this.state.game.started) {
+        if (this.state.game.inProgress) {
             this.setState(prevState => {
                 let increment = 1;
                 const cells = prevState.game.cells.map((subArr, x) => {
@@ -503,6 +505,7 @@ export class App extends Component {
                 rows,
                 cells,
                 started,
+                inProgress,
                 flaggedAmount,
                 result,
             },
@@ -523,6 +526,7 @@ export class App extends Component {
                             ? <Game
                                 layoutMode={gameLayoutMode}
                                 started={started}
+                                inProgress={inProgress}
                                 cols={cols}
                                 rows={rows}
                                 cells={cells}

@@ -2,7 +2,7 @@ import React from 'react';
 import './GameHeader.css';
 
 export const GameHeader = ({
-   started,
+   inProgress,
    timeProceed,
    flagMode,
    minesLeft,
@@ -28,7 +28,7 @@ export const GameHeader = ({
                 <button
                     className={`game-header__flag${flagMode ? ' game-header__flag--active' : ''}`}
                     onClick={toggleFlagMode}
-                    disabled={!started} />
+                    disabled={!inProgress} />
             </div>
         </div>
     );
