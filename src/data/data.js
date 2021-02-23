@@ -34,4 +34,7 @@ export const cellTemplate = {
     minesAround: 0,
     flagged: false,
     defused: false,
+    blownUp: false,
+    rightFlagged: false,
+    wrongFlagged: false,
 };

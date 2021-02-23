@@ -132,6 +132,27 @@ export class App extends Component {
         }, 5000);
     };
 
+    setLoseState = (x, y) => {
+        // 1. stop timer
+        this.pauseTimer();
+        // 2. mark game as not ready for interact + as won
+        this.setState(prevState => ({
+            game: {
+                ...prevState.game,
+                inProgress: false,
+                result: 'lose',
+            }
+        }));
+        // 3. save result to players history
+        this.setHistoryState(false);
+        // 4. trigger mines-reveal process
+        this.revealMinesWhenLost(x, y);
+        // 5. after a while - show results modal
+        setTimeout(() => {
+            this.switchModalHandler('result');
+        }, 5000);
+    };
+
     setHistoryState = (gameWon) => {
         this.setState(prevState => {
             const levelData = prevState.history[prevState.game.difficulty] || historyTemplate;
@@ -325,8 +346,7 @@ export class App extends Component {
             this.toggleFlagOnCellHandler(col, row);
 
         } else if (inProgress && !cell.flagged && !cell.opened && cell.mine) {
-            // todo end game
-            console.warn('MINE');
+            this.setLoseState(col, row);
 
         } else if (inProgress) {
             this.setRevealedCellsState(col, row);
@@ -411,6 +431,45 @@ export class App extends Component {
                             opened: true,
                             flagged: false,
                             defused: true,
+                        }
+                    }
+
+                    return cell;
+                });
+            });
+
+            return {
+                game: {
+                    ...prevState.game,
+                    cells,
+                }
+            }
+        });
+    };
+
+    revealMinesWhenLost = (col, row) => {
+        this.setState(prevState => {
+            const cells = prevState.game.cells.map((subArr, x) => {
+                return subArr.map((cell, y) => {
+                    if (col === x && row === y) {
+                        return {
+                            ...cell,
+                            opened: true,
+                            blownUp: true,
+                        }
+
+                    } else if (cell.mine) {
+                        return {
+                            ...cell,
+                            opened: true,
+                            rightFlagged: true,
+                        }
+
+                    } else if (cell.flagged && !cell.mine) {
+                        return {
+                            ...cell,
+                            opened: true,
+                            wrongFlagged: true,
                         }
                     }
 

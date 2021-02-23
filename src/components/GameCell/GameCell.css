@@ -14,9 +14,23 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 1px solid #003f59;
     background-color: #e8e8e8;
     opacity: 0;
+}
+.game-cell--defused::before {
+    background-color: #add8e6;
+}
+
+.game-cell--right-flagged {
+
+}
+
+.game-cell--wrong-flagged {
+
+}
+
+.game-cell--blown-up {
+
 }
 
 .game--r16-568 .game-cell {
@@ -45,6 +59,15 @@
     background: transparent url("../../img/icon_flag.png") 50% 50% no-repeat;
     background-size: auto calc((18 / 28) * 100%);
     pointer-events: none;
+}
+
+.game-cell--right-flagged.game-cell--flagged::after {
+    filter: drop-shadow(0 0 3px #cacaca);
+}
+.game-cell--wrong-flagged.game-cell--flagged::after {
+    background-image: url("../../img/cross.png");
+    background-size: cover;
+    opacity: 0.6;
 }
 
 .game-cell--flashlight {
@@ -106,6 +129,7 @@
 .game-cell__btn--mine {
     background-image: url("../../img/icon_mine.png");
     background-size: auto calc((22 / 28) * 100%);
+    background-color: #cacaca;
 }
 
 .game--r16-568 .game-cell__btn {
@@ -169,6 +193,9 @@
     opacity: 0;
 }
 
+.game-cell--defused .game-cell__btn {
+    background-color: #add8e6;
+}
 .game-cell--defused .game-cell__btn::after {
     transition-duration: 0s;
     animation: cellReveal 2.5s linear 1;
@@ -179,6 +206,36 @@
 }
 .game-cell--defused::before {
     animation: defusedMineReveal 5s linear 1;
+}
+
+.game-cell--blown-up .game-cell__btn {
+    background-color: rgba(255, 0, 0, 0.9);
+}
+
+.game-cell--flagged.game-cell--right-flagged .game-cell__btn--mine {
+    background-color: #bdbdbd;
+    opacity: 0.7;
+}
+.game-cell--wrong-flagged .game-cell__btn {
+    background-image: url("../../img/icon_mine.png");
+    background-size: auto calc((22 / 28) * 100%);
+    background-color: #bdbdbd;
+    opacity: 0.7;
+}
+.game--r16-568 .game-cell--wrong-flagged .game-cell__btn {
+    background-size: auto calc((19 / 23) * 100%);
+}
+.game--c30-768 .game-cell--wrong-flagged .game-cell__btn {
+    background-size: auto calc((15 / 17) * 100%);
+}
+.game--c30-992 .game-cell--wrong-flagged .game-cell__btn {
+    background-size: auto calc((18 / 22) * 100%);
+}
+
+.game-cell--blown-up .game-cell__btn::after,
+.game-cell--right-flagged .game-cell__btn::after,
+.game-cell--wrong-flagged .game-cell__btn::after {
+    transition-duration: 0s;
 }
 
 @keyframes cellReveal {
@@ -208,7 +265,8 @@
     .game-cell--flagged::after {
         background-size: auto calc((26 / 38) * 100%);
     }
-    .game-cell__btn--mine {
+    .game-cell__btn--mine,
+    .game-cell--wrong-flagged .game-cell__btn {
         background-size: auto calc((30 / 38) * 100%);
     }
     .game-cell__btn::after {

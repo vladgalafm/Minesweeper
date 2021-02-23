@@ -21,13 +21,14 @@ export const Result = ({
                 {
                     result === 'win'
                         ? 'Congratulations, you won!'
-                        : 'Sorry, you lost this game. Better luck next time!'
+                        : `Sorry, you lost this game.
+                            Better luck next time!`
                 }
             </p>
             {
                 result === 'win' && timeProceed === bestTime
                     ? (<p>
-                        You showed your best time for this level of difficulty!
+                        You've showed your best time for this level of difficulty!
                     </p>)
                     : null
             }

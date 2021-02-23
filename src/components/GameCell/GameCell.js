@@ -9,7 +9,16 @@ export const GameCell = ({
      clickOnCellHandler,
      toggleFlagOnCellHandler
 }) => {
-    const { opened, mine, minesAround, flagged, defused } = cell;
+    const {
+        opened,
+        mine,
+        minesAround,
+        flagged,
+        defused,
+        blownUp,
+        rightFlagged,
+        wrongFlagged
+    } = cell;
     const maxIndex = Math.max(colIndex + 1, rowIndex + 1);
     const delay = maxIndex + Math.min(colIndex + 1, rowIndex + 1);
     const style = {
@@ -17,10 +26,12 @@ export const GameCell = ({
     };
 
     return (
-        <div className={`game-cell${opened
-            ? ' game-cell--opened' : flagged
-                ? ' game-cell--flagged' : ''}
+        <div className={`game-cell${opened ? ' game-cell--opened' : ''}
+            ${flagged ? ' game-cell--flagged' : ''}
             ${defused ? ' game-cell--defused' : ''}
+            ${blownUp ? ' game-cell--blown-up' : rightFlagged
+                ? ' game-cell--right-flagged' : wrongFlagged
+                ? ' game-cell--wrong-flagged' : ''}
             ${!started ? ` game-cell--flashlight` : ''}`}
              style={(!started && style) || {}} >
             <button className={`game-cell__btn ${(opened && mine)
