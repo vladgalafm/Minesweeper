@@ -7,6 +7,7 @@ export const Modal = ({
       result,
       timeProceed,
       history,
+      hideModalHandler,
       btn1Name,
       btn1Action,
       btn2Name,
@@ -15,6 +16,14 @@ export const Modal = ({
     return (
         <div className="modal">
             <div className="modal__window">
+                {
+                    hideModalHandler
+                        ? (<button
+                            className="modal__close"
+                            aria-label="Close modal window"
+                            onClick={hideModalHandler} />)
+                        : null
+                }
                 {
                     content
                         ? (<p className="modal__txt">

@@ -21,8 +21,8 @@ export const Result = ({
                 {
                     result === 'win'
                         ? 'Congratulations, you won!'
-                        : `Sorry, you lost this game.
-                            Better luck next time!`
+                        : (<span>Sorry, you lost this game.<br/>
+                            Better luck next time!</span>)
                 }
             </p>
             {

@@ -112,6 +112,9 @@
         height: 28px;
         font-size: 18px;
     }
+    .game--wide .game-header__count {
+        width: 56px;
+    }
 }
 
 @media screen and (min-width: 1400px) {
@@ -140,5 +143,8 @@
         width: 66px;
         font-size: 24px;
         border-radius: 10px;
+    }
+    .game--wide .game-header__count {
+        width: 78px;
     }
 }

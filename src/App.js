@@ -620,7 +620,8 @@ export class App extends Component {
                         btn1Name={'Leave'}
                         btn2Name={'Stay'}
                         btn1Action={this.leaveGameConfirm.bind(this)}
-                        btn2Action={() => {this.switchModalHandler('')}} />
+                        btn2Action={() => {this.switchModalHandler('')}}
+                        hideModalHandler={() => {this.switchModalHandler('')}} />
                     : displayedModal === 'unfinished'
                     ? <Modal
                         content={'You have an unfinished game. Would you like to continue?'}
@@ -636,7 +637,8 @@ export class App extends Component {
                         btn1Name={'To Menu'}
                         btn2Name={'New Game'}
                         btn1Action={this.enterMenuWithoutModal.bind(this)}
-                        btn2Action={this.prepareNewGame.bind(this)} />
+                        btn2Action={this.prepareNewGame.bind(this)}
+                        hideModalHandler={() => {this.switchModalHandler('')}} />
                     : null
                 }
                 <Loader loaderState={loaderState} />

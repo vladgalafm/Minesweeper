@@ -38,6 +38,13 @@
     }
 }
 
+@media screen and (min-width: 992px) {
+    .menu__title {
+        padding-bottom: 2em;
+        font-size: 7.5rem;
+    }
+}
+
 @media screen and (min-width: 1400px) {
     .menu__title {
         text-shadow: 2px 2px 0 #002640,
