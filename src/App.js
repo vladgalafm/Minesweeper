@@ -12,7 +12,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = 'v0.1';
+        this.version = 'v0.2';
         this.state = {
             loaderState: 'visible',
             displayedBlock: '',
@@ -125,7 +125,7 @@ export class App extends Component {
         // 3. save result to players history
         this.setHistoryState(true);
         // 4. trigger fancy mines-reveal animation
-        this.revealMines();
+        this.defuseMines();
         // 5. after animation played - show results modal
         setTimeout(() => {
             this.switchModalHandler('result');
@@ -192,6 +192,7 @@ export class App extends Component {
                 inProgress: false,
             }
         }));
+        clearInterval(this.timerInterval);
     };
 
     continueGameConfirm = () => {
@@ -239,7 +240,7 @@ export class App extends Component {
     };
 
     changeDifficulty = (difficulty) => {
-        const [match, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
+        const [, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
 
         this.setGameLayoutMode(window.innerHeight, window.innerWidth, cols, rows);
         this.setState(prevState => ({
@@ -310,7 +311,7 @@ export class App extends Component {
             }
         }));
         this.runTimer(true);
-        this.revealCell(x, y);
+        this.setRevealedCellsState(x, y);
     };
 
     clickOnCellHandler = (col, row) => {
@@ -328,82 +329,79 @@ export class App extends Component {
             console.warn('MINE');
 
         } else if (inProgress) {
-            this.revealCell(col, row);
+            this.setRevealedCellsState(col, row);
         }
     };
 
-    revealCell = (col, row) => {
-        const cells = this.state.game.cells;
+    revealCell = (gameState, x, y) => {
+        let updatedGameState = {...gameState};
+        let cells = [...updatedGameState.cells];
 
-        if (cells[col] && cells[col][row] && !cells[col][row].opened && !cells[col][row].flagged) {
-            this.setState(prevState => {
-                let notMineIncrement = 1;
-                const cells = prevState.game.cells.map((subArr, x) => {
-                    return subArr.map((cell, y) => {
-                        if (col === x && row === y) {
-                            if (cell.mine) {
-                                notMineIncrement = 0;
-                            }
+        if (cells[x] && cells[x][y] && !cells[x][y].opened && !cells[x][y].flagged) {
+            cells[x][y] = {
+                ...cells[x][y],
+                opened: true,
+            };
 
-                            return {
-                                ...cell,
-                                opened: true,
-                            }
-                        }
+            updatedGameState = {
+                ...updatedGameState,
+                cells,
+            };
 
-                        return cell;
-                    });
-                });
-
-                return {
-                    game: {
-                        ...prevState.game,
-                        cells,
-                        safeCellsRevealed: prevState.game.safeCellsRevealed + notMineIncrement,
-                    }
-                }
-            });
-
-            const minesAround = this.countMinesAround(col, row);
+            const minesAround = this.countMinesAround(cells, x, y);
 
             if (minesAround === 0) {
-                for (let i = -1; i < 2; i++) {
-                    for (let j = -1; j < 2; j++) {
-                        if (!(i === 0 && j === 0)) {
-                            setTimeout(() => {
-                                this.revealCell(col + i, row + j);
-                            }, 10);
-                        }
-                    }
+                return {
+                    ...this.revealCell(updatedGameState,x - 1, y - 1),
+                    ...this.revealCell(updatedGameState, x, y - 1),
+                    ...this.revealCell(updatedGameState,x + 1, y - 1),
+                    ...this.revealCell(updatedGameState,x - 1, y),
+                    ...this.revealCell(updatedGameState,x + 1, y),
+                    ...this.revealCell(updatedGameState,x - 1, y + 1),
+                    ...this.revealCell(updatedGameState, x, y + 1),
+                    ...this.revealCell(updatedGameState,x + 1, y + 1),
                 }
 
             } else {
-                this.setState(prevState => {
-                    const cells = prevState.game.cells.map((subArr, x) => {
-                        return subArr.map((cell, y) => {
-                            if (col === x && row === y) {
-                                return {
-                                    ...cell,
-                                    minesAround,
-                                }
-                            }
+                cells = [...updatedGameState.cells];
+                cells[x][y] = {
+                    ...cells[x][y],
+                    minesAround,
+                };
 
-                            return cell;
-                        });
-                    });
-
-                    return {
-                        game: {
-                            ...prevState.game,
-                            cells,
-                        }
-                    }
-                });
+                return {
+                    ...updatedGameState,
+                    cells,
+                };
             }
         }
+
+        return gameState;
     };
 
-    revealMines = () => {
+    setRevealedCellsState = (col, row) => {
+        this.setState(prevState => {
+            const updatedGame = this.revealCell({...prevState.game}, col, row);
+            let safeCellsRevealed = 0;
+
+            updatedGame.cells.forEach(subArr => {
+                subArr.forEach(cell => {
+                    if (cell.opened && !cell.mine) {
+                        safeCellsRevealed += 1;
+                    }
+                });
+            });
+
+            return {
+                game: {
+                    ...updatedGame,
+                    safeCellsRevealed,
+                }
+            }
+        });
+    };
+
+    defuseMines = () => {
         this.setState(prevState => {
             const cells = prevState.game.cells.map(subArr => {
                 return subArr.map(cell => {
@@ -429,8 +427,7 @@ export class App extends Component {
         });
     };
 
-    countMinesAround = (x, y) => {
-        const cells = this.state.game.cells;
+    countMinesAround = (cells, x, y) => {
         let count = 0;
 
         for (let i = -1; i < 2; i++) {
@@ -466,6 +463,15 @@ export class App extends Component {
                         return cell;
                     });
                 });
+
+                // todo why code below not working?
+                // const cells = [...prevState.game.cells];
+                // cells[col][row] = {
+                //     ...cells[col][row],
+                //     flagged: !cells[col][row].flagged,
+                // };
+                //
+                // let increment = cells[col][row].flagged ? 1 : -1;
 
                 return {
                     game: {
