@@ -1,0 +1,73 @@
+.diff-option {
+    padding-bottom: 1rem;
+}
+
+.diff-option--16x16,
+.diff-option--30x16 {
+    display: none;
+}
+
+.diff-option__input {
+    position: absolute;
+    top: -9999px;
+}
+
+.diff-option__label {
+    position: relative;
+    display: block;
+    padding-left: 3.5rem;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.diff-option__input:checked + .diff-option__label,
+.diff-option__label:hover {
+    opacity: 1;
+}
+
+.diff-option__label::before,
+.diff-option__label::after {
+    position: absolute;
+    content: "";
+    top: 4px;
+    left: 0;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #0073a3;
+    border-radius: 50%;
+}
+
+.diff-option__input:checked + .diff-option__label::after {
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #0073a3;
+}
+
+@media screen and (min-width: 568px) {
+    .diff-option--9x16 {
+        display: none;
+    }
+    .diff-option--16x16,
+    .diff-option--30x16 {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .diff-option__label::before,
+    .diff-option__label::after {
+        top: 5px;
+        width: 28px;
+        height: 28px;
+        border-width: 3px;
+    }
+    .diff-option__input:checked + .diff-option__label::after {
+        top: 12px;
+        left: 7px;
+        width: 14px;
+        height: 14px;
+    }
+}

@@ -21,7 +21,13 @@
     border: 0;
     background: transparent url("../../img/icon_back.png") 50% 50% no-repeat;
     background-size: contain;
-    filter: invert(100%) sepia(88%) saturate(1253%) hue-rotate(176deg) brightness(105%) contrast(102%);
+    filter: invert(100%);
+    opacity: 0.9;
+    transition: opacity 0.1s linear;
+}
+
+.game-header__leave:hover {
+    opacity: 1;
 }
 
 .game-header__info {
@@ -71,11 +77,17 @@
     background: #cccccc url("../../img/icon_flag.png") 50% 50% no-repeat;
     background-size: contain;
     border-radius: 5px;
+    box-shadow: 0 0 0 0 #47c9ff;
+    transition: box-shadow 0.1s linear;
 }
 
 .game-header__flag--active {
     border-color: #eaf9ff;
     background-color: #eaf9ff;
+    box-shadow: 0 0 10px 0 #47c9ff;
+}
+
+.game-header__flag:hover {
     box-shadow: 0 0 10px 0 #47c9ff;
 }
 

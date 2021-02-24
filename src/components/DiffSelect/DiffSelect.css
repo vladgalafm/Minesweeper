@@ -1,14 +1,13 @@
-.diff-select__option--16x16,
-.diff-select__option--30x16 {
-    display: none;
+.diff-select {
+    position: relative;
 }
 
-@media screen and (min-width: 568px) {
-    .diff-select__option--9x16 {
-        display: none;
-    }
-    .diff-select__option--16x16,
-    .diff-select__option--30x16 {
-        display: block;
-    }
+.diff-select::after {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 76%;
+    border-bottom: 2px solid rgba(0, 38, 64, 0.15);
 }

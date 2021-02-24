@@ -15,6 +15,7 @@ export class App extends Component {
         this.version = 'v0.2';
         this.state = {
             loaderState: 'visible',
+            modalHidden: false,
             displayedBlock: '',
             displayedModal: '',
             flagMode: false,
@@ -150,7 +151,7 @@ export class App extends Component {
         // 5. after a while - show results modal
         setTimeout(() => {
             this.switchModalHandler('result');
-        }, 5000);
+        }, 4000);
     };
 
     setHistoryState = (gameWon) => {
@@ -198,10 +199,16 @@ export class App extends Component {
         });
     };
 
+    toggleModalVisibilityHandler = (hide) => {
+        this.setState({
+            modalHidden: hide,
+        })
+    };
+
     leaveGameHandler = () => {
         this.state.game.inProgress
             ? this.switchModalHandler('leave-confirm')
-            : this.switchBlockHandler('menu');
+            : this.enterMenuWithoutModal();
     };
 
     leaveGameConfirm = () => {
@@ -224,6 +231,7 @@ export class App extends Component {
     enterMenuWithoutModal = () => {
         this.switchBlockHandler('menu');
         this.switchModalHandler('');
+        this.toggleModalVisibilityHandler(false);
     };
 
     prepareNewGame = () => {
@@ -429,7 +437,6 @@ export class App extends Component {
                         return {
                             ...cell,
                             opened: true,
-                            flagged: false,
                             defused: true,
                         }
                     }
@@ -562,7 +569,7 @@ export class App extends Component {
 
     render() {
         const { displayedBlock, flagMode, gameLayoutMode,
-            displayedModal, loaderState,
+            displayedModal, loaderState, modalHidden,
             game: {
                 difficulty,
                 timeProceed,
@@ -580,14 +587,11 @@ export class App extends Component {
 
         return (
             <main
-                className="app"
+                className={`app${modalHidden ? ' app--modal-hidden' : ''}`}
                 ref={(appRef) => this.appRef = appRef}>
                 <div className="app__container">
                     {
-                        displayedBlock === 'menu'
-                            ? <Menu
-                                switchBlockHandler={this.switchBlockHandler} />
-                            : displayedBlock.includes('game', 'new-game')
+                        displayedBlock.includes('game', 'new-game')
                             ? <Game
                                 layoutMode={gameLayoutMode}
                                 started={started}
@@ -605,7 +609,9 @@ export class App extends Component {
                             : displayedBlock === 'settings'
                                 ? <Settings
                                     difficulty={difficulty}
-                                    changeDifficulty={this.changeDifficulty} />
+                                    history={history}
+                                    changeDifficulty={this.changeDifficulty}
+                                    returnHandler={() => {this.switchBlockHandler('menu')}} />
                                 : displayedBlock === 'tutorial'
                                     ? <Tutorial/>
                                     : <Menu
@@ -638,11 +644,14 @@ export class App extends Component {
                         btn2Name={'New Game'}
                         btn1Action={this.enterMenuWithoutModal.bind(this)}
                         btn2Action={this.prepareNewGame.bind(this)}
-                        hideModalHandler={() => {this.switchModalHandler('')}} />
+                        hideModalHandler={() => {this.toggleModalVisibilityHandler(true)}} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
-
+                <button
+                    className="app__modal-btn"
+                    aria-label="Show modal window again"
+                    onClick={() => {this.toggleModalVisibilityHandler(false)}} />
             </main>
         );
     }

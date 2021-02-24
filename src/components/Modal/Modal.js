@@ -15,7 +15,7 @@ export const Modal = ({
 }) => {
     return (
         <div className="modal">
-            <div className="modal__window">
+            <div className={`modal__window${!hideModalHandler ? ' modal__window--no-close' : ''}`}>
                 {
                     hideModalHandler
                         ? (<button

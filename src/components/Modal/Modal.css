@@ -9,6 +9,17 @@
     line-height: 1.3;
     text-align: center;
     background-color: rgba(57, 57, 57, 0.5);
+    opacity: 1;
+    transition: opacity 0.3s linear;
+    transition-delay: 0s;
+}
+
+.app--modal-hidden .modal {
+    z-index: -1;
+    opacity: 0;
+    transition-delay: 0.1s;
+    transition-duration: 0.4s;
+    animation: modalFadeOut 0.6s linear 1;
 }
 
 .modal__window {
@@ -22,6 +33,29 @@
     max-width: 25em;
     background-color: #ffffff;
     box-shadow: 0 5px 24px 0 rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    transition-delay: 0.3s, 0.3s;
+}
+
+.modal__window--no-close {
+    padding-top: 2em;
+}
+
+.app--modal-hidden .modal__window {
+    transform: translate(-50%, 50%);
+    opacity: 0;
+    transition-timing-function: ease-in, ease-in;
+    transition-delay: 0s, 0s;
+}
+
+@keyframes modalFadeOut {
+    0% {
+        z-index: 100;
+    }
+    100% {
+        z-index: -1;
+    }
 }
 
 .modal__close {
@@ -43,12 +77,17 @@
     transform: translate(-50%, -50%) rotate(45deg);
     width: 30px;
     height: 3px;
-    background-color: #333333;
+    background-color: #555555;
     border-radius: 2px;
 }
 
 .modal__close::after {
     transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.modal__close:hover::before,
+.modal__close:hover::after {
+    background-color: #333333;
 }
 
 .modal__btn-wrap {
@@ -69,10 +108,20 @@
     background-color: transparent;
 }
 
+.modal__btn:hover {
+    color: #444444;
+    border-color: #444444;
+}
+
 .modal__btn:nth-of-type(2) {
     margin-left: 1em;
     color: #0073a3;
     border-color: #0073a3;
+}
+
+.modal__btn:nth-of-type(2):hover {
+    color: #005c82;
+    border-color: #005c82;
 }
 
 @media screen and (min-width: 480px) {
@@ -81,6 +130,9 @@
     }
     .modal__window {
         padding: 3em 2em 2.5em;
+    }
+    .modal__window--no-close {
+        padding-top: 2.5em;
     }
     .modal__close {
         width: 60px;

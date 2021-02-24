@@ -5,6 +5,18 @@ export const minesAmount = {
     '30x16': 99,
 };
 
+export const difficultyOptions = [
+    { value: '9x9', label: 'Beginner' },
+    { value: '9x16', label: 'Amateur' },
+    { value: '16x16', label: 'Amateur' },
+    { value: '30x16', label: 'Expert' },
+].map(option => ({
+    ...option,
+    mines: minesAmount[option.value],
+}));
+
+
+
 export const historyTemplate = {
     bestTime: Infinity,
     gamesPlayed: 0,

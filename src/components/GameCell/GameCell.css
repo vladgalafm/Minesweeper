@@ -21,18 +21,6 @@
     background-color: #add8e6;
 }
 
-.game-cell--right-flagged {
-
-}
-
-.game-cell--wrong-flagged {
-
-}
-
-.game-cell--blown-up {
-
-}
-
 .game--r16-568 .game-cell {
     width: 25px;
     height: 25px;
@@ -59,6 +47,12 @@
     background: transparent url("../../img/icon_flag.png") 50% 50% no-repeat;
     background-size: auto calc((18 / 28) * 100%);
     pointer-events: none;
+    transition: opacity 0.5s linear;
+    opacity: 1;
+}
+
+.game-cell--defused.game-cell--flagged::after {
+    opacity: 0;
 }
 
 .game-cell--right-flagged.game-cell--flagged::after {
@@ -166,8 +160,16 @@
     border-right: 3px solid #0073a3;
     border-top: 3px solid #47c9ff;
     border-left: 3px solid #47c9ff;
-    transition: 0.15s opacity linear;
+    transition: 0.1s opacity linear;
     opacity: 1;
+}
+
+.game-cell:not(.game-cell--defused) .game-cell__btn:hover::after {
+    background-color: #47c9ff;
+    border-bottom-color: #0096d4;
+    border-right-color: #0096d4;
+    border-top-color: #a1e3ff;
+    border-left-color: #a1e3ff;
 }
 
 .game-cell__btn::before {
@@ -210,6 +212,16 @@
 
 .game-cell--blown-up .game-cell__btn {
     background-color: rgba(255, 0, 0, 0.9);
+    animation: blowUp 1s linear 1;
+}
+
+@keyframes blowUp {
+    0%, 30%, 60% {
+        background-color: #cacaca;
+    }
+    15%, 45%, 100% {
+        background-color: rgba(255, 0, 0, 0.9);
+    }
 }
 
 .game-cell--flagged.game-cell--right-flagged .game-cell__btn--mine {

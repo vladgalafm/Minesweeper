@@ -33,7 +33,8 @@ export const GameCell = ({
                 ? ' game-cell--right-flagged' : wrongFlagged
                 ? ' game-cell--wrong-flagged' : ''}
             ${!started ? ` game-cell--flashlight` : ''}`}
-             style={(!started && style) || {}} >
+             style={(!started && style) || {}}
+             onContextMenu={(e) => {e.preventDefault()}} >
             <button className={`game-cell__btn ${(opened && mine)
                 ? 'game-cell__btn--mine' : (opened && minesAround > 0)
                     ? `game-cell__btn--${minesAround}` : ''}`} disabled={opened}
