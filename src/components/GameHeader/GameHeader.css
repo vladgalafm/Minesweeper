@@ -26,10 +26,6 @@
     transition: opacity 0.1s linear;
 }
 
-.game-header__leave:hover {
-    opacity: 1;
-}
-
 .game-header__info {
     display: flex;
     align-items: center;
@@ -87,10 +83,6 @@
     box-shadow: 0 0 10px 0 #47c9ff;
 }
 
-.game-header__flag:hover {
-    box-shadow: 0 0 10px 0 #47c9ff;
-}
-
 @media screen and (min-width: 360px) {
     .game-header {
         border-top-width: 16px;
@@ -126,6 +118,15 @@
     }
     .game--wide .game-header__count {
         width: 56px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .game-header__leave:hover {
+        opacity: 1;
+    }
+    .game-header__flag:hover {
+        box-shadow: 0 0 10px 0 #47c9ff;
     }
 }
 

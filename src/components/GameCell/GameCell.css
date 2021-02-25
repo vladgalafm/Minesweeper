@@ -164,14 +164,6 @@
     opacity: 1;
 }
 
-.game-cell:not(.game-cell--defused) .game-cell__btn:hover::after {
-    background-color: #47c9ff;
-    border-bottom-color: #0096d4;
-    border-right-color: #0096d4;
-    border-top-color: #a1e3ff;
-    border-left-color: #a1e3ff;
-}
-
 .game-cell__btn::before {
     position: absolute;
     z-index: 3;
@@ -265,6 +257,16 @@
     }
     75% {
         opacity: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .game-cell:not(.game-cell--defused) .game-cell__btn:hover::after {
+        background-color: #47c9ff;
+        border-bottom-color: #0096d4;
+        border-right-color: #0096d4;
+        border-top-color: #a1e3ff;
+        border-left-color: #a1e3ff;
     }
 }
 

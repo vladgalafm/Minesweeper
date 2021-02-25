@@ -21,6 +21,8 @@
     margin-bottom: 3rem;
 }
 
-.menu-btn:hover {
-    box-shadow: 0 0.6rem 2.5rem 0 rgba(0, 63, 89, 0.25);
+@media screen and (min-width: 992px) {
+    .menu-btn:hover {
+        box-shadow: 0 0.6rem 2.5rem 0 rgba(0, 63, 89, 0.25);
+    }
 }

@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/DiffHistory/DiffHistory.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiffHistory/DiffHistory.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiffOption/DiffOption.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DiffOption/DiffOption.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DiffOption/DiffOption.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DiffOption/DiffOption.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameCell/GameCell.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Settings/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +24,7 @@
         <entry file="file://$PROJECT_DIR$/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="611" column="42" selection-start-line="611" selection-start-column="42" selection-end-line="611" selection-end-column="42" />
+              <caret line="611" column="53" lean-forward="true" selection-start-line="611" selection-start-column="53" selection-end-line="611" selection-end-column="53" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
                 <marker date="1614188336879" expanded="true" signature="10948:11526" ph="..." />
@@ -42,20 +33,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="32" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.css">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="85" column="29" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="29" />
+            <state relative-caret-position="204">
+              <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -73,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>return-confirm</find>
       <find>currentLevelData</find>
       <find>'game'</find>
       <find>hideModalHandler</find>
@@ -103,6 +105,7 @@
       <find>defuseMines</find>
       <find>modal__close</find>
       <find>#eaf9ff</find>
+      <find>:hover</find>
     </findStrings>
     <replaceStrings>
       <replace>modal</replace>
@@ -114,8 +117,8 @@
       <replace>#cacaca</replace>
     </replaceStrings>
     <dirStrings>
-      <dir>D:\0projects\react_sapper\src\components</dir>
       <dir>D:\0projects\react_sapper\src</dir>
+      <dir>D:\0projects\react_sapper\src\components</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -163,18 +166,18 @@
         <option value="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.js" />
         <option value="$PROJECT_DIR$/src/components/DiffOption/DiffOption.js" />
         <option value="$PROJECT_DIR$/src/components/DiffSelect/DiffSelect.css" />
-        <option value="$PROJECT_DIR$/src/components/DiffOption/DiffOption.css" />
         <option value="$PROJECT_DIR$/src/components/DiffHistory/DiffHistory.js" />
         <option value="$PROJECT_DIR$/src/components/DiffHistory/DiffHistory.css" />
-        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/App.js" />
-        <option value="$PROJECT_DIR$/src/components/Settings/Settings.js" />
         <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.js" />
-        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
+        <option value="$PROJECT_DIR$/src/App.css" />
         <option value="$PROJECT_DIR$/src/components/Modal/Modal.css" />
-        <option value="$PROJECT_DIR$/src/components/Settings/Settings.css" />
-        <option value="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" />
         <option value="$PROJECT_DIR$/src/components/GameHeader/GameHeader.css" />
+        <option value="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.css" />
+        <option value="$PROJECT_DIR$/src/components/DiffOption/DiffOption.css" />
+        <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.css" />
+        <option value="$PROJECT_DIR$/src/components/Settings/Settings.js" />
+        <option value="$PROJECT_DIR$/src/components/Settings/Settings.css" />
       </list>
     </option>
   </component>
@@ -360,7 +363,8 @@
       <workItem from="1613985378498" duration="812000" />
       <workItem from="1614022503163" duration="22684000" />
       <workItem from="1614107676651" duration="4956000" />
-      <workItem from="1614151721535" duration="25240000" />
+      <workItem from="1614151721535" duration="25522000" />
+      <workItem from="1614255524372" duration="2842000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -495,17 +499,24 @@
       <option name="project" value="LOCAL" />
       <updated>1614114148875</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="settings">
+      <created>1614190653404</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1614190653404</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="205214000" />
+    <option name="totallyTimeSpent" value="208338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3524962" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35779122" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -550,7 +561,8 @@
     <MESSAGE value="cells reveal optimisation" />
     <MESSAGE value="end game lose scenario" />
     <MESSAGE value="modal window close button" />
-    <option name="LAST_COMMIT_MESSAGE" value="modal window close button" />
+    <MESSAGE value="settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="settings" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/reportWebVitals.js" />
@@ -832,23 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="19" lean-forward="true" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="18" lean-forward="true" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameCell/GameCell.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -866,35 +861,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="123" column="26" lean-forward="true" selection-start-line="123" selection-start-column="26" selection-end-line="123" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Menu/Menu.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="611" column="42" selection-start-line="611" selection-start-column="42" selection-end-line="611" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1614188336879" expanded="true" signature="10948:11526" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -905,10 +875,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Modal/Modal.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="144" column="20" lean-forward="true" selection-start-line="144" selection-start-column="20" selection-end-line="144" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/GameHeader/GameHeader.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="85" column="29" selection-start-line="85" selection-start-column="22" selection-end-line="85" selection-end-column="29" />
+        <state relative-caret-position="213">
+          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="611" column="53" lean-forward="true" selection-start-line="611" selection-start-column="53" selection-end-line="611" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1614188336879" expanded="true" signature="10948:11526" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="41" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Settings/Settings.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
         </state>
       </provider>
     </entry>

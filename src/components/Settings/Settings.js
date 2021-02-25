@@ -10,16 +10,18 @@ export const Settings = ({
      returnHandler
 }) => (
     <section className="settings">
-        <button
-            className="settings__return"
-            aria-label="Return to menu"
-            onClick={returnHandler}>
-            <span />
-        </button>
-        <h2 className="settings__title">Settings</h2>
-        <DiffSelect
-            selectedDifficulty={difficulty}
-            changeDifficulty={changeDifficulty} />
-        <DiffHistory {...history} />
+        <div className="settings__content">
+            <button
+                className="settings__return"
+                aria-label="Return to menu"
+                onClick={returnHandler}>
+                <span />
+            </button>
+            <h2 className="settings__title">Settings</h2>
+            <DiffSelect
+                selectedDifficulty={difficulty}
+                changeDifficulty={changeDifficulty} />
+            <DiffHistory {...history} />
+        </div>
     </section>
 );
