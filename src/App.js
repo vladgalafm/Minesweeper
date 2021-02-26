@@ -33,6 +33,7 @@ export class App extends Component {
         this.minesAmount = minesAmount;
         this.gameLayoutMode = '';
         this.timerInterval = null;
+        this.touchTimer = null;
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
         this.runTimer = this.runTimer.bind(this);
         this.pauseTimer = this.pauseTimer.bind(this);
@@ -613,7 +614,8 @@ export class App extends Component {
                                     changeDifficulty={this.changeDifficulty}
                                     returnHandler={() => {this.switchBlockHandler('menu')}} />
                                 : displayedBlock === 'tutorial'
-                                    ? <Tutorial/>
+                                    ? <Tutorial
+                                        exitHandler={() => {this.switchBlockHandler('menu')}}  />
                                     : <Menu
                                         switchBlockHandler={this.switchBlockHandler} />
                     }

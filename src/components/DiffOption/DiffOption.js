@@ -12,7 +12,7 @@ export const DiffOption = ({value, label, mines, selected}) => (
         <label className="diff-option__label"
                htmlFor={value}>
             {label}<br/>
-            {value} field, {mines} mines
+            {value} grid, {mines} mines
         </label>
     </div>
 );

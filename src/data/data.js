@@ -8,7 +8,7 @@ export const minesAmount = {
 export const difficultyOptions = [
     { value: '9x9', label: 'Beginner' },
     { value: '9x16', label: 'Amateur' },
-    { value: '16x16', label: 'Amateur' },
+    { value: '16x16', label: 'Intermediate' },
     { value: '30x16', label: 'Expert' },
 ].map(option => ({
     ...option,
