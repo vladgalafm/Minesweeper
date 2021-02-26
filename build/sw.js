@@ -1,5 +1,5 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.2';
+const VERSION = 'v0.5.3';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
@@ -33,13 +33,13 @@ self.addEventListener('activate', function (e) {
     e.waitUntil(
         caches.keys().then(function (keyList) {
             const cacheWhitelist = keyList.filter(function(key) {
-                return key.indexOf(APP_PREFIX);
+                return key.indexOf(APP_PREFIX) > -1;
             });
 
             cacheWhitelist.push(CACHE_NAME);
 
-            return Promise.all(keyList.map(function (key, i) {
-                if (cacheWhitelist.indexOf(key) === -1) {
+            return Promise.all(cacheWhitelist.map(function (key, i) {
+                if (key !== CACHE_NAME) {
                     return caches.delete(keyList[i]);
                 }
             }))
