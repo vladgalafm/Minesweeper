@@ -30,7 +30,7 @@ export default function register () {
         }
 
         window.addEventListener('load', () => {
-            const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
+            const swUrl = `${process.env.PUBLIC_URL}/sw.js`;
 
             if (!isLocalhost) {
                 // Is not local host. Just register service worker
@@ -45,7 +45,7 @@ export default function register () {
 
 function registerValidSW (swUrl) {
     navigator.serviceWorker
-        .register(swUrl)
+        .register(swUrl, {scope: `${process.env.PUBLIC_URL}/`})
         .then(registration => {
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
