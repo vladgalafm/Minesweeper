@@ -1,5 +1,5 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.3';
+const VERSION = 'v0.5.4';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
@@ -24,7 +24,7 @@ self.addEventListener('install', function (e) {
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll(URLS);
-        })
+        }).then(self.skipWaiting())
     )
 });
 
