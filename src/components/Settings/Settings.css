@@ -65,3 +65,9 @@
         opacity: 1;
     }
 }
+
+@media screen and (min-width: 1400px) {
+    .settings__return {
+        padding: 20px 25px;
+    }
+}

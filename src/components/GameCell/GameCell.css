@@ -261,7 +261,7 @@
 }
 
 @media screen and (min-width: 992px) {
-    .game-cell:not(.game-cell--defused) .game-cell__btn:hover::after {
+    .game:not(.game--finished) .game-cell:not(.game-cell--defused) .game-cell__btn:hover::after {
         background-color: #47c9ff;
         border-bottom-color: #0096d4;
         border-right-color: #0096d4;

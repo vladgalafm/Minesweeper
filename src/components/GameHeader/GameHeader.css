@@ -131,7 +131,8 @@
 }
 
 @media screen and (min-width: 1400px) {
-    .game-header {
+    .game-header,
+    .game--wide .game-header {
         border-width: 30px;
         border-top-width: 24px;
         border-bottom-width: 8px;

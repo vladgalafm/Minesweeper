@@ -137,12 +137,12 @@
         min-width: 28em;
     }
     .modal__close {
-        width: 70px;
-        height: 70px;
+        width: 7rem;
+        height: 7rem;
     }
     .modal__close::before,
     .modal__close::after {
-        width: 36px;
+        width: 3.6rem;
     }
 }
 
@@ -158,5 +158,12 @@
     .modal__btn:nth-of-type(2):hover {
         color: #008ac3;
         border-color: #008ac3;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .modal__close::before,
+    .modal__close::after {
+        height: 4px;
     }
 }

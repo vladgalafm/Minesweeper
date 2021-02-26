@@ -41,11 +41,15 @@ export const Result = ({
                 </p>
             </div>
             <div>
-                <div className="result__stats result__stats--history">
-                    <p>
-                        Best time: {bestTime} seconds
-                    </p>
-                </div>
+                {
+                    bestTime && bestTime < Infinity
+                        ? (<div className="result__stats result__stats--history">
+                            <p>
+                                Best time: {bestTime}
+                            </p>
+                        </div>)
+                        : null
+                }
                 <div className="result__stats result__stats--history">
                     <p>
                         Games played: {gamesPlayed}

@@ -18,7 +18,8 @@ export const Game = ({
      clickOnCellHandler,
      toggleFlagOnCellHandler
 }) => (
-    <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
+    <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}` + `${started && !inProgress
+        ? ' game--finished' : ''}`}>
         <GameHeader
             inProgress={inProgress}
             timeProceed={timeProceed}

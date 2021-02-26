@@ -156,3 +156,10 @@
         background-color: #aaaaaa;
     }
 }
+
+@media screen and (min-width: 1400px) {
+    .tutorial__exit::before,
+    .tutorial__exit::after {
+        height: 4px;
+    }
+}
