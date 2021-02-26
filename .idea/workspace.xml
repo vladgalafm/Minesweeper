@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
+    <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="build v0.4">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.6e6c25bc.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/main.6e6c25bc.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/runtime-main.ac0b5813.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/static/js/runtime-main.ac0b5813.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,10 +22,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/manifest.json">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="340">
+              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -92,13 +107,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/DifficultySelect/DiffSelect.js" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/components/GameRow/GameRow.css" />
         <option value="$PROJECT_DIR$/src/components/GameRow/GameRow.js" />
         <option value="$PROJECT_DIR$/src/components/GameColumn/GameColumn.css" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/src/components/Game/Game.css" />
         <option value="$PROJECT_DIR$/src/components/ReturnConfirm/ReturnConfirm.js" />
@@ -143,6 +156,8 @@
         <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/package-lock.json" />
         <option value="$PROJECT_DIR$/src/App.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -260,7 +275,7 @@
       <workItem from="1614022503163" duration="22684000" />
       <workItem from="1614107676651" duration="4956000" />
       <workItem from="1614151721535" duration="25522000" />
-      <workItem from="1614255524372" duration="19217000" />
+      <workItem from="1614255524372" duration="21120000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -430,11 +445,18 @@
       <option name="project" value="LOCAL" />
       <updated>1614330637426</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="v0.4">
+      <created>1614331805464</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1614331805464</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224713000" />
+    <option name="totallyTimeSpent" value="226616000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -465,7 +487,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rotate blocker, menu component, app to class" />
     <MESSAGE value="menu, difficulty select" />
     <MESSAGE value="game component" />
     <MESSAGE value="cells" />
@@ -489,31 +510,11 @@
     <MESSAGE value="tutorial" />
     <MESSAGE value="prettify components" />
     <MESSAGE value="remove unnecessary console messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary console messages" />
+    <MESSAGE value="v0.4" />
+    <MESSAGE value="build v0.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="build v0.4" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="34">
-            <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/GameRow/GameRow.css" />
-    <entry file="file://$PROJECT_DIR$/src/components/GameRow/GameRow.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/img/minesweeper_512.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/img/minesweeper_192.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -855,8 +856,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/manifest.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state relative-caret-position="442">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/2.9230834a.chunk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/js/main.6e6c25bc.chunk.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/static/css/main.cad3e272.chunk.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#1592#3555#1" expanded="true" />
+            <element signature="e#3834#6749#1" expanded="true" />
+            <element signature="e#6902#8317#2" expanded="true" />
+            <element signature="e#8706#9805#1" expanded="true" />
+            <element signature="e#11680#12779#1" expanded="true" />
+            <element signature="e#13143#15158#2" expanded="true" />
+            <element signature="e#15697#17040#2" expanded="true" />
+            <element signature="e#17077#18672#2" expanded="true" />
+            <element signature="e#18709#20072#2" expanded="true" />
+            <element signature="e#20109#21412#2" expanded="true" />
+            <element signature="e#21449#22588#2" expanded="true" />
+            <element signature="e#22625#24296#2" expanded="true" />
+            <element signature="e#24333#25420#2" expanded="true" />
+            <element signature="e#25457#28168#2" expanded="true" />
+            <element signature="e#28208#29623#2" expanded="true" />
+            <element signature="e#31395#32810#2" expanded="true" />
+            <element signature="e#36745#38708#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
         </state>
       </provider>
     </entry>
