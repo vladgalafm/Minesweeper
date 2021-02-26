@@ -17,23 +17,21 @@ export const Game = ({
      toggleFlagMode,
      clickOnCellHandler,
      toggleFlagOnCellHandler
-}) => {
-    return (
-        <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
-            <GameHeader
-                inProgress={inProgress}
-                timeProceed={timeProceed}
-                flagMode={flagMode}
-                minesLeft={minesLeft}
-                leaveGameHandler={leaveGameHandler}
-                toggleFlagMode={toggleFlagMode} />
-            <GameField
-                started={started}
-                cols={cols}
-                rows={rows}
-                cells={cells}
-                clickOnCellHandler={clickOnCellHandler}
-                toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
-        </div>
-    );
-};
+}) => (
+    <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}`}>
+        <GameHeader
+            inProgress={inProgress}
+            timeProceed={timeProceed}
+            flagMode={flagMode}
+            minesLeft={minesLeft}
+            leaveGameHandler={leaveGameHandler}
+            toggleFlagMode={toggleFlagMode} />
+        <GameField
+            started={started}
+            cols={cols}
+            rows={rows}
+            cells={cells}
+            clickOnCellHandler={clickOnCellHandler}
+            toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
+    </div>
+);
