@@ -12,7 +12,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = 'v0.5.1';
+        this.version = 'v0.5.2';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,
@@ -33,7 +33,6 @@ export class App extends Component {
         this.minesAmount = minesAmount;
         this.gameLayoutMode = '';
         this.timerInterval = null;
-        this.touchTimer = null;
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
         this.runTimer = this.runTimer.bind(this);
         this.pauseTimer = this.pauseTimer.bind(this);

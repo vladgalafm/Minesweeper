@@ -27,6 +27,12 @@
     text-align: center;
 }
 
+.settings__warn {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: #777777;
+}
+
 .settings__return {
     position: absolute;
     top: 0;
@@ -46,6 +52,12 @@
     background: transparent url("../../img/icon_back.png") 50% 50% no-repeat;
     background-size: contain;
     filter: invert(10%) sepia(19%) saturate(7335%) hue-rotate(184deg) brightness(97%) contrast(102%);
+}
+
+@media screen and (min-width: 568px) {
+    .settings__warn {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 992px) {
