@@ -40,8 +40,6 @@ export class App extends Component {
     }
 
     componentDidMount() {
-        console.debug('App mount');
-
         // if got unfinished game from storage
         if (this.state.game.inProgress) {
             this.switchBlockHandler('game');
@@ -74,7 +72,6 @@ export class App extends Component {
     }
 
     componentWillUnmount() {
-        console.debug('App unmount');
         window.removeEventListener('resize', this.resizeAppBlock);
     }
 
@@ -83,7 +80,6 @@ export class App extends Component {
         this.setGameLayoutMode(
             window.innerHeight, window.innerWidth,
             this.state.game.cols, this.state.game.rows);
-        console.debug('Window height: ', window.innerHeight);
     }
 
     runTimer(force) {
@@ -306,8 +302,6 @@ export class App extends Component {
                     minesCount += 1;
                 }
             }
-
-            console.debug(minesIdCollection);
 
             const cells = prevState.game.cells.map((subArr, x) => {
                 return subArr.map((cell, y) => {
