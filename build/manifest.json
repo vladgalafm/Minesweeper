@@ -1,6 +1,6 @@
 {
   "short_name": "Minesweeper",
-  "name": "Minesweeper v0.5",
+  "name": "Minesweeper v0.5.1",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,8 +19,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
-  "scope": "/",
+  "start_url": "/Minesweeper/",
+  "scope": "/Minesweeper/",
   "display": "fullscreen",
   "theme_color": "#006994",
   "background_color": "#ffffff"
