@@ -12,7 +12,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = 'v0.2';
+        this.version = 'v0.4';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,

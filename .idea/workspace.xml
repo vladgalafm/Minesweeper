@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bc994fc3-40f1-4295-a798-bbceada82dfd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/components/Game/Game.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Game/Game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GameHeader/GameHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu/Menu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Modal/Modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/Modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +14,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -29,11 +37,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'game'</find>
-      <find>hideModalHandler</find>
-      <find>ModalHandler</find>
-      <find>displayedModal</find>
-      <find>finished</find>
       <find>'menu'</find>
       <find>z-index</find>
       <find>ffffff</find>
@@ -59,6 +62,11 @@
       <find>:hover</find>
       <find>squares</find>
       <find>modal__close</find>
+      <find>console.debug</find>
+      <find>console</find>
+      <find>console.log</find>
+      <find>0.1</find>
+      <find>0.2</find>
     </findStrings>
     <replaceStrings>
       <replace>modal</replace>
@@ -70,10 +78,12 @@
       <replace>#cacaca</replace>
       <replace>cells</replace>
       <replace>tutorial__exit</replace>
+      <replace>console.debug</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\0projects\react_sapper\src</dir>
       <dir>D:\0projects\react_sapper\src\components</dir>
+      <dir>D:\0projects\react_sapper</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -82,8 +92,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/App.scss" />
-        <option value="$PROJECT_DIR$/src/registerServiceWorker.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/components/DifficultySelect/DiffSelect.js" />
         <option value="$PROJECT_DIR$/README.md" />
@@ -102,7 +110,6 @@
         <option value="$PROJECT_DIR$/src/components/Loader/Loader.js" />
         <option value="$PROJECT_DIR$/src/components/Loader/Loader.css" />
         <option value="$PROJECT_DIR$/src/components/GameField/GameField.css" />
-        <option value="$PROJECT_DIR$/public/manifest.json" />
         <option value="$PROJECT_DIR$/src/components/Result/Result.js" />
         <option value="$PROJECT_DIR$/src/components/Result/Result.css" />
         <option value="$PROJECT_DIR$/src/components/Menu/Menu.css" />
@@ -121,7 +128,6 @@
         <option value="$PROJECT_DIR$/src/components/DiffOption/DiffOption.js" />
         <option value="$PROJECT_DIR$/src/data/data.js" />
         <option value="$PROJECT_DIR$/src/components/Tutorial/Tutorial.js" />
-        <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/components/GameField/GameField.js" />
         <option value="$PROJECT_DIR$/src/components/GameColumn/GameColumn.js" />
         <option value="$PROJECT_DIR$/src/components/GameCell/GameCell.js" />
@@ -133,6 +139,10 @@
         <option value="$PROJECT_DIR$/src/components/MenuBtn/MenuBtn.js" />
         <option value="$PROJECT_DIR$/src/components/Modal/Modal.js" />
         <option value="$PROJECT_DIR$/src/components/RotateBlocker/RotateBlocker.js" />
+        <option value="$PROJECT_DIR$/src/registerServiceWorker.js" />
+        <option value="$PROJECT_DIR$/public/manifest.json" />
+        <option value="$PROJECT_DIR$/package-lock.json" />
+        <option value="$PROJECT_DIR$/src/App.js" />
       </list>
     </option>
   </component>
@@ -176,131 +186,6 @@
               <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DiffHistory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DiffOption" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="DiffSelect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GameCell" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GameColumn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GameField" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="GameHeader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Loader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Menu" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="MenuBtn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Modal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Result" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="RotateBlocker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Settings" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Tutorial" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="TutorialStatic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_sapper" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_sapper" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -375,7 +260,7 @@
       <workItem from="1614022503163" duration="22684000" />
       <workItem from="1614107676651" duration="4956000" />
       <workItem from="1614151721535" duration="25522000" />
-      <workItem from="1614255524372" duration="17647000" />
+      <workItem from="1614255524372" duration="19217000" />
     </task>
     <task id="LOCAL-00001" summary="rotate blocker, menu component, app to class">
       <created>1612710319626</created>
@@ -531,11 +416,25 @@
       <option name="project" value="LOCAL" />
       <updated>1614329962029</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="prettify components">
+      <created>1614330252099</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1614330252099</updated>
+    </task>
+    <task id="LOCAL-00024" summary="remove unnecessary console messages">
+      <created>1614330637425</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1614330637426</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223143000" />
+    <option name="totallyTimeSpent" value="224713000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -588,33 +487,11 @@
     <MESSAGE value="settings" />
     <MESSAGE value="remove mobile hover effects, settings overflow" />
     <MESSAGE value="tutorial" />
-    <option name="LAST_COMMIT_MESSAGE" value="tutorial" />
+    <MESSAGE value="prettify components" />
+    <MESSAGE value="remove unnecessary console messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove unnecessary console messages" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/robots.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -639,13 +516,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/img/minesweeper_192.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="74" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Game/Game.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -677,13 +547,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -761,17 +624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="40" lean-forward="true" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="608" column="86" selection-start-line="608" selection-start-column="86" selection-end-line="608" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <marker date="1614286897019" expanded="true" signature="10980:11558" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -960,6 +812,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="89" column="48" selection-start-line="89" selection-start-column="48" selection-end-line="89" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/registerServiceWorker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1071">
+          <caret line="63" column="26" selection-start-line="63" selection-start-column="26" selection-end-line="63" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <marker date="1614331509760" expanded="true" signature="10796:11374" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/manifest.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
         </state>
       </provider>
     </entry>
