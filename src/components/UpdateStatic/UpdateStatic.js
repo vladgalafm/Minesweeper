@@ -7,7 +7,7 @@ export const UpdateStatic = ({version}) => (
             Application Update
         </h2>
         <h3>
-            Version {version}: what's new?
+            Version {version} is ready to install!<br/>What's new?
         </h3>
         <ul>
             <li>
@@ -17,8 +17,8 @@ export const UpdateStatic = ({version}) => (
                 <i>Caution: after update your unfinished game will be deleted.</i>
             </li>
             <li>
-                <b>Updating cache fix</b>: no need to reload page to clear old
-                caches after updates - application will do it by itself.
+                <b>Updating cache fix</b>: by confirming new version installation,
+                application triggers page reload, which helps it to resolve old caches issue.
             </li>
         </ul>
     </div>

@@ -47,6 +47,10 @@ function registerValidSW (swUrl) {
     navigator.serviceWorker
         .register(swUrl, {scope: `${process.env.PUBLIC_URL}/`})
         .then(registration => {
+            if (registration.waiting) {
+                window.swWaitingReg = registration;
+            }
+
             registration.onupdatefound = () => {
                 const installingWorker = registration.installing;
                 installingWorker.onstatechange = () => {

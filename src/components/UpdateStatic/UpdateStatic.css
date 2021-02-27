@@ -12,11 +12,10 @@
 
 .update-static__title {
     position: absolute;
-    top: 1rem;
+    top: 2.75rem;
     left: 50%;
     transform: translateX(-50%);
     font-size: calc((22 / 18) * 1em);
-    line-height: 4rem;
     font-weight: 700;
     white-space: nowrap;
 }
@@ -47,10 +46,16 @@
 
 @media screen and (min-width: 480px) {
     .update-static__title {
-        top: 2rem;
+        top: 3rem;
     }
     .update-static li::before {
         top: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .update-static__title {
+        top: 3.5rem;
     }
 }
 

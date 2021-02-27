@@ -12,7 +12,6 @@ import './App.css';
 /*
 * Storage names explained:
 * _hv-m-v: app version
-* _hv-m-n: app update notification, if exists - user already seen it
 * _hv-m-g: current game data
 * _hv-m-h: user's history data
 * */
@@ -20,9 +19,10 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.5';
+        this.version = '0.5.6';
         this.state = {
             loaderState: 'visible',
+            updateAlertReady: true,
             modalHidden: false,
             displayedBlock: '',
             displayedModal: '',
@@ -53,11 +53,7 @@ export class App extends Component {
             this.switchModalHandler('unfinished');
         }
 
-        if (localStorage.getItem('_hv-m-v') !== this.version
-            || !localStorage.getItem('_hv-m-n')) {
-            // todo notify user about new version features (switchModalHandler)
-            this.switchModalHandler('update');
-            localStorage.removeItem('_hv-m-n');
+        if (localStorage.getItem('_hv-m-v') !== this.version) {
             localStorage.setItem('_hv-m-v', this.version);
         }
 
@@ -76,6 +72,14 @@ export class App extends Component {
         if (rows * cols - safeCellsRevealed === this.minesAmount[difficulty]
             && inProgress) {
             this.setWinState();
+        }
+
+        // trigger update modal to reload page after new sw installed
+        if (window.swWaitingReg && this.state.updateAlertReady) {
+            this.setState({
+                updateAlertReady: false,
+            });
+            this.switchModalHandler('update');
         }
 
         localStorage.setItem('_hv-m-g', JSON.stringify(this.state.game));
@@ -235,9 +239,14 @@ export class App extends Component {
         this.runTimer();
     };
 
-    confirmUpdateNotification = () => {
-        this.switchModalHandler('');
-        localStorage.setItem('_hv-m-n', 'seen');
+    confirmUpdate = () => {
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+        });
+
+        if (window.swWaitingReg && window.swWaitingReg.waiting) {
+            window.swWaitingReg.waiting.postMessage({ type: 'SKIP_WAITING' });
+        }
     };
 
     enterMenuWithoutModal = () => {
@@ -660,8 +669,7 @@ export class App extends Component {
                     ? <Modal
                         updateVersion={this.version}
                         btn1Name={'Confirm'}
-                        btn1Action={this.confirmUpdateNotification.bind(this)}
-                        hideModalHandler={this.confirmUpdateNotification.bind(this)} />
+                        btn1Action={this.confirmUpdate.bind(this)} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
