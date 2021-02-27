@@ -1,10 +1,11 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.4';
+const VERSION = 'v0.5.5';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
     '/Minesweeper/index.html'
 ];
+let needUpdate = false;
 
 // Respond with cached resources
 self.addEventListener('fetch', function (e) {
@@ -21,6 +22,7 @@ self.addEventListener('fetch', function (e) {
 
 // Cache resources
 self.addEventListener('install', function (e) {
+    needUpdate = true;
     e.waitUntil(
         caches.open(CACHE_NAME).then(function (cache) {
             return cache.addAll(URLS);
@@ -43,6 +45,12 @@ self.addEventListener('activate', function (e) {
                     return caches.delete(keyList[i]);
                 }
             }))
+        }).then(function() {
+            console.debug('Should we reload the page?');
+            if (needUpdate) {
+                console.debug('Yes we should');
+                location.reload();
+            }
         })
     )
 });
