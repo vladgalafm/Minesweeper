@@ -45,7 +45,7 @@ export const Result = ({
                     bestTime && bestTime < Infinity
                         ? (<div className="result__stats result__stats--history">
                             <p>
-                                Best time: {bestTime}
+                                Best time: {bestTime} seconds
                             </p>
                         </div>)
                         : null

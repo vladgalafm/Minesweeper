@@ -7,7 +7,7 @@ export const UpdateStatic = ({version}) => (
             Application Update
         </h2>
         <h3>
-            Version {version} is ready to install!<br/>What's new?
+            New version {version} is already there!<br/>What's new?
         </h3>
         <ul>
             <li>
