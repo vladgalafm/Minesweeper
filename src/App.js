@@ -9,10 +9,18 @@ import { Loader } from "./components/Loader/Loader";
 import { gameTemplate, historyTemplate, minesAmount, cellTemplate } from "./data/data";
 import './App.css';
 
+/*
+* Storage names explained:
+* _hv-m-v: app version
+* _hv-m-n: app update notification, if exists - user already seen it
+* _hv-m-g: current game data
+* _hv-m-h: user's history data
+* */
+
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = 'v0.5.4';
+        this.version = '0.5.5';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,
@@ -45,8 +53,11 @@ export class App extends Component {
             this.switchModalHandler('unfinished');
         }
 
-        if (localStorage.getItem('_hv-m-v') !== this.version) {
+        if (localStorage.getItem('_hv-m-v') !== this.version
+            || !localStorage.getItem('_hv-m-n')) {
             // todo notify user about new version features (switchModalHandler)
+            this.switchModalHandler('update');
+            localStorage.removeItem('_hv-m-n');
             localStorage.setItem('_hv-m-v', this.version);
         }
 
@@ -222,6 +233,11 @@ export class App extends Component {
     continueGameConfirm = () => {
         this.switchModalHandler('');
         this.runTimer();
+    };
+
+    confirmUpdateNotification = () => {
+        this.switchModalHandler('');
+        localStorage.setItem('_hv-m-n', 'seen');
     };
 
     enterMenuWithoutModal = () => {
@@ -618,28 +634,34 @@ export class App extends Component {
                     displayedModal === 'leave-confirm'
                     ? <Modal
                         content={'Are you sure you want to leave to menu? Game progress will be lost.'}
-                        btn1Name={'Leave'}
-                        btn2Name={'Stay'}
-                        btn1Action={this.leaveGameConfirm.bind(this)}
-                        btn2Action={() => {this.switchModalHandler('')}}
+                        btn1Name={'Stay'}
+                        btn2Name={'Leave'}
+                        btn1Action={() => {this.switchModalHandler('')}}
+                        btn2Action={this.leaveGameConfirm.bind(this)}
                         hideModalHandler={() => {this.switchModalHandler('')}} />
                     : displayedModal === 'unfinished'
                     ? <Modal
                         content={'You have an unfinished game. Would you like to continue?'}
-                        btn1Name={'To Menu'}
-                        btn2Name={'Continue'}
-                        btn1Action={this.leaveGameConfirm.bind(this)}
-                        btn2Action={this.continueGameConfirm.bind(this)} />
+                        btn1Name={'Continue'}
+                        btn2Name={'To Menu'}
+                        btn1Action={this.continueGameConfirm.bind(this)}
+                        btn2Action={this.leaveGameConfirm.bind(this)} />
                     : displayedModal === 'result'
                     ? <Modal
                         result={result}
                         timeProceed={timeProceed}
                         history={history}
-                        btn1Name={'To Menu'}
-                        btn2Name={'New Game'}
-                        btn1Action={this.enterMenuWithoutModal.bind(this)}
-                        btn2Action={this.prepareNewGame.bind(this)}
+                        btn1Name={'New Game'}
+                        btn2Name={'To Menu'}
+                        btn1Action={this.prepareNewGame.bind(this)}
+                        btn2Action={this.enterMenuWithoutModal.bind(this)}
                         hideModalHandler={() => {this.toggleModalVisibilityHandler(true)}} />
+                    : displayedModal === 'update'
+                    ? <Modal
+                        updateVersion={this.version}
+                        btn1Name={'Confirm'}
+                        btn1Action={this.confirmUpdateNotification.bind(this)}
+                        hideModalHandler={this.confirmUpdateNotification.bind(this)} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
