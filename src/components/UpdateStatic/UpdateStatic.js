@@ -16,10 +16,6 @@ export const UpdateStatic = ({version}) => (
                 notification with list of added features or fixed problems.<br/>
                 <i>Caution: after update your unfinished game will be deleted.</i>
             </li>
-            <li>
-                <b>Updating cache fix</b>: by confirming new version installation,
-                application triggers page reload, which helps it to resolve old caches issue.
-            </li>
         </ul>
     </div>
 );
