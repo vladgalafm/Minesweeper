@@ -1,10 +1,11 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.9';
+const VERSION = 'v0.5.9.1';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
     '/Minesweeper/index.html',
-    '/Minesweeper/update.html'
+    '/Minesweeper/update.html',
+    '/Minesweeper/offline.html'
 ];
 
 // Respond with cached resources
@@ -13,6 +14,14 @@ self.addEventListener('fetch', function (e) {
         caches.match(e.request).then(function (request) {
             if (request) {
                 return request;
+
+            } else if (!/vladgalafm\.github\.io/.test(e.request.url)) {
+                return fetch(e.request).catch(function (error) {
+                    return caches.open(CACHE_NAME).then(function (cache) {
+                        return cache.match('/Minesweeper/offline.html');
+                    })
+                });
+
             } else {
                 return fetch(e.request).then(function(response) {
                     if (response.status === 200) {
