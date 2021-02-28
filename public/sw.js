@@ -1,5 +1,5 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.9.1';
+const VERSION = 'v0.5.9.2';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
@@ -27,7 +27,9 @@ self.addEventListener('fetch', function (e) {
                     if (response.status === 200) {
                         caches.open(CACHE_NAME).then(function (cache) {
                             return cache.add(response.url.replace(location.origin, ''));
-                        })
+                        });
+                        return response;
+
                     } else if (response.status === 404) {
                         return caches.open(CACHE_NAME).then(function (cache) {
                             return cache.match('/Minesweeper/update.html');

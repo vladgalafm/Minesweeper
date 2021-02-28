@@ -20,7 +20,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.9.1';
+        this.version = '0.5.9.2';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,
