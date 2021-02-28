@@ -1,9 +1,10 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.8';
+const VERSION = 'v0.5.9';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
-    '/Minesweeper/index.html'
+    '/Minesweeper/index.html',
+    '/Minesweeper/update.html'
 ];
 
 // Respond with cached resources
@@ -13,7 +14,17 @@ self.addEventListener('fetch', function (e) {
             if (request) {
                 return request;
             } else {
-                return fetch(e.request);
+                return fetch(e.request).then(function(response) {
+                    if (response.status === 200) {
+                        caches.open(CACHE_NAME).then(function (cache) {
+                            return cache.add(response.url.replace(location.origin, ''));
+                        })
+                    } else if (response.status === 404) {
+                        return caches.open(CACHE_NAME).then(function (cache) {
+                            return cache.match('/Minesweeper/update.html');
+                        })
+                    }
+                });
             }
         })
     )
