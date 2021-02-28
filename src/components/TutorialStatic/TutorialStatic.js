@@ -64,7 +64,7 @@ export const TutorialStatic = () => (
                 </li>
                 <li>
                     If cell contains a number - it shows how many mines
-                    are hidden in eight cells around. This number helps determine
+                    are hidden in the eight cells around. This number helps determine
                     where the safe cells are.
                 </li>
             </ul>

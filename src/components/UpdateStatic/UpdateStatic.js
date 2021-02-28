@@ -11,10 +11,10 @@ export const UpdateStatic = ({version}) => (
         </h3>
         <ul>
             <li>
-                <b>New version notification:</b> from now, every time
-                application gets new version update - you will see this
-                notification with list of added features or fixed problems.<br/>
-                <i>Caution: after update your unfinished game will be deleted.</i>
+                <b>Application update procedure:</b> after receiving new update,
+                you'll be redirected to a static page, where you'll need to
+                confirm new version installation.<br/>
+                <i>Or you can just reload application web page ;)</i>
             </li>
         </ul>
     </div>
