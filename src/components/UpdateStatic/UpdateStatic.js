@@ -11,10 +11,9 @@ export const UpdateStatic = ({version}) => (
         </h3>
         <ul>
             <li>
-                <b>Application update procedure:</b> after receiving new update,
-                you'll be redirected to a static page, where you'll need to
-                confirm new version installation.<br/>
-                <i>Or you can just reload application web page ;)</i>
+                <b>Improved caching procedure:</b> after receiving new version
+                you'll need to confirm update installation. Page will reload
+                and caches will be stored.
             </li>
         </ul>
     </div>

@@ -20,7 +20,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.9.2';
+        this.version = '0.5.9.4';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,
@@ -234,9 +234,9 @@ export class App extends Component {
         this.runTimer();
     };
 
-    confirmUpdateNotification = () => {
-        this.switchModalHandler('');
+    confirmUpdate = () => {
         localStorage.setItem('_hv-m-n', 'seen');
+        window.location.reload();
     };
 
     enterMenuWithoutModal = () => {
@@ -659,8 +659,7 @@ export class App extends Component {
                     ? <Modal
                         updateVersion={this.version}
                         btn1Name={'Confirm'}
-                        btn1Action={this.confirmUpdateNotification.bind(this)}
-                        hideModalHandler={this.confirmUpdateNotification.bind(this)} />
+                        btn1Action={this.confirmUpdate.bind(this)} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
