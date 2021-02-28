@@ -20,7 +20,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.9';
+        this.version = '0.5.9.1';
         this.state = {
             loaderState: 'visible',
             modalHidden: false,
@@ -55,7 +55,6 @@ export class App extends Component {
 
         if (localStorage.getItem('_hv-m-v') !== this.version
             || !localStorage.getItem('_hv-m-n')) {
-            // todo notify user about new version features (switchModalHandler)
             this.switchModalHandler('update');
             localStorage.removeItem('_hv-m-n');
             localStorage.setItem('_hv-m-v', this.version);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minesweeper | Offline</title>
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#006994" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 10px;
+        }
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            line-height: 1.5;
+            background: radial-gradient(circle at center, #f2fbff 0, #daf4fe 100%);
+        }
+        .update {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .update__content {
+            padding: 2rem;
+            max-width: 40rem;
+        }
+        .update__content {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #003f59;
+        }
+        @media screen and (min-width: 992px) {
+            html {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="update">
+    <div class="update__content">
+        <p>
+            You are offline
+        </p>
+    </div>
+</div>
+</body>
+</html>
