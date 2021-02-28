@@ -20,9 +20,10 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.9.4';
+        this.version = '0.5.9.5';
         this.state = {
             loaderState: 'visible',
+            updateNotifyEnabled: true,
             modalHidden: false,
             displayedBlock: '',
             displayedModal: '',
@@ -47,18 +48,10 @@ export class App extends Component {
     }
 
     componentDidMount() {
-        // if got unfinished game from storage
-        if (this.state.game.inProgress) {
-            this.switchBlockHandler('game');
-            this.switchModalHandler('unfinished');
-        }
-
-        if (localStorage.getItem('_hv-m-v') !== this.version
-            || !localStorage.getItem('_hv-m-n')) {
-            this.switchModalHandler('update');
-            localStorage.removeItem('_hv-m-n');
-            localStorage.setItem('_hv-m-v', this.version);
-        }
+        // 1. Check if new sw.js installed. If not - then:
+        // 2. Check if got unfinished game from storage. If not - then:
+        // 3. Check if new version has been installed
+        this.checkIfWorkerUpdated() || this.checkIfGameInProgress() || this.checkIfNewVersionInstalled();
 
         this.resizeAppBlock();
         window.addEventListener('resize', this.resizeAppBlock);
@@ -76,6 +69,9 @@ export class App extends Component {
             && inProgress) {
             this.setWinState();
         }
+
+        // looking for updates
+        this.checkIfWorkerUpdated();
 
         localStorage.setItem('_hv-m-g', JSON.stringify(this.state.game));
     }
@@ -116,6 +112,38 @@ export class App extends Component {
                 }
             }));
         }, 1000);
+    };
+
+    checkIfWorkerUpdated = () => {
+        if (window.installingWorker && this.state.updateNotifyEnabled
+            && !this.state.game.inProgress && !this.state.game.started) {
+            this.setState({
+                updateNotifyEnabled: false,
+            });
+            this.switchModalHandler('confirm-update');
+            return true;
+        }
+        return false;
+    };
+
+    checkIfGameInProgress = () => {
+        if (this.state.game.inProgress) {
+            this.switchBlockHandler('game');
+            this.switchModalHandler('unfinished');
+            return true;
+        }
+        return false;
+    };
+
+    checkIfNewVersionInstalled = () => {
+        if (localStorage.getItem('_hv-m-v') !== this.version
+            || !localStorage.getItem('_hv-m-n')) {
+            this.switchModalHandler('update');
+            localStorage.removeItem('_hv-m-n');
+            localStorage.setItem('_hv-m-v', this.version);
+            return true;
+        }
+        return false;
     };
 
     setWinState = () => {
@@ -234,9 +262,9 @@ export class App extends Component {
         this.runTimer();
     };
 
-    confirmUpdate = () => {
+    hideUpdateNotification = () => {
+        this.switchModalHandler('');
         localStorage.setItem('_hv-m-n', 'seen');
-        window.location.reload();
     };
 
     enterMenuWithoutModal = () => {
@@ -659,7 +687,18 @@ export class App extends Component {
                     ? <Modal
                         updateVersion={this.version}
                         btn1Name={'Confirm'}
-                        btn1Action={this.confirmUpdate.bind(this)} />
+                        btn1Action={this.hideUpdateNotification.bind(this)}
+                        hideModalHandler={this.hideUpdateNotification.bind(this)} />
+                    : displayedModal === 'confirm-update'
+                    ? <Modal
+                        content={'Good news! We have just updated the application! '
+                            + 'To install the latest version click the button below '
+                            + '(the page will reload).'}
+                        btn1Name={'Update'}
+                        btn2Name={'Later'}
+                        btn1Action={() => {window.location.reload()}}
+                        btn2Action={() => {this.switchModalHandler('')}}
+                        hideModalHandler={() => {this.switchModalHandler('')}} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
