@@ -11,8 +11,10 @@ export const UpdateStatic = ({version}) => (
         </h3>
         <ul>
             <li>
-                <b>Update notification:</b> you will receive notification about update
-                if new application version is ready to install.
+                <b>Update notification:</b> prevent showing notifications for new users.
+            </li>
+            <li>
+                <b>SEO improvement:</b> added prefix attribute has been for updating graph cache.
             </li>
         </ul>
     </div>
