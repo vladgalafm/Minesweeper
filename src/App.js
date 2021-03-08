@@ -27,7 +27,7 @@ import './App.css';
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.6.0';
+        this.version = '0.6.1';
         this.state = {
             sound: localStorage.getItem('_hv-m-s')
                 ? !!parseInt(localStorage.getItem('_hv-m-s'))
