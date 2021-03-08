@@ -1,7 +1,12 @@
 import React from 'react';
 import './DiffOption.css';
 
-export const DiffOption = ({value, label, mines, selected}) => (
+export const DiffOption = ({
+       value,
+       label,
+       mines,
+       selected
+}) => (
     <div className={`diff-option diff-option--${value}`}>
         <input className="diff-option__input"
                type="radio"
@@ -9,8 +14,7 @@ export const DiffOption = ({value, label, mines, selected}) => (
                id={value}
                name="difficulty"
                defaultChecked={selected} />
-        <label className="diff-option__label"
-               htmlFor={value}>
+        <label className="diff-option__label" htmlFor={value} >
             {label}<br/>
             {value} grid, {mines} mines
         </label>

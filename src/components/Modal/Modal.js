@@ -41,12 +41,16 @@ export const Modal = ({
             {
                 btn1Name && btn1Action
                     ? (<div className="modal__btn-wrap">
-                        <button className="modal__btn" onClick={btn1Action}>
+                        <button
+                            className="modal__btn"
+                            onClick={btn1Action} >
                             {btn1Name}
                         </button>
                         {
                             btn2Name && btn2Action
-                                ? (<button className="modal__btn" onClick={btn2Action}>
+                                ? (<button
+                                    className="modal__btn"
+                                    onClick={btn2Action} >
                                     {btn2Name}
                                 </button>)
                                 : null

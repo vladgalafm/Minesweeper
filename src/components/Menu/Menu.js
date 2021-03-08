@@ -2,7 +2,11 @@ import React from 'react';
 import './Menu.css';
 import {MenuBtn} from "../MenuBtn/MenuBtn";
 
-export const Menu = ({switchBlockHandler}) => (
+export const Menu = ({
+     switchBlockHandler,
+     clickSoundHandler,
+     openSoundHandler
+}) => (
     <section className="menu">
         <h1 className="menu__title">
             Minesweeper
@@ -10,13 +14,23 @@ export const Menu = ({switchBlockHandler}) => (
         <div className="menu__btn-wrap">
             <MenuBtn
                 title="New game"
-                switchBlockHandler={() => {switchBlockHandler('new-game')}} />
+                switchBlockHandler={() => {
+                    // clickSoundHandler();
+                    switchBlockHandler('new-game');
+                    openSoundHandler();
+                }} />
             <MenuBtn
                 title="Settings"
-                switchBlockHandler={() => {switchBlockHandler('settings')}} />
+                switchBlockHandler={() => {
+                    clickSoundHandler();
+                    switchBlockHandler('settings');
+                }} />
             <MenuBtn
                 title="Tutorial"
-                switchBlockHandler={() => {switchBlockHandler('tutorial')}} />
+                switchBlockHandler={() => {
+                    clickSoundHandler();
+                    switchBlockHandler('tutorial');
+                }} />
         </div>
     </section>
 );

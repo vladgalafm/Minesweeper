@@ -27,6 +27,35 @@
     text-align: center;
 }
 
+.settings__sound {
+    position: relative;
+    padding-left: 3.5em;
+    font-size: inherit;
+    line-height: 2.5em;
+    font-weight: 700;
+    border: none;
+    background: transparent;
+}
+
+.settings__sound::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 80%;
+    width: 3.5em;
+    background: transparent url("../../img/sound_off.png") 0 50% no-repeat;
+    background-size: auto 100%;
+    filter: invert(10%) sepia(19%) saturate(7335%) hue-rotate(184deg) brightness(97%) contrast(102%);
+    opacity: 0.8;
+    transition: opacity 0.1s linear;
+}
+
+.settings__sound--on::after {
+    background-image: url("../../img/sound_on.png");
+}
+
 .settings__warn {
     font-size: 1.4rem;
     font-style: italic;
@@ -61,6 +90,7 @@
 }
 
 @media screen and (min-width: 992px) {
+    .settings__sound:hover::after,
     .settings__return:hover {
         opacity: 1;
     }

@@ -11,10 +11,13 @@ export const UpdateStatic = ({version}) => (
         </h3>
         <ul>
             <li>
-                <b>Update notification:</b> prevent showing notifications for new users.
+                <b>Sound:</b> several sound effects have been added. You can
+                switch them on/off directly in <i>Settings</i> tab.<br/>
+                <i>By default sound effects are enabled.</i>
             </li>
             <li>
-                <b>SEO improvement:</b> added prefix attribute has been for updating graph cache.
+                <b>Result modal issue:</b> player received result notification even
+                when he immediately went to menu after game finished. Fixed this problem.
             </li>
         </ul>
     </div>

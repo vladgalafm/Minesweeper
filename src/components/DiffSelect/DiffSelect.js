@@ -3,7 +3,10 @@ import { DiffOption } from "../DiffOption/DiffOption";
 import { difficultyOptions } from "./../../data/data";
 import './DiffSelect.css';
 
-export const DiffSelect = ({selectedDifficulty, changeDifficulty}) => {
+export const DiffSelect = ({
+   selectedDifficulty,
+   changeDifficulty
+}) => {
     const onChangeHandler = (event) => {
         changeDifficulty(event.target.value);
     };

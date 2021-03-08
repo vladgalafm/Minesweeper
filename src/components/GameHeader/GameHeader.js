@@ -11,7 +11,9 @@ export const GameHeader = ({
 }) => (
     <div className="game-header">
         <div className="game-header__content">
-            <button className="game-header__leave" onClick={() => {leaveGameHandler()}} />
+            <button
+                className="game-header__leave"
+                onClick={() => {leaveGameHandler()}} />
             <div className="game-header__info">
                 <div className="game-header__icon" />
                 <div className="game-header__count">
@@ -27,6 +29,7 @@ export const GameHeader = ({
             <button
                 className={`game-header__flag${flagMode ? ' game-header__flag--active' : ''}`}
                 onClick={toggleFlagMode}
+                onMouseOver={() => {}}
                 disabled={!inProgress} />
         </div>
     </div>

@@ -7,6 +7,12 @@ import { RotateBlocker } from "./components/RotateBlocker/RotateBlocker";
 import { Modal } from "./components/Modal/Modal";
 import { Loader } from "./components/Loader/Loader";
 import { gameTemplate, historyTemplate, minesAmount, cellTemplate } from "./data/data";
+import soundClick from "./sound/click.mp3";
+import soundBomb from "./sound/bomb2.mp3";
+import soundReveal from "./sound/reveal.mp3";
+import soundNotification from "./sound/update_notify.mp3";
+import soundGameOpen from "./sound/game_open.mp3";
+import soundGameStart from "./sound/game_start.mp3";
 import './App.css';
 
 /*
@@ -15,13 +21,17 @@ import './App.css';
 * _hv-m-n: app update notification, if exists - user already seen it
 * _hv-m-g: current game data
 * _hv-m-h: user's history data
+* _hv-m-s: sound effects on/off
 * */
 
 export class App extends Component {
     constructor(props) {
         super(props);
-        this.version = '0.5.9.6';
+        this.version = '0.6.0';
         this.state = {
+            sound: localStorage.getItem('_hv-m-s')
+                ? !!parseInt(localStorage.getItem('_hv-m-s'))
+                : true,
             loaderState: 'visible',
             updateNotifyEnabled: true,
             modalHidden: false,
@@ -42,6 +52,7 @@ export class App extends Component {
         this.minesAmount = minesAmount;
         this.gameLayoutMode = '';
         this.timerInterval = null;
+        this.resultTimeout = null;
         this.resizeAppBlock = this.resizeAppBlock.bind(this);
         this.runTimer = this.runTimer.bind(this);
         this.pauseTimer = this.pauseTimer.bind(this);
@@ -120,6 +131,7 @@ export class App extends Component {
             this.setState({
                 updateNotifyEnabled: false,
             });
+            this.playSound(soundNotification);
             this.switchModalHandler('confirm-update');
             return true;
         }
@@ -159,10 +171,14 @@ export class App extends Component {
         }));
         // 3. save result to players history
         this.setHistoryState(true);
-        // 4. trigger fancy mines-reveal animation
-        this.defuseMines();
-        // 5. after animation played - show results modal
+        // 4. init sound effect
         setTimeout(() => {
+            this.playSound(soundReveal);
+        }, 250);
+        // 5. trigger fancy mines-reveal animation
+        this.defuseMines();
+        // 6. after animation played - show results modal
+        this.resultTimeout = setTimeout(() => {
             this.switchModalHandler('result');
         }, 5000);
     };
@@ -180,10 +196,12 @@ export class App extends Component {
         }));
         // 3. save result to players history
         this.setHistoryState(false);
-        // 4. trigger mines-reveal process
+        // 4. init sound effect
+        this.playSound(soundBomb);
+        // 5. trigger mines-reveal process
         this.revealMinesWhenLost(x, y);
-        // 5. after a while - show results modal
-        setTimeout(() => {
+        // 6. after a while - show results modal
+        this.resultTimeout = setTimeout(() => {
             this.switchModalHandler('result');
         }, 4000);
     };
@@ -240,9 +258,13 @@ export class App extends Component {
     };
 
     leaveGameHandler = () => {
-        this.state.game.inProgress
-            ? this.switchModalHandler('leave-confirm')
-            : this.enterMenuWithoutModal();
+        if (this.state.game.inProgress) {
+            this.playSound(soundClick);
+            this.switchModalHandler('leave-confirm');
+        } else {
+            this.enterMenuWithoutModal();
+            clearTimeout(this.resultTimeout);
+        }
     };
 
     leaveGameConfirm = () => {
@@ -255,27 +277,33 @@ export class App extends Component {
             }
         }));
         clearInterval(this.timerInterval);
+        clearTimeout(this.resultTimeout);
     };
 
     continueGameConfirm = () => {
+        this.playSound(soundClick);
         this.switchModalHandler('');
         this.runTimer();
     };
 
     hideUpdateNotification = () => {
+        this.playSound(soundClick);
         this.switchModalHandler('');
         localStorage.setItem('_hv-m-n', 'seen');
     };
 
     enterMenuWithoutModal = () => {
+        this.playSound(soundClick);
         this.switchBlockHandler('menu');
         this.switchModalHandler('');
         this.toggleModalVisibilityHandler(false);
     };
 
     prepareNewGame = () => {
+        // this.playSound(soundClick);
         this.resetGameData();
         this.switchModalHandler('');
+        this.playSound(soundGameOpen);
     };
 
     resetGameData = () => {
@@ -310,6 +338,7 @@ export class App extends Component {
     changeDifficulty = (difficulty) => {
         const [, cols, rows] = /(\d+)x(\d+)/.exec(difficulty);
 
+        this.playSound(soundClick);
         this.setGameLayoutMode(window.innerHeight, window.innerWidth, cols, rows);
         this.setState(prevState => ({
             game: {
@@ -323,12 +352,14 @@ export class App extends Component {
     };
 
     toggleFlagMode = () => {
+        this.playSound(soundClick);
         this.setState(prevState => ({
             flagMode: !prevState.flagMode,
         }))
     };
 
     setMines = (x, y) => {
+        this.playSound(soundGameStart);
         this.setState(prevState => {
             const minesIdCollection = {};
             let minesCount = 0;
@@ -604,9 +635,27 @@ export class App extends Component {
         })
     };
 
+    toggleSoundHandler = () => {
+        this.setState(prevState => {
+            this.playSound(soundClick, !prevState.sound);
+            localStorage.setItem('_hv-m-s', prevState.sound ? '0' : '1');
+
+            return {
+                sound: !prevState.sound,
+            }
+        });
+    };
+
+    playSound = (file, force) => {
+        if ((typeof force === 'undefined' && this.state.sound) || force) {
+            const sound = new Audio(file);
+            sound.play();
+        }
+    };
+
     render() {
         const { displayedBlock, flagMode, gameLayoutMode,
-            displayedModal, loaderState, modalHidden,
+            displayedModal, loaderState, modalHidden, sound,
             game: {
                 difficulty,
                 timeProceed,
@@ -645,15 +694,25 @@ export class App extends Component {
                                 toggleFlagOnCellHandler={this.toggleFlagOnCellHandler} />
                             : displayedBlock === 'settings'
                                 ? <Settings
+                                    sound={sound}
                                     difficulty={difficulty}
                                     history={history}
+                                    toggleSoundHandler={this.toggleSoundHandler.bind(this)}
                                     changeDifficulty={this.changeDifficulty}
-                                    returnHandler={() => {this.switchBlockHandler('menu')}} />
+                                    returnHandler={() => {
+                                        this.playSound(soundClick);
+                                        this.switchBlockHandler('menu');
+                                    }} />
                                 : displayedBlock === 'tutorial'
                                     ? <Tutorial
-                                        exitHandler={() => {this.switchBlockHandler('menu')}}  />
+                                        exitHandler={() => {
+                                            this.playSound(soundClick);
+                                            this.switchBlockHandler('menu');
+                                        }} />
                                     : <Menu
-                                        switchBlockHandler={this.switchBlockHandler} />
+                                        switchBlockHandler={this.switchBlockHandler}
+                                        clickSoundHandler={() => {this.playSound(soundClick)}}
+                                        openSoundHandler={() => {this.playSound(soundGameOpen)}} />
                     }
                 </div>
                 <RotateBlocker />
@@ -663,9 +722,15 @@ export class App extends Component {
                         content={'Are you sure you want to leave to menu? Game progress will be lost.'}
                         btn1Name={'Stay'}
                         btn2Name={'Leave'}
-                        btn1Action={() => {this.switchModalHandler('')}}
+                        btn1Action={() => {
+                            this.playSound(soundClick);
+                            this.switchModalHandler('');
+                        }}
                         btn2Action={this.leaveGameConfirm.bind(this)}
-                        hideModalHandler={() => {this.switchModalHandler('')}} />
+                        hideModalHandler={() => {
+                            this.playSound(soundClick);
+                            this.switchModalHandler('');
+                        }} />
                     : displayedModal === 'unfinished'
                     ? <Modal
                         content={'You have an unfinished game. Would you like to continue?'}
@@ -682,7 +747,10 @@ export class App extends Component {
                         btn2Name={'To Menu'}
                         btn1Action={this.prepareNewGame.bind(this)}
                         btn2Action={this.enterMenuWithoutModal.bind(this)}
-                        hideModalHandler={() => {this.toggleModalVisibilityHandler(true)}} />
+                        hideModalHandler={() => {
+                            this.playSound(soundClick);
+                            this.toggleModalVisibilityHandler(true);
+                        }} />
                     : displayedModal === 'update'
                     ? <Modal
                         updateVersion={this.version}
@@ -696,16 +764,28 @@ export class App extends Component {
                             + '(the page will reload).'}
                         btn1Name={'Update'}
                         btn2Name={'Later'}
-                        btn1Action={() => {window.location.reload()}}
-                        btn2Action={() => {this.switchModalHandler('')}}
-                        hideModalHandler={() => {this.switchModalHandler('')}} />
+                        btn1Action={() => {
+                            this.playSound(soundClick);
+                            window.location.reload();
+                        }}
+                        btn2Action={() => {
+                            this.playSound(soundClick);
+                            this.switchModalHandler('');
+                        }}
+                        hideModalHandler={() => {
+                            this.playSound(soundClick);
+                            this.switchModalHandler('');
+                        }} />
                     : null
                 }
                 <Loader loaderState={loaderState} />
                 <button
                     className="app__modal-btn"
                     aria-label="Show modal window again"
-                    onClick={() => {this.toggleModalVisibilityHandler(false)}} />
+                    onClick={() => {
+                        this.playSound(soundClick);
+                        this.toggleModalVisibilityHandler(false);
+                    }} />
             </main>
         );
     }
