@@ -1,5 +1,5 @@
 const APP_PREFIX = 'hv-mines_';
-const VERSION = 'v0.5.9.6';
+const VERSION = 'v0.6.0';
 const CACHE_NAME = APP_PREFIX + VERSION;
 const URLS = [
     '/Minesweeper/',
