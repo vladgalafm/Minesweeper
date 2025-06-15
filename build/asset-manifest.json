@@ -1,26 +1,19 @@
 {
   "files": {
-    "main.css": "/Minesweeper/static/css/main.41714269.chunk.css",
-    "main.js": "/Minesweeper/static/js/main.e0497bb7.chunk.js",
-    "main.js.map": "/Minesweeper/static/js/main.e0497bb7.chunk.js.map",
-    "runtime-main.js": "/Minesweeper/static/js/runtime-main.72b5d28d.js",
-    "runtime-main.js.map": "/Minesweeper/static/js/runtime-main.72b5d28d.js.map",
-    "static/js/2.9230834a.chunk.js": "/Minesweeper/static/js/2.9230834a.chunk.js",
-    "static/js/2.9230834a.chunk.js.map": "/Minesweeper/static/js/2.9230834a.chunk.js.map",
+    "main.css": "/Minesweeper/static/css/main.6bdb9cc9.css",
+    "main.js": "/Minesweeper/static/js/main.f45ce2af.js",
+    "static/media/bomb2.mp3": "/Minesweeper/static/media/bomb2.abf568e99e55dfb2119b.mp3",
+    "static/media/game_start.mp3": "/Minesweeper/static/media/game_start.49c3bc37d6c97793e93b.mp3",
+    "static/media/game_open.mp3": "/Minesweeper/static/media/game_open.fd9eefdd8793fc552609.mp3",
+    "static/media/reveal.mp3": "/Minesweeper/static/media/reveal.ee0bec963c73e8d707b3.mp3",
+    "static/media/update_notify.mp3": "/Minesweeper/static/media/update_notify.2a5f87c2e15b46dc44a1.mp3",
+    "static/media/click.mp3": "/Minesweeper/static/media/click.131de7c5cf03c6c29047.mp3",
     "index.html": "/Minesweeper/index.html",
-    "static/css/main.41714269.chunk.css.map": "/Minesweeper/static/css/main.41714269.chunk.css.map",
-    "static/js/2.9230834a.chunk.js.LICENSE.txt": "/Minesweeper/static/js/2.9230834a.chunk.js.LICENSE.txt",
-    "static/media/bomb2.abf568e9.mp3": "/Minesweeper/static/media/bomb2.abf568e9.mp3",
-    "static/media/click.131de7c5.mp3": "/Minesweeper/static/media/click.131de7c5.mp3",
-    "static/media/game_open.fd9eefdd.mp3": "/Minesweeper/static/media/game_open.fd9eefdd.mp3",
-    "static/media/game_start.49c3bc37.mp3": "/Minesweeper/static/media/game_start.49c3bc37.mp3",
-    "static/media/reveal.ee0bec96.mp3": "/Minesweeper/static/media/reveal.ee0bec96.mp3",
-    "static/media/update_notify.2a5f87c2.mp3": "/Minesweeper/static/media/update_notify.2a5f87c2.mp3"
+    "main.6bdb9cc9.css.map": "/Minesweeper/static/css/main.6bdb9cc9.css.map",
+    "main.f45ce2af.js.map": "/Minesweeper/static/js/main.f45ce2af.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.72b5d28d.js",
-    "static/js/2.9230834a.chunk.js",
-    "static/css/main.41714269.chunk.css",
-    "static/js/main.e0497bb7.chunk.js"
+    "static/css/main.6bdb9cc9.css",
+    "static/js/main.f45ce2af.js"
   ]
 }
