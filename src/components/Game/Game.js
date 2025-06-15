@@ -3,7 +3,7 @@ import { GameHeader } from "../GameHeader/GameHeader";
 import { GameField } from "../GameField/GameField";
 import './Game.css';
 
-export const Game = ({
+export function Game({
      layoutMode,
      started,
      inProgress,
@@ -17,22 +17,24 @@ export const Game = ({
      toggleFlagMode,
      clickOnCellHandler,
      toggleFlagOnCellHandler
-}) => (
-    <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}` + `${started && !inProgress
-        ? ' game--finished' : ''}`}>
-        <GameHeader
-            inProgress={inProgress}
-            timeProceed={timeProceed}
-            flagMode={flagMode}
-            minesLeft={minesLeft}
-            leaveGameHandler={leaveGameHandler}
-            toggleFlagMode={toggleFlagMode} />
-        <GameField
-            started={started}
-            cols={cols}
-            rows={rows}
-            cells={cells}
-            clickOnCellHandler={clickOnCellHandler}
-            toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
-    </div>
-);
+}) {
+    return (
+        <div className={`game ${layoutMode}${cols > 9 ? ' game--wide' : ''}${started && !inProgress
+            ? ' game--finished' : ''}`}>
+            <GameHeader
+                inProgress={inProgress}
+                timeProceed={timeProceed}
+                flagMode={flagMode}
+                minesLeft={minesLeft}
+                leaveGameHandler={leaveGameHandler}
+                toggleFlagMode={toggleFlagMode} />
+            <GameField
+                started={started}
+                cols={cols}
+                rows={rows}
+                cells={cells}
+                clickOnCellHandler={clickOnCellHandler}
+                toggleFlagOnCellHandler={toggleFlagOnCellHandler} />
+        </div>
+    );
+}

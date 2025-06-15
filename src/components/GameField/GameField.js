@@ -2,14 +2,14 @@ import React from 'react';
 import { GameColumn } from "../GameColumn/GameColumn";
 import './GameField.css';
 
-export const GameField = ({
+export function GameField({
       started,
       cols,
       rows,
       cells,
       clickOnCellHandler,
       toggleFlagOnCellHandler
-}) => {
+}) {
     const colsArray = Array.apply(null, {length: cols});
 
     return (
@@ -28,4 +28,4 @@ export const GameField = ({
             </div>
         </div>
     );
-};
+}

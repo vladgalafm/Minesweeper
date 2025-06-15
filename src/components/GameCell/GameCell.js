@@ -1,14 +1,14 @@
 import React from 'react';
 import './GameCell.css';
 
-export const GameCell = ({
+export function GameCell({
      started,
      colIndex,
      rowIndex,
      cell,
      clickOnCellHandler,
      toggleFlagOnCellHandler
-}) => {
+}) {
     const {
         opened,
         mine,
@@ -42,4 +42,4 @@ export const GameCell = ({
                     onContextMenu={toggleFlagOnCellHandler} />
         </div>
     );
-};
+}

@@ -1,11 +1,11 @@
 import React from 'react';
 import './Result.css';
 
-export const Result = ({
+export function Result({
    result,
    timeProceed,
    history
-}) => {
+}) {
     const date = new Date();
     const day = date.getDate() > 9
         ? date.getDate()
@@ -66,4 +66,4 @@ export const Result = ({
             </div>
         </div>
     );
-};
+}

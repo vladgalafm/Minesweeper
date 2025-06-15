@@ -2,14 +2,14 @@ import React from 'react';
 import { GameCell } from "../GameCell/GameCell";
 import './GameColumn.css';
 
-export const GameColumn = ({
+export function GameColumn({
        started,
        rows,
        colIndex,
        cellsCol,
        clickOnCellHandler,
        toggleFlagOnCellHandler
-}) => {
+}) {
     const rowsArray = Array.apply(null, {length: rows});
 
     return (
@@ -29,4 +29,4 @@ export const GameColumn = ({
             ))}
         </div>
     );
-};
+}
