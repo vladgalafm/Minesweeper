@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "statusLine": {
+    "type": "command",
+    "command": "ccstatusline",
+    "padding": 0,
+    "refreshInterval": 10
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "cleanupPeriodDays": 60,
+  "respectGitignore": true,
+  "outputStyle": "Explanatory",
+  "effortLevel": "medium",
+  "showClearContextOnPlanAccept": true,
+  "theme": "dark",
+  "voiceEnabled": true,
+  "voice": {
+    "enabled": true,
+    "mode": "hold"
+  },
+  "env": {
+    "EDITOR": "code",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "60",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_NO_FLICKER": "1",
+    "ENABLE_TOOL_SEARCH": "true"
+  }
+}

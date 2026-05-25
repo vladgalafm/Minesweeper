@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh run view:*)",
+      "Bash(npm run *)",
+      "Bash(npm i *)",
+      "Bash(npm install)",
+      "Bash(npx *)",
+      "Bash(* --version)",
+      "Bash(* -v)",
+      "Read",
+      "Glob",
+      "Grep"
+    ],
+    "ask": [
+      "Bash(gh pr create:*)",
+      "Bash(git commit:*)",
+      "Bash(git config *)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)",
+      "Bash(git branch:*)",
+      "Bash(npm run deploy *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/credentials*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Bash(rm -rf *)",
+      "Bash(curl * | bash*)",
+      "Bash(sudo *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git reset --hard *)",
+      "Edit(.env)",
+      "Edit(.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)"
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "sandbox": {
+    "enabled": true,
+    "filesystem": {
+      "denyRead": [
+        "~/.ssh",
+        "~/.aws"
+      ],
+      "allowWrite": [
+        "/tmp/build"
+      ]
+    },
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "api.github.com",
+        "api.anthropic.com",
+        "statsig.anthropic.com",
+        "registry.npmjs.org",
+        "search.brave.com",
+        "google.com"
+      ],
+      "allowManagedDomainsOnly": false
+    }
+  },
+  "model": "sonnet",
+  "effortLevel": "high",
+  "cleanupPeriodDays": 14,
+  "env": {
+    "BASH_DEFAULT_TIMEOUT_MS": "300000",
+    "BASH_MAX_TIMEOUT_MS": "500000",
+    "CLAUDE_CODE_SUBPROCESS_ENV_SCRUB": "1",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  }
+}
