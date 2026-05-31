@@ -26,18 +26,6 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 5 chrome version",
-      "last 5 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "gh-pages": "6.3.0"
   }
