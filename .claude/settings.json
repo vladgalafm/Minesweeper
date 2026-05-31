@@ -81,6 +81,9 @@
   "model": "sonnet",
   "effortLevel": "high",
   "cleanupPeriodDays": 14,
+  "respectGitignore": true,
+  "autoMemoryDirectory": "~/my-memory",
+  "plansDirectory": "~/.claude/plans",
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "300000",
     "BASH_MAX_TIMEOUT_MS": "500000",
