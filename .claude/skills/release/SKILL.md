@@ -1,7 +1,6 @@
 ---
 name: release
 description: Manual release flow for this project — bump version, build, deploy to GitHub Pages. Invoke when asked to release, deploy, or publish a new version.
-disable-model-invocation: true
 ---
 
 Follow these steps to release a new version of Minesweeper to GitHub Pages:

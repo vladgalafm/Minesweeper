@@ -70,7 +70,9 @@
         "github.com",
         "api.github.com",
         "api.anthropic.com",
+        "docs.anthropic.com",
         "statsig.anthropic.com",
+        "code.claude.com",
         "registry.npmjs.org",
         "search.brave.com",
         "google.com"
@@ -82,8 +84,7 @@
   "effortLevel": "high",
   "cleanupPeriodDays": 14,
   "respectGitignore": true,
-  "autoMemoryDirectory": "~/my-memory",
-  "plansDirectory": "~/.claude/plans",
+  "plansDirectory": ".claude/plans",
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "300000",
     "BASH_MAX_TIMEOUT_MS": "500000",
