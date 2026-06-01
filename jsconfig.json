@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "module": "commonJS",
+        "baseUrl": ".",
+        "ignoreDeprecations": "6.0",
+        "paths": {
+            "Images/*": [
+                "src/img/*"
+            ],
+            "Sounds/*": [
+                "src/sounds/*"
+            ],
+            "Src/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "build",
+        "node_modules",
+        "public"
+    ]
+}
