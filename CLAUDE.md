@@ -10,6 +10,8 @@ React PWA Minesweeper — single-developer project, plain JavaScript (no TypeScr
 
 All game state and logic live in `src/App.js` by design. Do not introduce Context API, Redux, or other state management libraries. `src/components/` contains 18 presentational components — keep state there minimal.
 
+Storage keys, magic numbers, and timing constants are defined in `src/constants.js` and imported where needed.
+
 ## Critical conventions → `.claude/rules/critical-conventions.md`
 
 ## Code style

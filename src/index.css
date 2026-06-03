@@ -2,23 +2,23 @@
 *::before,
 *::after {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
     font-family: inherit;
     color: inherit;
 }
 
 html {
+
+    /* stylelint-disable-next-line declaration-property-unit-allowed-list, unit-disallowed-list */
     font-size: 10px;
 }
 
 body {
-    font-family: Philosopher, Roboto, Arial, sans-serif;
+    background: radial-gradient( circle at center, #f2fbff 0, #daf4fe 100% );
     line-height: 1;
+    font-family: Philosopher, Roboto, Arial, sans-serif;
     color: #002640;
-    /*background-color: #f2f2f2;*/
-    /*background: linear-gradient(180deg, #009cdc, #0079ab);*/
-    background: radial-gradient(circle at center, #f2fbff 0, #daf4fe 100%);
 }
 
 button {
@@ -32,13 +32,16 @@ button:focus {
 }
 
 button:disabled,
-button[disabled] {
-    opacity: 0.5;
+[disabled]button {
+    opacity: .5;
     cursor: default;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and ( min-width: 87.5em ) { /* 1400px */
+
     html {
+
+        /* stylelint-disable-next-line declaration-property-unit-allowed-list, unit-disallowed-list */
         font-size: 14px;
     }
 }

@@ -7,7 +7,7 @@ paths:
 
 **Grid indexing** — cells are indexed `cells[col][row]` (x = column, y = row). This is intentionally reversed from the typical `[row][col]`. Changing it breaks the entire board.
 
-**LocalStorage keys** — keys like `_hv-m-g`, `_hv-m-h` are intentionally obfuscated. Do not rename or refactor them; doing so silently breaks saved data for existing users.
+**LocalStorage keys** — keys like `_hv-m-g`, `_hv-m-h` are intentionally obfuscated. All keys are defined as `STORAGE_KEY_*` constants in `src/constants.js`. Do not rename or change their string values; doing so silently breaks saved data for existing users.
 
 **Difficulty strings** — `"9x9"`, `"16x16"`, `"30x16"` encode `cols × rows`, not `rows × cols`.
 
