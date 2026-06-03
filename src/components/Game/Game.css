@@ -1,19 +1,20 @@
 .game {
-    border-radius: 10px;
-    border: 2px solid #003f59;
-    background-color: #0073a3;
-    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
     overflow: hidden;
+    box-shadow: 0 .5rem 2rem 0 rgba( 0, 0, 0, .25 );
+    border: .2rem solid #003f59;
+    border-radius: 1rem;
+    background-color: #0073a3;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and ( min-width: 22.5em ) { /* 360px */
+
     .game {
-        border-radius: 20px;
+        border-radius: 2rem;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .game {
-        border-radius: 30px;
+        border-radius: 3rem;
     }
 }

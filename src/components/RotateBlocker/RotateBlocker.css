@@ -2,25 +2,26 @@
     position: fixed;
     z-index: 500;
     top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: #fff;
 }
 
 .rotate-blocker__alert {
     padding-top: 4rem;
-    text-align: center;
     font-size: 1.8rem;
     line-height: 1.25;
+    text-align: center;
 }
 
 /* which max-aspect-ration to choose for 19.5/9 mob. screen ration with browser nav-bar ? */
-@media screen and (max-height: 567px) and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 5/2) {
+@media screen and ( max-height: 35.4375em ) and ( min-aspect-ratio: 1/1 ) and ( max-aspect-ratio: 5/2 ) { /* 567px */
+
     .rotate-blocker {
         display: flex;
     }

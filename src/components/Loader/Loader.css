@@ -3,62 +3,70 @@
     z-index: 1000;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
     opacity: 1;
-    transition: 0.5s linear opacity;
+    transition: .5s linear opacity;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
 }
 
 .loader--hidden {
-    animation: loaderFadeOut 0.5s linear 1;
-    opacity: 0;
     z-index: -1;
+    opacity: 0;
+    animation: loaderFadeOut .5s linear 1;
 }
 
 @keyframes loaderFadeOut {
+
     0% {
+        z-index: 1000;
         opacity: 1;
-        z-index: 1000;
     }
+
     100% {
-        opacity: 0;
         z-index: 1000;
+        opacity: 0;
     }
 }
 
 .loader__spinner {
-    width: 200px;
-    height: 200px;
     display: inline-block;
     overflow: hidden;
+    width: 20rem;
+    height: 20rem;
 }
 
 .loader__spinner-inner {
     position: relative;
-    transform: translateZ(0) scale(1);
+    transform: translateZ( 0 ) scale( 1 );
     transform-origin: 0 0;
-    backface-visibility: hidden;
     width: 100%;
     height: 100%;
+    backface-visibility: hidden;
 }
 
-.loader__spinner-inner > div {
+.loader__spinner-inner div {
     position: absolute;
-    top: 100px;
-    left: 100px;
-    width: 120px;
-    height: 120px;
-    border: 20px solid #333333;
+    top: 10rem;
+    left: 10rem;
+    animation: spinner 1s linear infinite;
+    border: 2rem solid #333;
     border-top-color: transparent;
     border-radius: 50%;
-    animation: spinner 1s linear infinite;
+    width: 12rem;
+    height: 12rem;
 }
 
 @keyframes spinner {
-    0% { transform: translate(-50%,-50%) rotate(0deg); }
-    100% { transform: translate(-50%,-50%) rotate(360deg); }
+
+    0% {
+        transform: translate( -50%, -50% ) rotate( 0deg );
+    }
+
+    100% {
+        transform: translate( -50%, -50% ) rotate( 360deg );
+    }
 }

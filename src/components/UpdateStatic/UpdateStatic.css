@@ -1,12 +1,14 @@
+/* stylelint-disable selector-combinator-disallowed-list */
+
 .update-static {
-    padding-top: 0.5em;
-    line-height: 1.4;
-    text-align: left;
     flex-grow: 1;
     overflow-y: auto;
+    padding-top: .5em;
+    line-height: 1.4;
+    text-align: left;
 }
 
-.update-static > *:not(:last-child) {
+.update-static > *:not( :last-child ) {
     padding-bottom: 1.5rem;
 }
 
@@ -14,8 +16,8 @@
     position: absolute;
     top: 2.75rem;
     left: 50%;
-    transform: translateX(-50%);
-    font-size: calc((22 / 18) * 1em);
+    transform: translateX( -50% );
+    font-size: calc( (22 / 18) * 1em );
     font-weight: 700;
     white-space: nowrap;
 }
@@ -28,55 +30,61 @@
 
 .update-static li {
     position: relative;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     padding-left: 1.2em;
-    font-size: calc((16 / 18) * 1em);
+    font-size: calc( (16 / 18) * 1em );
 }
 
 .update-static li::before {
-    position: absolute;
     content: "";
-    top: 0.9rem;
-    left: 0.4rem;
-    height: 0.6rem;
-    width: 0.6rem;
+    position: absolute;
+    top: .9rem;
+    left: .4rem;
     border-radius: 50%;
+    width: .6rem;
+    height: .6rem;
     background-color: #002640;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and ( min-width: 30em ) { /* 480px */
+
     .update-static__title {
         top: 3rem;
     }
+
     .update-static li::before {
         top: 1rem;
     }
 }
+@media screen and ( min-width: 48em ) { /* 768px */
 
-@media screen and (min-width: 768px) {
     .update-static__title {
         top: 3.5rem;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .update-static {
         scrollbar-width: thin;
         scrollbar-color: #cacaca #efefef;
     }
+
     .update-static::-webkit-scrollbar {
-        width: 6px;
-        border-radius: 3px;
+        border-radius: .3rem;
+        width: .6rem;
         background-color: #efefef;
     }
+
     .update-static::-webkit-scrollbar-button {
         display: none;
     }
+
     .update-static::-webkit-scrollbar-thumb {
+        border-radius: .3rem;
         background-color: #cacaca;
-        border-radius: 3px;
     }
+
     .update-static::-webkit-scrollbar-thumb:hover {
-        background-color: #aaaaaa;
+        background-color: #aaa;
     }
 }

@@ -1,22 +1,24 @@
 import React from 'react';
 import './DiffHistory.css';
 
-export function DiffHistory({
+export function DiffHistory( {
     bestTime,
     gamesPlayed,
     gamesWon,
     longestWinStreak,
     longestLoseStreak,
-    currentWinStreak
-}) {
+    currentWinStreak,
+} ) {
     return (
-        <div className="diff-history">
+        <div className='diff-history'>
             <p>
                 <span>
                     Best time:
                 </span>
                 <span>
-                    {bestTime && bestTime < Infinity ? bestTime : '-'}
+                    { bestTime && bestTime < Infinity ?
+                        bestTime :
+                        '-' }
                 </span>
             </p>
             <p>
@@ -24,7 +26,7 @@ export function DiffHistory({
                     Games played:
                 </span>
                 <span>
-                    {gamesPlayed || 0}
+                    { gamesPlayed || 0 }
                 </span>
             </p>
             <p>
@@ -32,7 +34,7 @@ export function DiffHistory({
                     Games won:
                 </span>
                 <span>
-                    {gamesWon || 0}
+                    { gamesWon || 0 }
                 </span>
             </p>
             <p>
@@ -40,9 +42,9 @@ export function DiffHistory({
                     Percentage:
                 </span>
                 <span>
-                    {gamesWon && gamesPlayed
-                        ? `${Math.round((gamesWon / gamesPlayed) * 100)}%`
-                        : '0%'}
+                    { gamesWon && gamesPlayed ?
+                        `${ Math.round( ( gamesWon / gamesPlayed ) * 100 ) }%` :
+                        '0%' }
                 </span>
             </p>
             <p>
@@ -50,7 +52,7 @@ export function DiffHistory({
                     Longest winning streak:
                 </span>
                 <span>
-                    {longestWinStreak || 0}
+                    { longestWinStreak || 0 }
                 </span>
             </p>
             <p>
@@ -58,7 +60,7 @@ export function DiffHistory({
                     Longest loosing streak:
                 </span>
                 <span>
-                    {longestLoseStreak || 0}
+                    { longestLoseStreak || 0 }
                 </span>
             </p>
             <p>
@@ -66,7 +68,7 @@ export function DiffHistory({
                     Current winning streak:
                 </span>
                 <span>
-                    {currentWinStreak || 0}
+                    { currentWinStreak || 0 }
                 </span>
             </p>
         </div>

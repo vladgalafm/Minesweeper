@@ -1,43 +1,40 @@
 .game-field {
-    border: 9px solid #0073a3;
-    border-top-width: 5px;
+    border: .9rem solid #0073a3;
+    border-top-width: .5rem;
 }
 
 .game--r16-568 .game-field {
-    border-width: 6px;
-    border-top-width: 3px;
+    border-width: .3rem .6rem .6rem;
 }
 
 .game-field__content {
     display: flex;
-    border-top: 4px solid #003f59;
-    border-left: 4px solid #003f59;
-    border-bottom: 4px solid #eaf9ff;
-    border-right: 4px solid #eaf9ff;
+    border-bottom: .4rem solid #eaf9ff;
+    border-left: .4rem solid #003f59;
+    border-right: .4rem solid #eaf9ff;
+    border-top: .4rem solid #003f59;
     background-color: #e8e8e8;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and ( min-width: 22.5em ) { /* 360px */
+
     .game-field {
-        border-width: 28px;
-        border-top-width: 11px;
-        border-bottom-width: 24px;
+        border-width: 1.1rem 2.8rem 2.4rem;
     }
 
     .game--c30-768 .game-field,
     .game--c30-992 .game-field {
-        border-left-width: 16px;
-        border-right-width: 16px;
+        border-left-width: 1.6rem;
+        border-right-width: 1.6rem;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .game-field {
-        border-width: 36px;
-        border-top-width: 16px;
-        border-bottom-width: 30px;
+        border-width: 1.6rem 3.6rem 3rem;
     }
+
     .game-field__content {
-        border-width: 6px;
+        border-width: .6rem;
     }
 }

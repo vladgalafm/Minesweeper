@@ -1,29 +1,28 @@
 .game-header {
-    border: 9px solid #0073a3;
-    border-bottom-width: 4px;
+    border: .9rem solid #0073a3;
+    border-bottom-width: .4rem;
 }
 
 .game--r16-568 .game-header {
-    border-width: 6px;
-    border-bottom-width: 3px;
+    border-width: .6rem .6rem .3rem;
 }
 
 .game-header__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 3px solid #0073a3;
+    border: .3rem solid #0073a3;
 }
 
 .game-header__leave {
-    height: 26px;
-    width: 36px;
+    opacity: .9;
+    transition: opacity .1s linear;
     border: 0;
-    background: transparent url("../../img/icon_back.png") 50% 50% no-repeat;
+    width: 3.6rem;
+    height: 2.6rem;
+    background: transparent url( ../../img/icon_back.png ) 50% 50% no-repeat;
     background-size: contain;
-    filter: invert(100%);
-    opacity: 0.9;
-    transition: opacity 0.1s linear;
+    filter: invert( 100% );
 }
 
 .game-header__info {
@@ -32,19 +31,19 @@
 }
 
 .game-header__icon {
-    margin-right: 6px;
-    width: 26px;
-    height: 26px;
+    margin-right: .6rem;
+    box-shadow: inset 0 0 .3rem 0 #003f59;
     border-radius: 50%;
-    background: #eaf9ff url("../../img/icon_clock.png") 50% 50% no-repeat;
-    background-size: calc((16 / 26) * 100%);
-    box-shadow: inset 0 0 3px 0 #003f59;
+    width: 2.6rem;
+    height: 2.6rem;
+    background: #eaf9ff url( ../../img/icon_clock.png ) 50% 50% no-repeat;
+    background-size: calc( (16 / 26) * 100% );
 }
 
 .game-header__icon--bomb {
+    margin-left: .6rem;
     margin-right: 0;
-    margin-left: 6px;
-    background-image: url("../../img/icon_mine.png");
+    background-image: url( ../../img/icon_mine.png );
 }
 
 .game--r16-568 .game-header__icon {
@@ -52,113 +51,125 @@
 }
 
 .game-header__count {
-    width: 40px;
-    height: 24px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    background-color: #eaf9ff;
-    border-radius: 5px;
-    box-shadow: inset 0 0 3px 0 #003f59;
     overflow: hidden;
+    box-shadow: inset 0 0 .3rem 0 #003f59;
+    border-radius: .5rem;
+    width: 4rem;
+    height: 2.4rem;
+    background-color: #eaf9ff;
+    font-size: 1.6rem;
+    font-family: Roboto, Arial, sans-serif;
+    font-weight: 700;
 }
 
 .game-header__flag {
-    height: 26px;
-    width: 36px;
-    border: 4px solid #cccccc;
-    background: #cccccc url("../../img/icon_flag.png") 50% 50% no-repeat;
-    background-size: contain;
-    border-radius: 5px;
+    transition: box-shadow .1s linear;
     box-shadow: 0 0 0 0 #47c9ff;
-    transition: box-shadow 0.1s linear;
+    border: .4rem solid #ccc;
+    border-radius: .5rem;
+    width: 3.6rem;
+    height: 2.6rem;
+    background: #ccc url( ../../img/icon_flag.png ) 50% 50% no-repeat;
+    background-size: contain;
 }
 
 .game-header__flag--active {
+    box-shadow: 0 0 1rem 0 #47c9ff;
     border-color: #eaf9ff;
     background-color: #eaf9ff;
-    box-shadow: 0 0 10px 0 #47c9ff;
 }
 
-@media screen and (min-width: 360px) {
+@media screen and ( min-width: 22.5em ) { /* 360px */
+
     .game-header {
-        border-top-width: 16px;
-        border-bottom-width: 5px;
+        border-bottom-width: .5rem;
+        border-top-width: 1.6rem;
     }
+
     .game--wide .game-header {
-        border-left-width: 24px;
-        border-right-width: 24px;
+        border-left-width: 2.4rem;
+        border-right-width: 2.4rem;
     }
+
     .game--c30-768.game--wide .game-header,
     .game--c30-992.game--wide .game-header {
-        border-left-width: 16px;
-        border-right-width: 16px;
+        border-left-width: 1.6rem;
+        border-right-width: 1.6rem;
     }
+
     .game-header__leave,
     .game-header__flag {
-        height: 30px;
-        width: 42px;
+        width: 4.2rem;
+        height: 3rem;
     }
+
     .game--wide .game-header__leave,
     .game--wide .game-header__flag {
-        width: 46px;
+        width: 4.6rem;
     }
+
     .game-header__icon {
-        width: 30px;
-        height: 30px;
-        background-size: calc((20 / 30) * 100%);
+        width: 3rem;
+        height: 3rem;
+        background-size: calc( (20 / 30) * 100% );
     }
+
     .game-header__count {
-        width: 48px;
-        height: 28px;
-        font-size: 18px;
+        width: 4.8rem;
+        height: 2.8rem;
+        font-size: 1.8rem;
     }
+
     .game--wide .game-header__count {
-        width: 56px;
+        width: 5.6rem;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .game-header__leave:hover {
         opacity: 1;
     }
+
     .game-header__flag:hover {
-        box-shadow: 0 0 10px 0 #47c9ff;
+        box-shadow: 0 0 1rem 0 #47c9ff;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .game-header,
     .game--wide .game-header {
-        border-width: 30px;
-        border-top-width: 24px;
-        border-bottom-width: 8px;
+        border-width: 2.4rem 3rem .8rem;
     }
+
     .game-header__leave {
-        width: 50px;
-        height: 42px;
+        width: 5rem;
+        height: 4.2rem;
     }
+
     .game-header__flag {
-        width: 42px;
-        height: 42px;
-        border-width: 8px;
-        border-radius: 10px;
+        border-width: .8rem;
+        border-radius: 1rem;
+        width: 4.2rem;
+        height: 4.2rem;
     }
+
     .game-header__icon {
-        height: 40px;
-        width: 40px;
-        background-size: calc((26 / 40) * 100%);
+        width: 4rem;
+        height: 4rem;
+        background-size: calc( (26 / 40) * 100% );
     }
+
     .game-header__count {
-        height: 38px;
-        width: 66px;
-        font-size: 24px;
-        border-radius: 10px;
+        border-radius: 1rem;
+        width: 6.6rem;
+        height: 3.8rem;
+        font-size: 2.4rem;
     }
+
     .game--wide .game-header__count {
-        width: 78px;
+        width: 7.8rem;
     }
 }

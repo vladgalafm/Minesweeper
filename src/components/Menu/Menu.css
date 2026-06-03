@@ -6,51 +6,54 @@
 
 .menu__title {
     padding-bottom: 2.5em;
-    font-family: 'Paytone One', Roboto, sans-serif;
+
+    /* stylelint-disable-next-line declaration-property-unit-allowed-list */
     font-size: 11vw;
-    letter-spacing: 0.05em;
+    font-family: 'Paytone One', Roboto, sans-serif;
     text-align: center;
     text-transform: uppercase;
+    letter-spacing: .05em;
     color: #0096d4;
-    text-shadow: 1px 1px 0 #002640,
-        -1px -1px 0 #002640,
-        1px -1px 0 #002640,
-        -1px 1px 0 #002640,
-        0 0 6px #002640;
+    text-shadow: .1rem .1rem 0 #002640,
+        -.1rem -.1rem 0 #002640,
+        .1rem -.1rem 0 #002640,
+        -.1rem .1rem 0 #002640,
+        0 0 .6rem #002640;
 }
 
 .menu__btn-wrap {
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 auto;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and ( min-width: 30em ) { /* 480px */
+
     .menu__title {
         font-size: 5rem;
     }
 }
+@media screen and ( min-width: 48em ) { /* 768px */
 
-@media screen and (min-width: 768px) {
     .menu__title {
         font-size: 6rem;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .menu__title {
         padding-bottom: 2em;
         font-size: 7.5rem;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .menu__title {
-        text-shadow: 2px 2px 0 #002640,
-            -2px -2px 0 #002640,
-            2px -2px 0 #002640,
-            -2px 2px 0 #002640,
-            0 0 10px #002640;
+        text-shadow: .2rem .2rem 0 #002640,
+            -.2rem -.2rem 0 #002640,
+            .2rem -.2rem 0 #002640,
+            -.2rem .2rem 0 #002640,
+            0 0 1rem #002640;
     }
 }

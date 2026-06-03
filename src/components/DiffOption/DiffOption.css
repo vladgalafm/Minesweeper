@@ -9,15 +9,15 @@
 
 .diff-option__input {
     position: absolute;
-    top: -9999px;
+    top: -999.9rem;
 }
 
 .diff-option__label {
     position: relative;
     display: block;
+    opacity: .8;
     padding-left: 3.5rem;
     font-weight: 700;
-    opacity: 0.8;
 }
 
 .diff-option__input:checked + .diff-option__label {
@@ -26,53 +26,56 @@
 
 .diff-option__label::before,
 .diff-option__label::after {
-    position: absolute;
     content: "";
-    top: 4px;
+    position: absolute;
+    top: .4rem;
     left: 0;
     display: block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #0073a3;
+    border: .2rem solid #0073a3;
     border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
 }
 
 .diff-option__input:checked + .diff-option__label::after {
-    top: 9px;
-    left: 5px;
-    width: 10px;
-    height: 10px;
+    top: .9rem;
+    left: .5rem;
+    width: 1rem;
+    height: 1rem;
     background-color: #0073a3;
 }
 
-@media screen and (min-width: 568px) {
+@media screen and ( min-width: 35.5em ) { /* 568px */
+
     .diff-option--9x16 {
         display: none;
     }
+
     .diff-option--16x16,
     .diff-option--30x16 {
         display: block;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .diff-option__label:hover {
         opacity: 1;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .diff-option__label::before,
     .diff-option__label::after {
-        top: 5px;
-        width: 28px;
-        height: 28px;
-        border-width: 3px;
+        top: .5rem;
+        border-width: .3rem;
+        width: 2.8rem;
+        height: 2.8rem;
     }
+
     .diff-option__input:checked + .diff-option__label::after {
-        top: 12px;
-        left: 7px;
-        width: 14px;
-        height: 14px;
+        top: 1.2rem;
+        left: .7rem;
+        width: 1.4rem;
+        height: 1.4rem;
     }
 }

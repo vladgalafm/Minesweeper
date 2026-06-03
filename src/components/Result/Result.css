@@ -1,9 +1,9 @@
 .result {
+    font-size: 1.6rem;
     text-align: center;
-    font-size: 16px;
 }
 
-.result > *:not(:last-child) {
+.result__section:not( :last-child ) {
     padding-bottom: 1em;
 }
 
@@ -12,20 +12,21 @@
     text-align: left;
 }
 
-.result__stats--history:not(:last-of-type) {
-    padding-bottom: 0.5em;
+.result__stats--history:not( :last-of-type ) {
+    padding-bottom: .5em;
 }
 
-.result__stats > p {
-    flex-grow: 4;
+.result__stats p {
     flex-basis: 0;
+    flex-grow: 4;
 }
 
-.result__stats > p:first-of-type {
+.result__stats p:first-of-type {
     flex-grow: 5;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and ( min-width: 30em ) { /* 480px */
+
     .result {
         font-size: 1em;
     }

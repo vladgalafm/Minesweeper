@@ -1,103 +1,104 @@
 .settings {
     position: relative;
-    margin: -10px;
-    padding: 10px;
-    width: calc(100% + 20px);
+    overflow-y: auto;
+    margin: -1rem;
+    width: calc( 100% + 2rem );
     max-width: 48rem;
+    padding: 1rem;
     font-size: 2rem;
     line-height: 1.3;
-    overflow-y: auto;
 }
 
 .settings__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     margin: 0 auto;
     width: 30rem;
 }
 
-.settings__content > *:not(:last-child) {
-    margin-bottom: 2rem;
-}
-
 .settings__title {
     padding-bottom: 1rem;
-    font-family: Roboto, Arial, sans-serif;
     font-size: 1.75em;
+    font-family: Roboto, Arial, sans-serif;
     font-weight: 700;
-    letter-spacing: 0.02em;
     text-align: center;
+    letter-spacing: .02em;
 }
 
 .settings__sound {
     position: relative;
-    padding-left: 3.5em;
-    font-size: inherit;
-    line-height: 2.5em;
-    font-weight: 700;
+    align-self: flex-start;
     border: none;
+    padding-left: 3.5em;
     background: transparent;
+    font-size: inherit;
+    line-height: 2.5;
+    font-weight: 700;
 }
 
 .settings__sound::after {
-    position: absolute;
     content: "";
+    position: absolute;
     top: 50%;
     left: 0;
-    transform: translateY(-50%);
-    height: 80%;
+    opacity: .8;
+    transform: translateY( -50% );
+    transition: opacity .1s linear;
     width: 3.5em;
-    background: transparent url("../../img/sound_off.png") 0 50% no-repeat;
+    height: 80%;
+    background: transparent url( ../../img/sound_off.png ) 0 50% no-repeat;
     background-size: auto 100%;
-    filter: invert(10%) sepia(19%) saturate(7335%) hue-rotate(184deg) brightness(97%) contrast(102%);
-    opacity: 0.8;
-    transition: opacity 0.1s linear;
+    filter: invert( 10% ) sepia( 19% ) saturate( 7335% ) hue-rotate( 184deg ) brightness( 97% ) contrast( 102% );
 }
 
 .settings__sound--on::after {
-    background-image: url("../../img/sound_on.png");
+    background-image: url( ../../img/sound_on.png );
 }
 
 .settings__warn {
     font-size: 1.4rem;
     font-style: italic;
-    color: #777777;
+    color: #777;
 }
 
 .settings__return {
     position: absolute;
     top: 0;
     left: 0;
-    padding: 10px;
     display: block;
+    opacity: .8;
+    transition: opacity .1s linear;
     border: 0;
+    padding: 1rem;
     background-color: transparent;
-    opacity: 0.8;
-    transition: opacity 0.1s linear;
 }
 
-.settings__return > span {
+.settings__return span {
     display: block;
-    width: 54px;
-    height: 40px;
-    background: transparent url("../../img/icon_back.png") 50% 50% no-repeat;
+    width: 5.4rem;
+    height: 4rem;
+    background: transparent url( ../../img/icon_back.png ) 50% 50% no-repeat;
     background-size: contain;
-    filter: invert(10%) sepia(19%) saturate(7335%) hue-rotate(184deg) brightness(97%) contrast(102%);
+    filter: invert( 10% ) sepia( 19% ) saturate( 7335% ) hue-rotate( 184deg ) brightness( 97% ) contrast( 102% );
 }
 
-@media screen and (min-width: 568px) {
+@media screen and ( min-width: 35.5em ) { /* 568px */
+
     .settings__warn {
         display: none;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .settings__sound:hover::after,
     .settings__return:hover {
         opacity: 1;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .settings__return {
-        padding: 20px 25px;
+        padding: 2rem 2.5rem;
     }
 }

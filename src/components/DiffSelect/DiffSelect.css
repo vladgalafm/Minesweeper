@@ -3,11 +3,11 @@
 }
 
 .diff-select::after {
-    position: absolute;
     content: "";
-    bottom: -10px;
+    position: absolute;
+    bottom: -1rem;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX( -50% );
+    border-bottom: .2rem solid rgba( 0, 38, 64, .15 );
     width: 76%;
-    border-bottom: 2px solid rgba(0, 38, 64, 0.15);
 }

@@ -1,37 +1,40 @@
 import React from 'react';
 import './Menu.css';
-import {MenuBtn} from "../MenuBtn/MenuBtn";
+import { MenuBtn } from '../MenuBtn/MenuBtn';
 
-export function Menu({
-     switchBlockHandler,
-     clickSoundHandler,
-     openSoundHandler
-}) {
+export function Menu( {
+    switchBlockHandler,
+    clickSoundHandler,
+    openSoundHandler,
+} ) {
     return (
-        <section className="menu">
-            <h1 className="menu__title">
+        <section className='menu'>
+            <h1 className='menu__title'>
                 Minesweeper
             </h1>
-            <div className="menu__btn-wrap">
+            <div className='menu__btn-wrap'>
                 <MenuBtn
-                    title="New game"
-                    switchBlockHandler={() => {
+                    title='New game'
+                    switchBlockHandler={ () => {
                         clickSoundHandler();
-                        switchBlockHandler('new-game');
+                        switchBlockHandler( 'new-game' );
                         openSoundHandler();
-                    }} />
+                    } }
+                />
                 <MenuBtn
-                    title="Settings"
-                    switchBlockHandler={() => {
+                    title='Settings'
+                    switchBlockHandler={ () => {
                         clickSoundHandler();
-                        switchBlockHandler('settings');
-                    }} />
+                        switchBlockHandler( 'settings' );
+                    } }
+                />
                 <MenuBtn
-                    title="Tutorial"
-                    switchBlockHandler={() => {
+                    title='Tutorial'
+                    switchBlockHandler={ () => {
                         clickSoundHandler();
-                        switchBlockHandler('tutorial');
-                    }} />
+                        switchBlockHandler( 'tutorial' );
+                    } }
+                />
             </div>
         </section>
     );

@@ -1,15 +1,16 @@
 import React from 'react';
 import './MenuBtn.css';
 
-export function MenuBtn({
+export function MenuBtn( {
     title,
-    switchBlockHandler
-}) {
+    switchBlockHandler,
+} ) {
     return (
         <button
-            className="menu-btn"
-            onClick={switchBlockHandler} >
-            {title}
+            className='menu-btn'
+            onClick={ switchBlockHandler }
+        >
+            { title }
         </button>
     );
 }

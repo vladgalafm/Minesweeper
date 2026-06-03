@@ -1,15 +1,17 @@
+/* stylelint-disable selector-combinator-disallowed-list */
+
 .tutorial {
     position: relative;
-    padding: 60px 20px 20px;
-    width: 100%;
-    min-height: 440px;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 .5rem 2.4rem 0 rgba( 57, 57, 57, .3 );
+    border-radius: 1rem;
+    width: 100%;
+    min-height: 44rem;
+    padding: 6rem 2rem 2rem;
+    background-color: #fff;
     font-size: 1.6rem;
     line-height: 1.4;
-    border-radius: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 5px 24px 0 rgba(57, 57, 57, 0.3);
 }
 
 .tutorial__exit {
@@ -17,37 +19,37 @@
     z-index: 2;
     top: 0;
     right: 0;
-    width: 60px;
-    height: 60px;
     border: none;
+    width: 6rem;
+    height: 6rem;
     background-color: transparent;
 }
 
 .tutorial__exit::before,
 .tutorial__exit::after {
-    position: absolute;
     content: "";
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    width: 30px;
-    height: 3px;
-    background-color: #555555;
-    border-radius: 2px;
+    transform: translate( -50%, -50% ) rotate( 45deg );
+    border-radius: .2rem;
+    width: 3rem;
+    height: .3rem;
+    background-color: #555;
 }
 
 .tutorial__exit::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate( -50%, -50% ) rotate( -45deg );
 }
 
 .tutorial__title {
     position: absolute;
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
-    padding-top: 0.5rem;
+    transform: translateX( -50% );
+    padding-top: .5rem;
     font-size: 2.4rem;
-    line-height: 5.5rem;
+    line-height: 2.292;
     font-weight: 700;
 }
 
@@ -60,8 +62,8 @@
     margin-bottom: 1.8rem;
 }
 
-.tutorial__content > * > *:not(:last-child) {
-    margin-bottom: 0.5rem;
+.tutorial__content > * > *:not( :last-child ) {
+    margin-bottom: .5rem;
 }
 
 .tutorial__content h3 {
@@ -70,7 +72,8 @@
 }
 
 .tutorial__content p {
-    /*text-indent: 1em;*/
+
+    /* text-indent: 1em; */
 }
 
 .tutorial__content li {
@@ -79,87 +82,100 @@
 }
 
 .tutorial__content li::before {
-    position: absolute;
     content: "";
-    top: 0.9rem;
-    left: 0.4rem;
-    height: 0.6rem;
-    width: 0.6rem;
+    position: absolute;
+    top: .9rem;
+    left: .4rem;
     border-radius: 50%;
+    width: .6rem;
+    height: .6rem;
     background-color: #002640;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and ( min-width: 30em ) { /* 480px */
+
     .tutorial {
         margin: 3% 0;
         width: 90%;
         max-width: 62rem;
     }
 }
+@media screen and ( min-width: 48em ) { /* 768px */
 
-@media screen and (min-width: 768px) {
     .tutorial {
-        padding: 7rem 3rem 3rem;
-        width: 100%;
-        font-size: 1.8rem;
         border-radius: 2rem;
+        width: 100%;
+        padding: 7rem 3rem 3rem;
+        font-size: 1.8rem;
     }
+
     .tutorial__exit {
         width: 7rem;
         height: 7rem;
     }
+
     .tutorial__exit::before,
     .tutorial__exit::after {
         width: 3.6rem;
     }
+
     .tutorial__title {
         font-size: 2.8rem;
-        line-height: 6.5rem;
+        line-height: 2.321;
     }
+
     .tutorial__content > * {
         margin-bottom: 2rem;
     }
-    .tutorial__content > * > *:not(:last-child) {
-        margin-bottom: 0.7rem;
+
+    .tutorial__content > * > *:not( :last-child ) {
+        margin-bottom: .7rem;
     }
+
     .tutorial__content h3 {
         font-size: 2rem;
     }
+
     .tutorial__content li::before {
         top: 1rem;
-        left: 0.5rem;
+        left: .5rem;
     }
 }
+@media screen and ( min-width: 62em ) { /* 992px */
 
-@media screen and (min-width: 992px) {
     .tutorial__exit:hover::before,
     .tutorial__exit:hover::after {
-        background-color: #333333;
+        background-color: #333;
     }
+
     .tutorial__content {
         scrollbar-width: thin;
         scrollbar-color: #cacaca #efefef;
     }
+
     .tutorial__content::-webkit-scrollbar {
-        width: 6px;
-        border-radius: 3px;
+        border-radius: .3rem;
+        width: .6rem;
         background-color: #efefef;
     }
+
     .tutorial__content::-webkit-scrollbar-button {
         display: none;
     }
+
     .tutorial__content::-webkit-scrollbar-thumb {
+        border-radius: .3rem;
         background-color: #cacaca;
-        border-radius: 3px;
     }
+
     .tutorial__content::-webkit-scrollbar-thumb:hover {
-        background-color: #aaaaaa;
+        background-color: #aaa;
     }
 }
+@media screen and ( min-width: 87.5em ) { /* 1400px */
 
-@media screen and (min-width: 1400px) {
     .tutorial__exit::before,
     .tutorial__exit::after {
-        height: 4px;
+        height: .4rem;
     }
 }

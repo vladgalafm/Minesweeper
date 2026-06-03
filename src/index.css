@@ -10,8 +10,8 @@
 
 html {
 
-    /* stylelint-disable-next-line declaration-property-unit-allowed-list, unit-disallowed-list */
-    font-size: 10px;
+    /* stylelint-disable-next-line declaration-property-unit-allowed-list, declaration-no-important */
+    font-size: 62.5% !important;
 }
 
 body {
@@ -35,13 +35,4 @@ button:disabled,
 [disabled]button {
     opacity: .5;
     cursor: default;
-}
-
-@media screen and ( min-width: 87.5em ) { /* 1400px */
-
-    html {
-
-        /* stylelint-disable-next-line declaration-property-unit-allowed-list, unit-disallowed-list */
-        font-size: 14px;
-    }
 }
