@@ -2,7 +2,7 @@
 name: release
 description: Manual release flow for this project — bump version, build, deploy to GitHub Pages. Invoke when asked to release, deploy, or publish a new version.
 disable-model-invocation: true
-allowed-tools: Read, Edit, Bash(npm i), Bash(npm run build), Bash(npm run deploy), Bash(git add *), Bash(git commit *)
+allowed-tools: Read, Edit, Bash(npm i), Bash(npm run build), Bash(npm run deploy), Bash(git add *), Bash(git commit *), Bash(git push)
 model: haiku
 ---
 
