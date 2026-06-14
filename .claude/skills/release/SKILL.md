@@ -21,34 +21,40 @@ Use this checklist literally. Mark each step done before moving to the next.
 
   If the user did not specify a bump type, ask before proceeding.
 
-- [ ] Step 2: Bump version. Edit the `"version"` field in `package.json` to the new value.
+- [ ] Step 2: Bump version in two places:
+  - Edit the `"version"` field in `package.json` to the new value.
+  - Edit `APP_VERSION` in `src/constants.js` to match exactly.
 
-- [ ] Step 3: Update lock file. Run:
+  Both must be identical. The app reads `APP_VERSION` at runtime to show the version to users.
+
+- [ ] Step 3: Update the changelog component. Edit `src/components/UpdateStatic/UpdateStatic.js` — replace the `<li>` items inside `<ul>` to describe what changed in this version. Be accurate: do not copy-paste from a previous release. If the user has not provided release notes, ask for them before editing the file.
+
+- [ ] Step 4: Update lock file. Run:
   ```
   npm i
   ```
   Confirm it exits cleanly (no errors, no unrelated package changes).
 
-- [ ] Step 4: Commit the version bump. Run:
+- [ ] Step 5: Commit the version bump. Run:
   ```
-  git add package.json package-lock.json
+  git add package.json package-lock.json src/constants.js src/components/UpdateStatic/UpdateStatic.js
   git commit -m "build vX.Y.Z"
   ```
   Replace `X.Y.Z` with the actual new version.
 
-- [ ] Step 5: Build the production bundle. Run:
+- [ ] Step 6: Build the production bundle. Run:
   ```
   npm run build
   ```
   If the build exits with errors, stop and report the full error output. Do not proceed to deploy.
 
-- [ ] Step 6: Deploy to GitHub Pages. Run:
+- [ ] Step 7: Deploy to GitHub Pages. Run:
   ```
   npm run deploy
   ```
   This pushes the `build/` directory to the `gh-pages` branch via the `gh-pages` package. Requires GitHub authentication via local git credentials.
 
-- [ ] Step 7: Verify. Open https://vladgalafm.github.io/Minesweeper/ and confirm the new version loads. If possible, check the visible version string or network response.
+- [ ] Step 8: Verify. Open https://vladgalafm.github.io/Minesweeper/ and confirm the new version loads. If possible, check the visible version string or network response.
 
 ## If the version bump type is unclear
 
