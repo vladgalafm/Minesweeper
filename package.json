@@ -1,6 +1,6 @@
 {
   "name": "react_minesweeper",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "private": true,
   "homepage": "https://vladgalafm.github.io/Minesweeper",
   "dependencies": {

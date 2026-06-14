@@ -12,7 +12,7 @@ export function UpdateStatic( { version } ) {
             </h3>
             <ul>
                 <li>
-                    <b>Breaking changes:</b> upgraded project dependencies to latest versions.
+                    Internal improvements and code quality updates.
                 </li>
             </ul>
         </div>

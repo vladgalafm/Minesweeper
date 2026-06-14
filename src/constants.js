@@ -1,4 +1,4 @@
-export const APP_VERSION = '0.7.3';
+export const APP_VERSION = '0.8.0';
 
 // LocalStorage keys — intentionally obfuscated; do NOT rename (breaks existing user data)
 export const STORAGE_KEY_SOUND = '_hv-m-s';
