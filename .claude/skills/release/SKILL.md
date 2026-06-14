@@ -3,7 +3,7 @@ name: release
 description: Manual release flow for this project — bump version, build, deploy to GitHub Pages. Invoke when asked to release, deploy, or publish a new version.
 disable-model-invocation: true
 allowed-tools: Read, Edit, Bash(npm i), Bash(npm run build), Bash(npm run deploy), Bash(git add *), Bash(git commit *)
-model: haiku-4-5
+model: haiku
 ---
 
 # release
@@ -14,12 +14,12 @@ Goal: produce a versioned production build and push it live to GitHub Pages with
 
 Use this checklist literally. Mark each step done before moving to the next.
 
-- [ ] Step 1: Decide version bump. Read `package.json` to find the current version. Apply semver:
-  - **Patch** (`x.x.N`): bug fixes only
-  - **Minor** (`x.N.0`): new features, backwards-compatible
+- [ ] Step 1: Decide version bump. Read `package.json` for the current version, then run `git log --oneline <current-version-tag>..HEAD` (or `git log --oneline -20` if no tag exists) to read the commits since the last release. Apply semver automatically:
+  - **Patch** (`x.x.N`): only bug fixes, refactors, or internal changes
+  - **Minor** (`x.N.0`): any new user-facing feature or capability
   - **Major** (`N.0.0`): breaking changes or major redesign
 
-  If the user did not specify a bump type, ask before proceeding.
+  State the bump type and reasoning in one sentence before proceeding. Only ask the user if the commits are genuinely ambiguous.
 
 - [ ] Step 2: Bump version in two places:
   - Edit the `"version"` field in `package.json` to the new value.
@@ -54,11 +54,11 @@ Use this checklist literally. Mark each step done before moving to the next.
   ```
   This pushes the `build/` directory to the `gh-pages` branch via the `gh-pages` package. Requires GitHub authentication via local git credentials.
 
-- [ ] Step 8: Verify. Open https://vladgalafm.github.io/Minesweeper/ and confirm the new version loads. If possible, check the visible version string or network response.
-
-## If the version bump type is unclear
-
-Do not guess. Ask the user one clarifying question — what changed in this release? Then map their answer to the correct semver bump before touching any file.
+- [ ] Step 8: Push master. Run:
+  ```
+  git push
+  ```
+  Keeps `origin/master` in sync with the version bump commit.
 
 ## Gotchas
 
