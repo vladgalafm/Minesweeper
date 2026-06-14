@@ -27,3 +27,4 @@ yarn-error.log*
 # extra
 minesweeper_logo.png
 settings.local.json
+.claude/worktrees/

@@ -1,0 +1,45 @@
+{
+  "skill_name": "add-tests",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add Jest tests for src/constants.js. Cover the key numeric and string constants.",
+      "expected_output": "A src/constants.test.js file with describe blocks per constant group and individual test assertions that all pass.",
+      "files": [],
+      "assertions": [
+        "Creates src/constants.test.js next to the source file",
+        "Tests pass when running npm test",
+        "Uses describe blocks to group related constants",
+        "APP_VERSION is tested as a non-empty string",
+        "DEFAULT_GRID_SIZE is tested as 9",
+        "At least one timing constant (e.g. TIMER_INTERVAL_MS) is verified to be a positive number"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write Jest tests for the cellTemplate object in src/data/data.js.",
+      "expected_output": "A src/data/data.test.js file (or additions to it) that verifies cellTemplate's boolean flags all default to false and minesAround defaults to 0.",
+      "files": [],
+      "assertions": [
+        "Test file is created or updated at src/data/data.test.js",
+        "Tests pass when running npm test",
+        "All 7 boolean flags (opened, mine, flagged, defused, blownUp, rightFlagged, wrongFlagged) are asserted to be false",
+        "minesAround is asserted to be 0",
+        "Uses a describe block named after 'cellTemplate'"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Add Jest tests that verify historyTemplate in src/data/data.js has the correct initial values.",
+      "expected_output": "Tests in src/data/data.test.js verifying historyTemplate's zero-counters and Infinity bestTime.",
+      "files": [],
+      "assertions": [
+        "Test file is created or updated at src/data/data.test.js",
+        "Tests pass when running npm test",
+        "bestTime is asserted to be Infinity (not null, not 0)",
+        "All numeric counter fields (gamesPlayed, gamesWon, longestWinStreak, longestLoseStreak, currentWinStreak, currentLoseStreak) are asserted to be 0",
+        "Uses a describe block named after 'historyTemplate'"
+      ]
+    }
+  ]
+}
